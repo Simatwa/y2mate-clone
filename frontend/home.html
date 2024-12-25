@@ -1,334 +1,374 @@
 <html lang="en">
- <head>
-  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=5" name="viewport"/>
-  <title>
-   YouTube Downloader - Download YouTube videos in MP3, MP4, 3GP
-  </title>
-  <meta content="Online download videos from YouTube for FREE to PC, mobile. Supports downloading all formats: MP4, 3GP, WebM, HD videos, convert YouTube to MP3, M4A" name="description"/>
-  <!-- Schema.org markup -->
-  <meta content="Download Video and Audio from YouTube" itemprop="name"/>
-  <meta content="Online download videos from YouTube for FREE to PC, mobile. Supports downloading all formats: MP4, 3GP, WebM, HD videos, convert YouTube to MP3, M4A" itemprop="description"/>
-  <meta content="//www.y2mate.com/themes/images/256x256.png" itemprop="image"/>
-  <meta content="Download Video and Audio from YouTube" property="og:title"/>
-  <meta content="Online download videos from YouTube for FREE to PC, mobile. Supports downloading all formats: MP4, 3GP, WebM, HD videos, convert YouTube to MP3, M4A" property="og:description"/>
-  <meta content="//www.y2mate.com/themes/images/256x256.png" property="og:image"/>
-  <link href="//www.y2mate.com/themes/images/logo.png" rel="icon"/>
-  <link href="//www.y2mate.com/themes/bootstrap/css/bootstrap.min.css?v=1.2" rel="stylesheet" type="text/css"/>
-  <link href="//www.y2mate.com/themes/css/style.css?v=2.84" rel="stylesheet" type="text/css"/>
-  <link href="/css/w3.css" rel="stylesheet" type="text/css"/>
- </head>
- <body class="swag-line" id="bootstrap-themes">
-  <div class="container-overflow-wrap">
-   <nav class="navbar navbar-tall navbar-full" role="navigation">
-    <div class="container">
-     <div class="navbar-header">
-      <div class="navbar-brand logo-cont">
-       <a class="" href="/en949" style="padding: 0;">
-        <img alt="Logo y2mate.com" height="46px" src="//www.y2mate.com/themes/images/logo.png" style="height:46px;" width="46px"/>
-        <span id="logo-name">
-         y2mate.com
-        </span>
-       </a>
-      </div>
-      <button class="navbar-toggle collapsed pull-right" data-target="#global-nav" data-toggle="collapse" type="button">
-       <span class="sr-only">
-        Y2Mate.com
-       </span>
-       <span class="icon-bar">
-       </span>
-       <span class="icon-bar">
-       </span>
-       <span class="icon-bar">
-       </span>
-      </button>
-     </div>
-     <div class="collapse navbar-collapse p-l-0 p-r-0" id="global-nav">
-      <div class="navbar-right m-r-0">
-       <ul class="nav navbar-nav m-r-0 m-l-0">
-        <li>
-         <a href="https://www.y2mate.com/en858/download-youtube">
-          YouTube Downloader
-         </a>
-        </li>
-       </ul>
-      </div>
-     </div>
-    </div>
-   </nav>
-   <div style="clear: both">
-    <div>
-     <div class="container">
-      <div class="panel panel-default m-b-0">
-       <div class="panel-body">
-        <div class="div-form">
-         <div class="hero hero-homepage">
-          <h1 class="hero-header">
-           Download Video and Audio from YouTube
-          </h1>
-          <div>
-           <form action="/en949" class="form-inline form-search" id="search-form" name="mc-embedded-subscribe-form">
-            <input autocomplete="off" class="form-control input-lg" id="txt-url" name="query" placeholder="Search or paste link here..." type="text" value="https://www.youtube.com/watch?v=60ItHLz5WEA"/>
-            <button aria-label="Start" class="btn btn-lg" id="btn-submit" onclick="analyze();" title="Start" type="button" value="Start">
-             <span class="hidden-xs">
-              Start
-             </span>
-             <span class="glyphicon glyphicon-arrow-right">
-             </span>
-            </button>
-            <div id="result-suggest-container">
-            </div>
-            <p class="small">
-             By using our service you are accepting our
-             <a class="active" href="/terms-of-service" target="_blank">
-              Terms of Use
-             </a>
-             .
-            </p>
-            <img id="loading_img" src="//www.y2mate.com/themes/images/loading.gif" style="display: none;"/>
-           </form>
-          </div>
-          <div id="ads_spot1" style="max-width: 100%; margin-bottom: 15px; text-align: center">
-          </div>
-          <div id="result">
-            <!--All dynamically rendered tags are displayed here-->
-         </div>
-        </div>
-       </div>
-      </div>
-      <div class="row row-padded row-bordered row-centered p-l-md p-r-md">
-       <div class="col-sm-12">
-        <div class="text-center">
-         <h2>
-          <strong>
-           YouTube Video Downloader
-          </strong>
-         </h2>
-         <p>
-          Y2mate allows you to convert &amp; download video from YouTube, Facebook, Video, Dailymotion, Youku, etc. to Mp3, Mp4 in HD quality. Y2mate supports downloading all video formats such as: MP4, M4V, 3GP, WMV, FLV, MO, MP3, WEBM, etc. You can easily download for free thousands of videos from YouTube and other websites.
-         </p>
-        </div>
-       </div>
-      </div>
-      <div class="row row-padded row-bordered homepage-grid text-center p-l-md p-r-md">
-       <div class="col-xs-12 col-sm-7 text-left">
-        <h3>
-         <strong>
-          Instructions
-         </strong>
-        </h3>
-        <p>
-         1. Search by name or directly paste the link of video you want to convert
-        </p>
-        <p>
-         2. Click "Start" button to begin converting process
-        </p>
-        <p>
-         3. Select the video/audio format you want to download, then click "Download" button
-        </p>
-       </div>
-       <div class="col-xs-12 col-sm-5 text-left">
-        <h3>
-         <strong>
-          Features
-         </strong>
-        </h3>
-        <p>
-         • Unlimited downloads and always free
-        </p>
-        <p>
-         • High-speed video converter
-        </p>
-        <p>
-         • No registration required
-        </p>
-        <p>
-         • Support downloading with all formats
-        </p>
-       </div>
-      </div>
-      <div class="clearfix">
-      </div>
-      <div class="row row-padded row-bordered homepage-grid text-center p-l-md p-r-md featured">
-       <div class="col-sm-4">
-        <span aria-hidden="true" class="glyphicon glyphicon-gift">
-        </span>
-        <h3>
-         <strong>
-          Free Download
-         </strong>
-        </h3>
-        <p>
-         Unlimited conversion and free download.
-        </p>
-       </div>
-       <div class="col-sm-4">
-        <span aria-hidden="true" class="glyphicon glyphicon-film">
-        </span>
-        <h3>
-         <strong>
-          Video &amp; Audio
-         </strong>
-        </h3>
-        <p>
-         Directly Download Video &amp; Music.
-        </p>
-       </div>
-       <div class="col-sm-4">
-        <span aria-hidden="true" class="glyphicon glyphicon-saved">
-        </span>
-        <h3>
-         <strong>
-          Easy Download
-         </strong>
-        </h3>
-        <p>
-         Fully compatible with all browsers.
-        </p>
-       </div>
-      </div>
-      <div class="row row-padded homepage-grid text-center m-t p-l-md p-r-md">
-       <div class="col-md-12">
-        <div class="box-guide text-left">
-         <p>
-          <b>
-           Tip:
-          </b>
-          Insert "
-          <b>
-           pp
-          </b>
-          " after the word "youtube" in the link to download videos and mp3 files from YouTube as a faster way.
-         </p>
-         <p>
-          <img alt="tip how to quick download youtube video mp3" height="100%" src="//www.y2mate.com/themes/images/tip-download-youtube.jpg" style="max-width: 100%"/>
-         </p>
-         <div>
-          <div class="box-guide text-left">
-           <p>
-            If you can’t directly download video to your PC, please follow the guidelines below:
-           </p>
-           <p>
-            Step1: Select the format you want and click "Download" button.
-           </p>
-           <p>
-            Step2: In new window, press "CTRL + S" to save video OR right click to video, then select "Save as Video".
-           </p>
-          </div>
-         </div>
-        </div>
-       </div>
-      </div>
-     </div>
-    </div>
-   </div>
-   <div aria-labelledby="videoTitle" class="modal fade" id="progressModal" role="dialog" tabindex="1">
-    <div class="modal-dialog" role="document" style="z-index: 999999">
-     <div class="modal-content">
-      <div class="modal-header">
-       <button aria-label="Close" class="close" data-dismiss="modal" type="button">
-        <span aria-hidden="true">
-         ×
-        </span>
-       </button>
-       <b class="modal-title" id="videoTitle">
-        <b>
-         Alan Walker - Faded
-        </b>
-       </b>
-      </div>
-      <div class="modal-body text-center">
-       <div id="process-waiting">
-        <div class="progress progress-striped progress-bar-warning active m-b-0">
-         <div class="progress-bar progress-bar-success" id="progress-bar">
-         </div>
-         <span id="cp_converting">
-          Converting...
-         </span>
-        </div>
-        <img alt="loading" class="m-t" id="loading_img" src="//www.y2mate.com/themes/images/loading.gif"/>
-        <p class="p-t">
-         <b>
-          Please wait while the file is being prepared for downloading
-         </b>
-        </p>
-       </div>
-       <div id="process-result">
-       </div>
-       <div id="share-place-download">
-        <p class="text-left">
-         Thank you for using our service. If you could share our website with your friends, that would be a great help.
-         <strong>
-          Thank you.
-         </strong>
-        </p>
-        <div class="text-left">
-         <p>
-          <b>
-           Tip:
-          </b>
-          Insert "
-          <b>
-           pp
-          </b>
-          " after the word "youtube" in the link to download videos and mp3 files from YouTube as a faster way.
-         </p>
-         <p>
-          <img alt="tip how to quick download youtube video mp3" src="//www.y2mate.com/themes/images/tip-download-youtube.jpg" style="max-width: 100%"/>
-         </p>
-        </div>
-       </div>
-      </div>
-     </div>
-    </div>
-   </div>
-   <footer class="footer clearfix footer-borderless">
-    <p>
-     @ 2016 - 2024 y2mate.com
-    </p>
-    <div class="container">
-     <div class="row p-l-md p-r-md">
-      <div class="col-md-4">
-       <p>
-        <a class="footer-list-link" href="/en949">
-         Y2mate.com
-        </a>
-       </p>
-      </div>
-      <div class="col-md-4">
-       <p>
-        <a class="footer-list-link" href="/about-us">
-         About
-        </a>
-       </p>
-       <p>
-        <a class="footer-list-link" href="/faq">
-         FAQ
-        </a>
-       </p>
-       <p>
-        <a class="footer-list-link" href="/contact-us">
-         Contact
-        </a>
-       </p>
-       <p>
-        <a class="footer-list-link" href="/terms-of-service">
-         Terms of Service
-        </a>
-       </p>
-       <p>
-        <a class="footer-list-link" href="/privacy-policy">
-         Privacy Policy
-        </a>
-       </p>
-      </div>
-     </div>
-    </div>
-   </footer>
-  </div>
 
-  <div class="autocomplete-suggestions" style="position: absolute; display: none; width: 472px; max-height: 210px; z-index: 9999;">
-  </div>
-  <script src="/js/w3.js"></script>
- </body>
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+  <meta content="width=device-width, initial-scale=1, maximum-scale=5" name="viewport" />
+  <title>
+    YouTube Downloader - Download YouTube videos in MP3, MP4, 3GP
+  </title>
+  <meta
+    content="Online download videos from YouTube for FREE to PC, mobile. Supports downloading all formats: MP4, 3GP, WebM, HD videos, convert YouTube to MP3, M4A"
+    name="description" />
+  <!-- Schema.org markup -->
+  <meta content="Download Video and Audio from YouTube" itemprop="name" />
+  <meta
+    content="Online download videos from YouTube for FREE to PC, mobile. Supports downloading all formats: MP4, 3GP, WebM, HD videos, convert YouTube to MP3, M4A"
+    itemprop="description" />
+  <meta content="//www.y2mate.com/themes/images/256x256.png" itemprop="image" />
+  <meta content="Download Video and Audio from YouTube" property="og:title" />
+  <meta
+    content="Online download videos from YouTube for FREE to PC, mobile. Supports downloading all formats: MP4, 3GP, WebM, HD videos, convert YouTube to MP3, M4A"
+    property="og:description" />
+  <meta content="//www.y2mate.com/themes/images/256x256.png" property="og:image" />
+  <link href="//www.y2mate.com/themes/images/logo.png" rel="icon" />
+  <link href="//www.y2mate.com/themes/bootstrap/css/bootstrap.min.css?v=1.2" rel="stylesheet" type="text/css" />
+  <link href="//www.y2mate.com/themes/css/style.css?v=2.84" rel="stylesheet" type="text/css" />
+  <link href="/css/w3.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="/js/made.js"></script>
+  <script src="/js/suggeser.js"></script>
+</head>
+
+<body class="swag-line" id="bootstrap-themes">
+  <div class="container-overflow-wrap">
+    <nav class="navbar navbar-tall navbar-full" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <div class="navbar-brand logo-cont">
+            <a class="" href="" style="padding: 0;">
+              <img alt="Logo y2mate.com" height="46px" src="//www.y2mate.com/themes/images/logo.png"
+                style="height:46px;" width="46px" />
+              <span id="logo-name">
+                Y2mate
+              </span>
+            </a>
+          </div>
+          <button class="navbar-toggle collapsed pull-right" data-target="#global-nav" data-toggle="collapse"
+            type="button">
+            <span class="sr-only">
+              Y2mate
+            </span>
+            <span class="icon-bar">
+            </span>
+            <span class="icon-bar">
+            </span>
+            <span class="icon-bar">
+            </span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse p-l-0 p-r-0" id="global-nav">
+          <div class="navbar-right m-r-0">
+            <ul class="nav navbar-nav m-r-0 m-l-0">
+              <li>
+                <a href="">
+                  YouTube Downloader
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div style="clear: both">
+      <div>
+        <div class="container">
+          <div class="panel panel-default m-b-0">
+            <div class="panel-body">
+              <div class="div-form">
+                <div class="hero hero-homepage">
+                  <h1 class="hero-header">
+                    Download Video and Audio from YouTube
+                  </h1>
+                  <div>
+                    <form action="" class="form-inline form-search" id="search-form" name="mc-embedded-subscribe-form">
+                      <input autocomplete="off" class="form-control input-lg" id="txt-url" name="query"
+                        placeholder="Search or paste link here..." type="text" />
+                      <button aria-label="Start" class="btn btn-lg" id="btn-submit" title="Start" type="button"
+                        value="Start" onclick="searchVideos();">
+                        <span class="hidden-xs">
+                          Start
+                        </span>
+                        <i class="fa fa-arrow-right"></i>
+                      </button>
+                      <div id="result-suggest-container">
+                      </div>
+                      <p class="small">
+                        By using our service you are accepting our
+                        <a class="active" href="/terms-of-service" target="_blank">
+                          Terms of Use
+                        </a>
+                        .
+                      </p>
+                      <img id="loading_img" src="//www.y2mate.com/themes/images/loading.gif" style="display: none;" />
+                    </form>
+                  </div>
+                  <div id="ads_spot1" style="max-width: 100%; margin-bottom: 15px; text-align: center">
+                  </div>
+                  <div id="result">
+                    <!--All dynamically fetched elements are rendered here-->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row row-padded row-bordered row-centered p-l-md p-r-md">
+              <div class="col-sm-12">
+                <div class="text-center">
+                  <h2>
+                    <strong>
+                      YouTube Video Downloader
+                    </strong>
+                  </h2>
+                  <p>
+                    Y2mate allows you to convert &amp; download video from YouTube, Facebook, Video, Dailymotion, Youku,
+                    etc. to Mp3, Mp4 in HD quality. Y2mate supports downloading all video formats such as: MP4, M4V,
+                    3GP, WMV, FLV, MO, MP3, WEBM, etc. You can easily download for free thousands of videos from YouTube
+                    and other websites.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="row row-padded row-bordered homepage-grid text-center p-l-md p-r-md">
+              <div class="col-xs-12 col-sm-7 text-left">
+                <h3>
+                  <strong>
+                    Instructions
+                  </strong>
+                </h3>
+                <p>
+                  1. Search by name or directly paste the link of video you want to convert
+                </p>
+                <p>
+                  2. Click "Start" button to begin converting process
+                </p>
+                <p>
+                  3. Select the video/audio format you want to download, then click "Download" button
+                </p>
+              </div>
+              <div class="col-xs-12 col-sm-5 text-left">
+                <h3>
+                  <strong>
+                    Features
+                  </strong>
+                </h3>
+                <p>
+                  • Unlimited downloads and always free
+                </p>
+                <p>
+                  • High-speed video converter
+                </p>
+                <p>
+                  • No registration required
+                </p>
+                <p>
+                  • Support downloading with all formats
+                </p>
+              </div>
+            </div>
+            <div class="clearfix">
+            </div>
+            <div class="row row-padded row-bordered homepage-grid text-center p-l-md p-r-md featured">
+              <div class="col-sm-4">
+                <i class="w3-xxlarge fa-solid fa-cloud-arrow-down"></i>
+                </span>
+                <h3>
+                  <strong>
+                    Free Download
+                  </strong>
+                </h3>
+                <p>
+                  Unlimited conversion and free download.
+                </p>
+              </div>
+              <div class="col-sm-4">
+                <i class="w3-xxlarge fa-solid fa-film"></i>
+                </span>
+                <h3>
+                  <strong>
+                    Video &amp; Audio
+                  </strong>
+                </h3>
+                <p>
+                  Directly Download Video &amp; Music.
+                </p>
+              </div>
+              <div class="col-sm-4">
+                <i class="w3-xxlarge fa-solid fa-download"></i>
+                </span>
+                <h3>
+                  <strong>
+                    Easy Download
+                  </strong>
+                </h3>
+                <p>
+                  Fully compatible with all browsers.
+                </p>
+              </div>
+            </div>
+            <div class="row row-padded homepage-grid text-center m-t p-l-md p-r-md">
+              <div class="col-md-12">
+                <div class="box-guide text-left">
+                  <!--
+                  <p>
+                    <b>
+                      Tip:
+                    </b>
+                    Insert "
+                    <b>
+                      pp
+                    </b>
+                    " after the word "youtube" in the link to download videos and mp3 files from YouTube as a faster
+                    way.
+                  </p>
+                  <p>
+                    <img alt="tip how to quick download youtube video mp3" height="100%"
+                      src="//www.y2mate.com/themes/images/tip-download-youtube.jpg" style="max-width: 100%" />
+                  </p>
+                -->
+                  <div>
+                    <div class="box-guide text-left">
+                      <p>
+                        If you can’t directly download video to your PC, please follow the guidelines below:
+                      </p>
+                      <p>
+                        Step1: Select the format you want and click "Download" button.
+                      </p>
+                      <p>
+                        Step2: In new window, press "CTRL + S" to save video OR right click to video, then select "Save
+                        as Video".
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div aria-labelledby="videoTitle" class="modal fade" id="progressModal" role="dialog" tabindex="1">
+        <div class="modal-dialog" role="document" style="z-index: 999999">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                <span aria-hidden="true">
+                  ×
+                </span>
+              </button>
+              <b class="modal-title" id="videoTitle">
+                <b>
+                  Alan Walker - Faded
+                </b>
+              </b>
+            </div>
+            <div class="modal-body text-center">
+              <div id="process-waiting">
+                <div class="progress progress-striped progress-bar-warning active m-b-0">
+                  <div class="progress-bar progress-bar-success" id="progress-bar">
+                  </div>
+                  <span id="cp_converting">
+                    Converting...
+                  </span>
+                </div>
+                <img alt="loading" class="m-t" id="loading_img" src="//www.y2mate.com/themes/images/loading.gif" />
+                <p class="p-t">
+                  <b>
+                    Please wait while the file is being prepared for downloading
+                  </b>
+                </p>
+              </div>
+              <div id="process-result">
+              </div>
+              <div id="share-place-download">
+                <p class="text-left">
+                  Thank you for using our service. If you could share our website with your friends, that would be a
+                  great help.
+                  <strong>
+                    Thank you.
+                  </strong>
+                </p>
+                <!--
+                <div class="text-left">
+                  <p>
+                    <b>
+                      Tip:
+                    </b>
+                    Insert "
+                    <b>
+                      pp
+                    </b>
+                    " after the word "youtube" in the link to download videos and mp3 files from YouTube as a faster
+                    way.
+                  </p>
+                  <p>
+                    <img alt="tip how to quick download youtube video mp3"
+                      src="//www.y2mate.com/themes/images/tip-download-youtube.jpg" style="max-width: 100%" />
+                  </p>
+                </div>
+              -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="footer clearfix footer-borderless">
+        <p>
+          @ 2016 - 2024 y2mate
+        </p>
+        <!--
+        <div class="container">
+          <div class="row p-l-md p-r-md">
+            <div class="col-md-4">
+              <p>
+                <a class="footer-list-link" href="/en949">
+                  Y2mate
+                </a>
+              </p>
+            </div>
+            <div class="col-md-4">
+              <p>
+                <a class="footer-list-link" href="/about-us">
+                  About
+                </a>
+              </p>
+              <p>
+                <a class="footer-list-link" href="/faq">
+                  FAQ
+                </a>
+              </p>
+              <p>
+                <a class="footer-list-link" href="/contact-us">
+                  Contact
+                </a>
+              </p>
+              <p>
+                <a class="footer-list-link" href="/terms-of-service">
+                  Terms of Service
+                </a>
+              </p>
+              <p>
+                <a class="footer-list-link" href="/privacy-policy">
+                  Privacy Policy
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      -->
+      </footer>
+    </div>
+
+    <div class="autocomplete-suggestions"
+      style="position: absolute; display: none; width: 472px; max-height: 210px; z-index: 9999;">
+    </div>
+    <script src="/js/w3.js"></script>
+    <script>
+
+      document.querySelector('#search-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+        searchVideos();
+      });
+
+    </script>
+    <script src="https://kit.fontawesome.com/aca500d8c0.js" crossorigin="anonymous"></script>
+</body>
+
 </html>
