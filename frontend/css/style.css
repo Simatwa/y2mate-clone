@@ -1045,7 +1045,8 @@ body {
     font-size: 16px;
     font-family: Roboto, sans-serif;
     font-weight: 300;
-    line-height: 1.6
+    line-height: 1.6;
+    font-weight: bold;
 }
 
 h1 {
@@ -2062,7 +2063,7 @@ a.video-thumbnail span:hover {
 }
 
 .active-btn {
-    background-color: gray;
+    background-color: lightgray;
     color: #c10841;
 }
 
