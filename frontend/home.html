@@ -1,4 +1,4 @@
-<html lang="en">
+<!DOCTYPE html>
 
 <head>
   <meta content="text/html; charset=utf-8" http-equiv="content-type" />
@@ -21,10 +21,11 @@
     property="og:description" />
   <meta content="//www.y2mate.com/themes/images/256x256.png" property="og:image" />
   <link href="//www.y2mate.com/themes/images/logo.png" rel="icon" />
-  <link href="//www.y2mate.com/themes/bootstrap/css/bootstrap.min.css?v=1.2" rel="stylesheet" type="text/css" />
-  <link href="//www.y2mate.com/themes/css/style.css?v=2.84" rel="stylesheet" type="text/css" />
+  <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
   <link href="/css/w3.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="/js/made.js"></script>
   <script src="/js/suggeser.js"></script>
 </head>
@@ -268,7 +269,10 @@
                     Converting...
                   </span>
                 </div>
-                <img alt="loading" class="m-t" id="loading_img" src="//www.y2mate.com/themes/images/loading.gif" />
+                <div class="w3-display-center">
+                  <img alt="loading" style="display: bloc" class="m-t" id="loading_img"
+                    src="//www.y2mate.com/themes/images/loading.gif" />
+                </div>
                 <p class="p-t">
                   <b>
                     Please wait while the file is being prepared for downloading
@@ -285,7 +289,6 @@
                     Thank you.
                   </strong>
                 </p>
-                <!--
                 <div class="text-left">
                   <p>
                     <b>
@@ -303,7 +306,6 @@
                       src="//www.y2mate.com/themes/images/tip-download-youtube.jpg" style="max-width: 100%" />
                   </p>
                 </div>
-              -->
               </div>
             </div>
           </div>

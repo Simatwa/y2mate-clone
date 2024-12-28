@@ -1947,3 +1947,7 @@ a.video-thumbnail span:hover {
         padding: 5px 3px;
     }
 }
+
+.active-btn {
+    background-color:gray;
+}
