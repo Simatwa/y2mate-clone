@@ -1,3 +1,8 @@
+function showHttpError(request) {
+    hideLoading();
+    feedback = JSON.parse(request.responseText);
+    console.log(`Http Error : ${feedback}`);
+}
 
 function postHttpData(url, data, func) {
     var xhr = new XMLHttpRequest();
@@ -199,10 +204,15 @@ function showVideoMetadata(link) {
         "http://localhost:8000/api/v1/metadata",
         payload,
         function () {
-            if (this.readyState == 4 && this.status == 200) {
-                renderVideoMetadata(JSON.parse(this.responseText));
-            }
+            if (this.readyState == 4) {
+                if (this.status == 200) {
+                    renderVideoMetadata(JSON.parse(this.responseText));
+                }
+                else {
+                    showHttpError(this);
+                }
 
+            }
         }
     );
     console.log("after post request");
@@ -281,9 +291,16 @@ function processVideoForDownload(video_id, quality) {
         "http://localhost:8000/api/v1/download",
         payload,
         function () {
-            if (this.readyState == 4 && this.status == 200) {
-                progressBarController.stop();
-                renderDownloadOptions(JSON.parse(this.responseText));
+            if (this.readyState == 4) {
+                if (this.status == 200) {
+                    progressBarController.stop();
+                    renderDownloadOptions(JSON.parse(this.responseText));
+                }
+                else {
+                    progressBarController.stop();
+                    showHttpError(this);
+                }
+
             }
         }
     );
