@@ -1,7 +1,8 @@
 function showHttpError(request) {
     hideLoading();
     feedback = JSON.parse(request.responseText);
-    console.log(`Http Error : ${feedback}`);
+    alert(feedback.detail);
+    console.log(`Http Error : ${feedback.detail}`);
 }
 
 function postHttpData(url, data, func) {
@@ -24,9 +25,9 @@ function renderSearchResults(search_results) {
    <div class="thumbnail">
      <img alt="${targetResults.title}" class="lazyload ythumbnail" onclick="showVideoMetadata('${targetResults.id}')" data-src="https://i.ytimg.com/vi/${targetResults.id}/0.jpg" src="https://i.ytimg.com/vi/${targetResults.id}/0.jpg"/>
     <div class="search-info">
-     <a href="https://youtu.be/${targetResults.id}" onclick="showVideoMetadata('${targetResults.id}')">
+     <p class="p-title" onclick="showVideoMetadata('${targetResults.id}')">
       ${targetResults.title}
-     </a>
+     </p>
      <br/>
     </div>
    </div>
@@ -61,12 +62,20 @@ function searchVideos() {
     // Search and render videos
     const query = document.querySelector("#txt-url").value;
     if (query !== "") {
-        showLoading();
-        console.log("Fetching results from API");
-        w3.getHttpObject("http://localhost:8000/api/v1/search?limit=20&q=" + query, renderSearchResults);
-        console.log("Done rendering search results");
+
+        if (isYoutubeVideoLink(query)) {
+            // Link input
+            showVideoMetadata(query);
+        }
+        else {
+            showLoading();
+            console.log("Fetching results from API");
+            w3.getHttpObject("http://localhost:8000/api/v1/search?limit=20&q=" + query, renderSearchResults);
+            console.log("Done rendering search results");
+        }
     }
 }
+
 
 function renderVideoMetadata(video_metadata) {
     var displayableVideoMetadata = "";
@@ -75,7 +84,7 @@ function renderVideoMetadata(video_metadata) {
         displayableVideoMetadata += `
                                 <tr>
                             <td>
-                                ${targetVideoMetadata.quality}
+                                ${formatQualityString(targetVideoMetadata.quality)}
                             </td>
                             <td>
                                 ${targetVideoMetadata.size}
@@ -128,13 +137,13 @@ function renderVideoMetadata(video_metadata) {
     <div class="col-xs-12 col-sm-7 col-md-7">
         <ul class="nav nav-tabs justify-content-start" id="selectTab" role="tablist">
             <li class="nav-item p-0 active" role="presentation">
-                <button class="w3-btn" id="videoButton" onclick="showVideoOptions()">
+                <button class="w3-button" id="videoButton" onclick="showVideoOptions()">
                     <i class="fa-solid fa-video"></i>
                     Video
                 </button>
             </li>
             <li class="nav-item p-0" role="presentation">
-                <button class="w3-btn" id="audioButton" onclick="showAudioOptions()">
+                <button class="w3-button" id="audioButton" onclick="showAudioOptions()">
                     <i class="fa-solid fa-music"></i>
                     Audio
                 </a>
@@ -210,6 +219,7 @@ function showVideoMetadata(link) {
                 }
                 else {
                     showHttpError(this);
+                    searchVideos();
                 }
 
             }
@@ -223,8 +233,8 @@ function showVideoOptions() {
     audioElement = document.getElementById("audio");
     w3.hideElement(audioElement);
     w3.showElement(videoElement);
-    w3.addClass("#videoButton", "active-btn");
-    w3.removeClass("#audioButton", "active-btn");
+    w3.addClassElement(document.getElementById("videoButton"), "active-btn");
+    w3.removeClassElement(document.getElementById("audioButton"), "active-btn");
 }
 
 function showAudioOptions() {
@@ -299,6 +309,7 @@ function processVideoForDownload(video_id, quality) {
                 else {
                     progressBarController.stop();
                     showHttpError(this);
+                    w3.hide('#progressModal');
                 }
 
             }
