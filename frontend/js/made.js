@@ -35,14 +35,14 @@ function renderSearchResults(search_results) {
 
 function showLoading() {
     const loading_img = document.getElementById("loading_img");
-    w3.showElement(loading_img);
+    w3.removeClassElement(loading_img, "not-displayed");
     const displayContainer = document.getElementById("result");
     displayContainer.innerHTML = "";
 }
 
 function hideLoading() {
     const loading_img = document.getElementById("loading_img");
-    w3.hideElement(loading_img);
+    w3.addClassElement(loading_img, "not-displayed");
 }
 
 function showResults(html) {
@@ -54,11 +54,13 @@ function showResults(html) {
 
 function searchVideos() {
     // Search and render videos
-    showLoading();
     const query = document.querySelector("#txt-url").value;
-    console.log("Fetching results from API");
-    w3.getHttpObject("http://localhost:8000/api/v1/search?limit=20&q=" + query, renderSearchResults);
-    console.log("Done rendering search results");
+    if (query !== "") {
+        showLoading();
+        console.log("Fetching results from API");
+        w3.getHttpObject("http://localhost:8000/api/v1/search?limit=20&q=" + query, renderSearchResults);
+        console.log("Done rendering search results");
+    }
 }
 
 function renderVideoMetadata(video_metadata) {
@@ -182,6 +184,8 @@ function renderVideoMetadata(video_metadata) {
     `;
     showResults(resultsContent);
     showVideoOptions();
+    videoTitleElement = document.getElementById("videoTitle");
+    videoTitleElement.innerHTML = `<b>${video_metadata.title}</b>`;
 
 }
 
@@ -222,6 +226,73 @@ function showAudioOptions() {
     w3.removeClass("#videoButton", "active-btn");
 }
 
-function processVideo() {
+function displayProgressBar(maxWidth, updateRate = 16) {
+    w3.show("#process-waiting");
+    document.getElementById("process-result").innerHTML = "";
+    const progressBar = document.getElementById("progress-bar");
 
+    if (!progressBar) {
+        console.error("Progress bar element not found!");
+        return;
+    }
+
+    let currentWidth = 0;
+    let intervalId = null;
+
+    function updateProgress() {
+        currentWidth += (1 / updateRate) * maxWidth;
+        progressBar.style.width = `${currentWidth}%`;
+
+        if (currentWidth >= maxWidth) {
+            clearInterval(intervalId);
+        }
+    }
+
+    intervalId = setInterval(updateProgress, 1000 / updateRate);
+
+    return {
+        stop: () => {
+            w3.hide("#process-waiting");
+            if (intervalId) clearInterval(intervalId);
+        }
+    };
+}
+
+function renderDownloadOptions(processedMedia) {
+    var download_tmpl = `
+    <a target="_blank" class="btn btn-success btn-file" rel="nofollow" type="button" href="${processedMedia.link}?download=true">
+    <i class="fa-solid fa-download"></i>
+    Download (${processedMedia.filesize})
+    </a>`;
+
+    processedResultsContainer = document.getElementById("process-result");
+    processedResultsContainer.innerHTML = download_tmpl;
+}
+
+function processVideoForDownload(video_id, quality) {
+    // Initiates download process
+    const progressBarController = displayProgressBar(100, 16);
+    const payload = {
+        "bitrate": null,
+        "quality": quality,
+        "url": video_id
+    };
+    postHttpData(
+        "http://localhost:8000/api/v1/download",
+        payload,
+        function () {
+            if (this.readyState == 4 && this.status == 200) {
+                progressBarController.stop();
+                renderDownloadOptions(JSON.parse(this.responseText));
+            }
+        }
+    );
+
+}
+
+function startConvert(quality) {
+    w3.showElement(document.getElementById("progressModal"));
+    video_id = document.getElementById("video_id").value;
+    processVideoForDownload(video_id, quality);
+    console.log(`Processing id : ${video_id} quality : ${quality}`);
 }

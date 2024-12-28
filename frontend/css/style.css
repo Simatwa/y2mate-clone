@@ -1951,3 +1951,7 @@ a.video-thumbnail span:hover {
 .active-btn {
     background-color:gray;
 }
+
+.not-displayed {
+    display: none;
+}
