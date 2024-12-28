@@ -9,23 +9,25 @@ const video_patterns = [
     /https?:\/\/youtube\.com\/shorts\/([\w\-_]{11}).*/,
 ];
 
+const baseUrl = "http://localhost:8000"; //window.location.origin;
+const base_url = baseUrl;
 
 function formatQualityString(quality) {
     // formats quality for html display
     var quality_string = quality;
-    if (quality === "720p") {
+    if (quality.startsWith("720p")) {
         quality_string = quality + ` <span class="label label-primary"><small>m-HD</small>`;
     }
-    else if (quality === "1080p") {
+    else if (quality.startsWith("1080p")) {
 
         quality_string = quality + ` <span class="label label-primary"><small>HD</small>`;
 
     }
-    else if (quality === "1440p") {
+    else if (quality.startsWith("1440p")) {
         quality_string = quality + ` <span class="label label-primary"><small>2K</small>`;
     }
 
-    else if (quality === "2160p") {
+    else if (quality.startsWith("2160p")) {
         quality_string = quality + ` <span class="label label-primary"><small>4K</small>`;
     }
 
@@ -38,4 +40,8 @@ function isYoutubeVideoLink(query) {
         const match = query.match(pattern);
         return match && match[1];
     });
+}
+
+function getAbsoluteUrl(relative_url) {
+    return `${baseUrl}/${relative_url}`;
 }

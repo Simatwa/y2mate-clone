@@ -746,10 +746,11 @@ $(document).ready(function () {
             analyze();
         }
     });
-
+    /*
     if ($('#txt-url').val() !== '') {
         analyze();
     };
+    */
 
     $.ajaxSetup({ cache: true });
     $.getScript(base_url + "themes/js/common.js?v=3.31");

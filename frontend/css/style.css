@@ -2063,8 +2063,10 @@ a.video-thumbnail span:hover {
 }
 
 .active-btn {
-    background-color: lightgray;
+    background-color: #eee;
     color: #c10841;
+    border: 1px solid #ddd;
+    border-radius: 2px 2px 0 0;
 }
 
 .not-displayed {

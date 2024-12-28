@@ -14,21 +14,25 @@
   <meta
     content="Online download videos from YouTube for FREE to PC, mobile. Supports downloading all formats: MP4, 3GP, WebM, HD videos, convert YouTube to MP3, M4A"
     itemprop="description" />
-  <meta content="//www.y2mate.com/themes/images/256x256.png" itemprop="image" />
+  <meta content="/images/256x256.png" itemprop="image" />
   <meta content="Download Video and Audio from YouTube" property="og:title" />
   <meta
     content="Online download videos from YouTube for FREE to PC, mobile. Supports downloading all formats: MP4, 3GP, WebM, HD videos, convert YouTube to MP3, M4A"
     property="og:description" />
-  <meta content="//www.y2mate.com/themes/images/256x256.png" property="og:image" />
-  <link href="//www.y2mate.com/themes/images/logo.png" rel="icon" />
+  <meta content="/images/256x256.png" property="og:image" />
+  <link href="/images/logo.png" rel="icon" />
   <link href="/css/w3.css" rel="stylesheet" type="text/css" />
   <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
   <link href="/css/style.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!--
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="/js/made.js"></script>
-  <script src="/js/utils.js"></script>
   <script src="/js/suggeser.js"></script>
+  <script src="/js/main-v2.js"></script>
+  <script src="/js/lazyload.min.js"></script>
+  -->
+  <script src="/js/utils.js"></script>
+  <script src="/js/made.js"></script>
 </head>
 
 <body class="swag-line" id="bootstrap-themes">
@@ -38,8 +42,7 @@
         <div class="navbar-header">
           <div class="navbar-brand logo-cont">
             <a class="" href="" style="padding: 0;">
-              <img alt="Logo y2mate.com" height="46px" src="//www.y2mate.com/themes/images/logo.png"
-                style="height:46px;" width="46px" />
+              <img alt="Logo y2mate.com" height="46px" src="/images/logo.png" style="height:46px;" width="46px" />
               <span id="logo-name">
                 Y2mate
               </span>
@@ -102,8 +105,7 @@
                         .
                       </p>
                       <div class="w3-container">
-                        <img alt="loading" class="m-t not-displayed" id="loading_img"
-                          src="//www.y2mate.com/themes/images/loading.gif" />
+                        <img alt="loading" class="m-t not-displayed" id="loading_img" src="/images/loading.gif" />
                       </div>
                     </form>
                   </div>
@@ -253,7 +255,7 @@
         <div class="modal-dialog" role="document" style="z-index: 999999">
           <div class="modal-content">
             <div class="modal-header">
-              <button aria-label="Close" class="close w3-btn" data-dismiss="modal" type="button"
+              <button aria-label="Close" class="close" data-dismiss="modal" type="button"
                 onclick="w3.hide('#progressModal')">
                 <span aria-hidden="true">
                   ×
@@ -275,8 +277,7 @@
                   </span>
                 </div>
                 <div class="w3-container">
-                  <img alt="loading" style="display: bloc" class="m-t" id="loading_img"
-                    src="//www.y2mate.com/themes/images/loading.gif" />
+                  <img alt="loading" style="display: bloc" class="m-t" id="loading_img" src="/images/loading.gif" />
                 </div>
                 <p class="p-t">
                   <b>
@@ -301,7 +302,7 @@
       </div>
       <footer class="footer clearfix footer-borderless">
         <p>
-          @ 2016 - 
+          @ 2016 -
           <script>
             const currentYear = new Date().getFullYear();
             document.write(currentYear);

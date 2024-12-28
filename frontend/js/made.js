@@ -10,7 +10,7 @@ function postHttpData(url, data, func) {
     xhr.open('POST', url);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.setRequestHeader("X-Application", "y2mate-clone")
-    xhr.onreadystatechange = func; // Attach the handler to the onreadystatechange event
+    xhr.onreadystatechange = func;
     xhr.send(JSON.stringify(data));
 }
 
@@ -37,6 +37,7 @@ function renderSearchResults(search_results) {
     });
     console.log("Done forming now writing");
     showResults(`<div class="row" id="list-video">${displayableResults}</div>`);
+    //lazyload();
 }
 
 function showLoading() {
@@ -70,16 +71,31 @@ function searchVideos() {
         else {
             showLoading();
             console.log("Fetching results from API");
-            w3.getHttpObject("http://localhost:8000/api/v1/search?limit=20&q=" + query, renderSearchResults);
+            w3.http(getAbsoluteUrl("api/v1/search?limit=20&q=" + query), function () {
+                if (this.readyState == 4) {
+                    if (this.status == 200) {
+                        renderSearchResults(JSON.parse(this.responseText));
+                    }
+                    else {
+                        showHttpError(this);
+                    }
+                }
+            });
             console.log("Done rendering search results");
         }
     }
 }
 
-
 function renderVideoMetadata(video_metadata) {
     var displayableVideoMetadata = "";
     var displayableAudioMetadata = "";
+    video_metadata.video = video_metadata.video.reverse();
+    video_metadata.audio = video_metadata.audio.reverse();
+    var mp3_audios = [
+        ["320k", "Unknown", `<span class="label label-primary"><small>largest</small>`],
+        ["192k", "Unknown", ``],
+        ["128k", video_metadata.audio[0].size, `<span class="label label-primary"><small>best</small>`],
+    ];
     video_metadata.video.forEach(targetVideoMetadata => {
         displayableVideoMetadata += `
                                 <tr>
@@ -100,12 +116,35 @@ function renderVideoMetadata(video_metadata) {
                         </tr>
         `;
     });
-
-    video_metadata.audio.forEach(targetAudioMetadata => {
+    mp3_audios.forEach(targetAudioMetadata => {
         displayableAudioMetadata += `
                                 <tr>
                             <td>
-                                m4a - ${targetAudioMetadata.quality}
+                                ${targetAudioMetadata[0]}bps (mp3) ${targetAudioMetadata[2]}
+                            </td>
+                            <td>
+                                ${targetAudioMetadata[1]}
+                            </td>
+                            <td class="txt-center">
+                                <button class="btn btn-success"
+                                    onclick="startConvert('medium','${targetAudioMetadata[0]}');"
+                                    type="button">
+                                    <i class="fa-solid fa-download"></i>
+                                    Download
+                                </button>
+                            </td>
+                        </tr>
+        `;
+    });
+    video_metadata.audio.forEach(targetAudioMetadata => {
+        var tag = ``;
+        if (targetAudioMetadata.quality === "medium") {
+            tag = `<span class="label label-primary"><small>fast</small>`;
+        }
+        displayableAudioMetadata += `
+                                <tr>
+                            <td>
+                                ${targetAudioMetadata.quality} (m4a) ${tag}
                             </td>
                             <td>
                                 ${targetAudioMetadata.size}
@@ -210,7 +249,7 @@ function showVideoMetadata(link) {
     var payload = { "url": link };
 
     postHttpData(
-        "http://localhost:8000/api/v1/metadata",
+        getAbsoluteUrl("api/v1/metadata"),
         payload,
         function () {
             if (this.readyState == 4) {
@@ -268,12 +307,17 @@ function displayProgressBar(maxWidth, updateRate = 16) {
         }
     }
 
-    intervalId = setInterval(updateProgress, 1000 / updateRate);
+    intervalId = setInterval(updateProgress, 25000 / updateRate);
 
     return {
         stop: () => {
+            progressBar.style.width = `100%`;
+            setInterval(updateProgress, 1000);
             w3.hide("#process-waiting");
-            if (intervalId) clearInterval(intervalId);
+            if (intervalId) {
+                clearInterval(intervalId);
+            }
+            progressBar.style.width = `0%`;
         }
     };
 }
@@ -289,16 +333,16 @@ function renderDownloadOptions(processedMedia) {
     processedResultsContainer.innerHTML = download_tmpl;
 }
 
-function processVideoForDownload(video_id, quality) {
+function processVideoForDownload(video_id, quality, bitrate = null) {
     // Initiates download process
     const progressBarController = displayProgressBar(100, 16);
     const payload = {
-        "bitrate": null,
+        "bitrate": bitrate,
         "quality": quality,
         "url": video_id
     };
     postHttpData(
-        "http://localhost:8000/api/v1/download",
+        getAbsoluteUrl("api/v1/download"),
         payload,
         function () {
             if (this.readyState == 4) {
@@ -318,9 +362,10 @@ function processVideoForDownload(video_id, quality) {
 
 }
 
-function startConvert(quality) {
-    w3.showElement(document.getElementById("progressModal"));
+function startConvert(quality, bitrate = null) {
+    var modalElement = document.getElementById("progressModal");
+    w3.showElement(modalElement);
     video_id = document.getElementById("video_id").value;
-    processVideoForDownload(video_id, quality);
+    processVideoForDownload(video_id, quality, bitrate);
     console.log(`Processing id : ${video_id} quality : ${quality}`);
 }
