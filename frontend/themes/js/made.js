@@ -37,7 +37,7 @@ function renderSearchResults(search_results) {
     });
     console.log("Done forming now writing");
     showResults(`<div class="row" id="list-video">${displayableResults}</div>`);
-    //lazyload();
+    load_img_lazy();
 }
 
 function showLoading() {
@@ -289,6 +289,7 @@ function displayProgressBar(maxWidth, updateRate = 16) {
     w3.show("#process-waiting");
     document.getElementById("process-result").innerHTML = "";
     const progressBar = document.getElementById("progress-bar");
+    progressBar.style.width = `0%`;
 
     if (!progressBar) {
         console.error("Progress bar element not found!");
@@ -346,14 +347,15 @@ function processVideoForDownload(video_id, quality, bitrate = null) {
         payload,
         function () {
             if (this.readyState == 4) {
+                jsonified_response = JSON.parse(this.responseText);
                 if (this.status == 200) {
                     progressBarController.stop();
-                    renderDownloadOptions(JSON.parse(this.responseText));
+                    renderDownloadOptions(jsonified_response);
                 }
                 else {
                     progressBarController.stop();
-                    showHttpError(this);
-                    w3.hide('#progressModal');
+                    processResultContainer = document.getElementById("process-result");
+                    processResultContainer.innerHTML = `<div class="text-center alert alert-danger" role="alert"><p>${jsonified_response.detail}</p></div>`;
                 }
 
             }

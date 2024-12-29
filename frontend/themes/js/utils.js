@@ -9,8 +9,7 @@ const video_patterns = [
     /https?:\/\/youtube\.com\/shorts\/([\w\-_]{11}).*/,
 ];
 
-const baseUrl = "http://localhost:8000"; //window.location.origin;
-const base_url = baseUrl;
+api_base_url = "http://localhost:8000/"
 
 function formatQualityString(quality) {
     // formats quality for html display
@@ -43,5 +42,5 @@ function isYoutubeVideoLink(query) {
 }
 
 function getAbsoluteUrl(relative_url) {
-    return `${baseUrl}/${relative_url}`;
+    return `${api_base_url}${relative_url}`;
 }

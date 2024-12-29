@@ -25,15 +25,15 @@
   <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
   <link href="/css/style.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!--
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="/js/suggeser.js"></script>
-  <script src="/js/main-v2.js"></script>
-  <script src="/js/lazyload.min.js"></script>
-  -->
-  <script src="/js/utils.js"></script>
-  <script src="/js/made.js"></script>
+  <script charset="utf-8" type="text/javascript">
+    var base_url = 'https://localhost:8000/';
+         var page_hl = 'en';
+   </script>
 </head>
+<script charset="utf-8" type="text/javascript">
+  var base_url = 'http://localhost:8080/';
+  var page_hl = 'en';
+</script>
 
 <body class="swag-line" id="bootstrap-themes">
   <div class="container-overflow-wrap">
@@ -65,9 +65,124 @@
           <div class="navbar-right m-r-0">
             <ul class="nav navbar-nav m-r-0 m-l-0">
               <li>
+                <a href="https://github.com/Simatwa/y2mate-clone">
+                  <i class="fa-brands fa-github"></i> Star on Github
+                </a>
+              </li>
+              <li>
                 <a href="">
                   YouTube Downloader
                 </a>
+              </li>
+              <li class="dropdown">
+                <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown"
+                  href="javascript:void(0)" role="button">
+                  English
+                  <span class="caret">
+                  </span>
+                </a>
+                <ul class="dropdown-menu" id="menu-lang">
+                  <li>
+                    <a data-lang="de" href="/de">
+                      Deutsch
+                    </a>
+                  </li>
+                  <li>
+                    <a data-lang="es" href="/es">
+                      Español
+                    </a>
+                  </li>
+                  <li>
+                    <a data-lang="fr" href="/fr">
+                      Français
+                    </a>
+                  </li>
+                  <li>
+                    <a data-lang="hi" href="/hi">
+                      हिन्दी / Hindī
+                    </a>
+                  </li>
+                  <li>
+                    <a data-lang="id" href="/id">
+                      Bahasa Indonesia
+                    </a>
+                  </li>
+                  <li>
+                    <a data-lang="it" href="/it">
+                      Italiano
+                    </a>
+                  </li>
+                  <li>
+                    <a data-lang="ja" href="/ja">
+                      日本語
+                    </a>
+                  </li>
+                  <li>
+                    <a data-lang="ko" href="/ko">
+                      한국어
+                    </a>
+                  </li>
+                  <li>
+                    <a data-lang="my" href="/my">
+                      Myanmar (မြန်မာ)
+                    </a>
+                  </li>
+                  <li>
+                    <a data-lang="ms" href="/ms">
+                      Malay
+                    </a>
+                  </li>
+                  <li>
+                    <a data-lang="tl" href="/tl">
+                      Filipino
+                    </a>
+                  </li>
+                  <li>
+                    <a data-lang="pt" href="/pt">
+                      Português
+                    </a>
+                  </li>
+                  <li>
+                    <a data-lang="ru" href="/ru">
+                      Русский
+                    </a>
+                  </li>
+                  <li>
+                    <a data-lang="th" href="/th">
+                      ไทย
+                    </a>
+                  </li>
+                  <li>
+                    <a data-lang="tr" href="/tr">
+                      Türkçe
+                    </a>
+                  </li>
+                  <li>
+                    <a data-lang="vi" href="/vi">
+                      Tiếng Việt
+                    </a>
+                  </li>
+                  <li>
+                    <a data-lang="zh-CN" href="/zh-CN">
+                      简体中文
+                    </a>
+                  </li>
+                  <li>
+                    <a data-lang="zh-TW" href="/zh-TW">
+                      繁體中文
+                    </a>
+                  </li>
+                  <li>
+                    <a data-lang="ar" href="/ar">
+                      العربية
+                    </a>
+                  </li>
+                  <li>
+                    <a data-lang="bn" href="/bn">
+                      বাঙালি
+                    </a>
+                  </li>
+                </ul>
               </li>
             </ul>
           </div>
@@ -300,6 +415,25 @@
           </div>
         </div>
       </div>
+      <script type="text/javascript">
+        var page_path = "";
+        var k_page = "home";
+        var k_hl = "en";
+        var g_token = '';
+        var k_get_query = "";
+        var k_data_vid = '';
+        var k_data_vtitle = '';
+        var k__id = '';
+        var k_busy = false;
+        var p_b = false;
+        var k_analyze_url = "https:\/\/www.y2mate.com\/mates\/en949\/analyzeV2\/ajax";
+        var k_convert_url = "https:\/\/www.y2mate.com\/mates\/convertV2\/index";
+        var k_url_pool = "https:\/\/www.y2mate.com\/mates\/convertV2\/pool";
+        var k_tmp_url = "\/_hl_\/";
+        var wLocation = "\/";
+        var txt_download = "Download";
+        var yt_tmp = 'youtube/';
+       </script>
       <footer class="footer clearfix footer-borderless">
         <p>
           @ 2016 -
@@ -354,7 +488,10 @@
     <div class="autocomplete-suggestions"
       style="position: absolute; display: none; width: 472px; max-height: 210px; z-index: 9999;">
     </div>
-    <script src="/js/w3.js"></script>
+
+    <script src="themes/js/utils.js"></script>
+    <script src="/themes/js/made.js"></script>
+    <script src="themes/js/w3.js"></script>
     <script>
 
       document.querySelector('#search-form').addEventListener('submit', function (event) {
@@ -364,6 +501,7 @@
 
     </script>
     <script src="https://kit.fontawesome.com/aca500d8c0.js" crossorigin="anonymous"></script>
+    <script src="themes/js/main-v2.js"></script>
 </body>
 
 </html>

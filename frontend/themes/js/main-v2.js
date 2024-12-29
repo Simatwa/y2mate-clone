@@ -627,23 +627,10 @@ var convertFile = function (kinfo) {
     tried_send_convert_rq_time = 0;
     return false;
 };
-function startConvert(ftype, kinfo) {
-    $('#progressModal').modal('toggle');
-    if (is_omini) {
-        $(".modal-backdrop").css('display', 'none');
-    }
-    if (!p_b) {
-        p_b = true;
-        $("#process-waiting").css('display', 'block');
-        $("#process-result").empty();
-
-        convertFile(kinfo);
-    }
-}
 function analyze() {
+    /*
     var k_query_txt = $('#txt-url').val();
     if (typeof k_query_txt == "undefined" || k_query_txt == null || k_query_txt.trim() === "") { return false; }
-
     if (!k_busy) {
         k_busy = true;
         $.ajax({
@@ -738,22 +725,9 @@ function analyze() {
             }
         });
     }
+        */
 };
 $(document).ready(function () {
-    $('#txt-url').keypress(function (e) {
-        if (e.which == 13) {
-            e.preventDefault();
-            analyze();
-        }
-    });
-    /*
-    if ($('#txt-url').val() !== '') {
-        analyze();
-    };
-    */
-
-    $.ajaxSetup({ cache: true });
-    $.getScript(base_url + "themes/js/common.js?v=3.31");
     if (!is_omini) {
         $.getScript(base_url + "themes/js/lazyload.min.js", lazy_loaded_callback);
     }
