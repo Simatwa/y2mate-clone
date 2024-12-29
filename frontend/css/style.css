@@ -2085,10 +2085,11 @@ a.video-thumbnail span:hover {
     text-overflow: ellipsis;
 }
 
-.p-title:hover{
-    color:#c10841;
+.p-title:hover,
+.p-title:focus {
+    color: #c10841;
 }
 
-.y2mate-theme{
+.y2mate-theme {
     color: #c10841;
 }

@@ -37,14 +37,18 @@ function renderSearchResults(search_results) {
     });
     console.log("Done forming now writing");
     showResults(`<div class="row" id="list-video">${displayableResults}</div>`);
-    load_img_lazy();
+    //load_img_lazy();
+    $("img.lazyload").lazyload();
 }
 
-function showLoading() {
+function showLoading(clear = false) {
     const loading_img = document.getElementById("loading_img");
     w3.removeClassElement(loading_img, "not-displayed");
     const displayContainer = document.getElementById("result");
-    displayContainer.innerHTML = "";
+    if (clear) {
+        displayContainer.innerHTML = "";
+    }
+    loading_img.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
 function hideLoading() {
@@ -272,8 +276,9 @@ function showVideoOptions() {
     audioElement = document.getElementById("audio");
     w3.hideElement(audioElement);
     w3.showElement(videoElement);
-    w3.addClassElement(document.getElementById("videoButton"), "active-btn");
-    w3.removeClassElement(document.getElementById("audioButton"), "active-btn");
+    w3.addClass("#videoButton", "active-btn");
+    w3.removeClass("#audioButton", "active-btn");
+
 }
 
 function showAudioOptions() {
@@ -365,8 +370,7 @@ function processVideoForDownload(video_id, quality, bitrate = null) {
 }
 
 function startConvert(quality, bitrate = null) {
-    var modalElement = document.getElementById("progressModal");
-    w3.showElement(modalElement);
+    $('#progressModal').modal('toggle');
     video_id = document.getElementById("video_id").value;
     processVideoForDownload(video_id, quality, bitrate);
     console.log(`Processing id : ${video_id} quality : ${quality}`);
