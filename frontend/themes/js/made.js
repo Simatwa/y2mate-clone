@@ -165,7 +165,7 @@ function renderVideoMetadata(video_metadata) {
         displayableAudioMetadata += `
                                 <tr>
                             <td>
-                                ${targetAudioMetadata.quality} (m4a) ${tag}
+                                ${targetAudioMetadata.quality} (${video_metadata.default_audio_format}) ${tag}
                             </td>
                             <td>
                                 ${targetAudioMetadata.size}
