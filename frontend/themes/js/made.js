@@ -19,11 +19,15 @@ function renderSearchResults(search_results) {
     var displayableResults = "";
     console.log(`Forming results`);
     search_results.results.forEach(targetResults => {
-        console.log("In loop");
+        if (lazy_loaded) {
+            img_html = `<img class="lazyload ythumbnail" onclick="showVideoMetadata('${targetResults.id}')" src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-src="https://i.ytimg.com/vi/${targetResults.id}/0.jpg">`;
+        } else {
+            img_html = `<img class="ythumbnail" onclick="showVideoMetadata('${targetResults.id}')" alt="${targetResults.title}" src="https://i.ytimg.com/vi/${targetResults.id}/0.jpg"`;
+        }
         displayableResults += `
   <div class="col-xs-6 col-sm-4 col-md-3">
    <div class="thumbnail">
-     <img alt="${targetResults.title}" class="lazyload ythumbnail" onclick="showVideoMetadata('${targetResults.id}')" data-src="https://i.ytimg.com/vi/${targetResults.id}/0.jpg" src="https://i.ytimg.com/vi/${targetResults.id}/0.jpg"/>
+     ${img_html}
     <div class="search-info">
      <p class="p-title" onclick="showVideoMetadata('${targetResults.id}')">
       ${targetResults.title}
@@ -37,8 +41,7 @@ function renderSearchResults(search_results) {
     });
     console.log("Done forming now writing");
     showResults(`<div class="row" id="list-video">${displayableResults}</div>`);
-    //load_img_lazy();
-    $("img.lazyload").lazyload();
+    load_img_lazy();
 }
 
 function showLoading(clear = false) {
