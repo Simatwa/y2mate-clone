@@ -26,14 +26,10 @@
   <link href="/css/style.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script charset="utf-8" type="text/javascript">
-    var base_url = 'https://localhost:8000/';
+    var base_url = 'http://localhost:8080/';
          var page_hl = 'en';
    </script>
 </head>
-<script charset="utf-8" type="text/javascript">
-  var base_url = 'http://localhost:8080/';
-  var page_hl = 'en';
-</script>
 
 <body class="swag-line" id="bootstrap-themes">
   <div class="container-overflow-wrap">
@@ -66,15 +62,16 @@
             <ul class="nav navbar-nav m-r-0 m-l-0">
               <li>
                 <a href="https://github.com/Simatwa/y2mate-clone">
-                  <i class="fa-brands fa-github"></i> Star on Github
+                  <i class="fa-brands fa-github w3-large w3-hover-text-black y2mate-theme"></i>  Star on Github
                 </a>
               </li>
               <li>
                 <a href="">
-                  YouTube Downloader
+                  <i class="fa-brands fa-youtube w3-large w3-hover-text-black y2mate-theme"></i>  Video Downloader
                 </a>
               </li>
               <li class="dropdown">
+                <i class="fa-solid fa-language w3-large w3-hover-text-black y2mate-theme w3-hide-small"></i>
                 <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown"
                   href="javascript:void(0)" role="button">
                   English
@@ -83,102 +80,102 @@
                 </a>
                 <ul class="dropdown-menu" id="menu-lang">
                   <li>
-                    <a data-lang="de" href="/de">
+                    <a data-lang="de" href="">
                       Deutsch
                     </a>
                   </li>
                   <li>
-                    <a data-lang="es" href="/es">
+                    <a data-lang="es" href="">
                       Español
                     </a>
                   </li>
                   <li>
-                    <a data-lang="fr" href="/fr">
+                    <a data-lang="fr" href="">
                       Français
                     </a>
                   </li>
                   <li>
-                    <a data-lang="hi" href="/hi">
+                    <a data-lang="hi" href="">
                       हिन्दी / Hindī
                     </a>
                   </li>
                   <li>
-                    <a data-lang="id" href="/id">
+                    <a data-lang="id" href="">
                       Bahasa Indonesia
                     </a>
                   </li>
                   <li>
-                    <a data-lang="it" href="/it">
+                    <a data-lang="it" href="">
                       Italiano
                     </a>
                   </li>
                   <li>
-                    <a data-lang="ja" href="/ja">
+                    <a data-lang="ja" href="">
                       日本語
                     </a>
                   </li>
                   <li>
-                    <a data-lang="ko" href="/ko">
+                    <a data-lang="ko" href="">
                       한국어
                     </a>
                   </li>
                   <li>
-                    <a data-lang="my" href="/my">
+                    <a data-lang="my" href="">
                       Myanmar (မြန်မာ)
                     </a>
                   </li>
                   <li>
-                    <a data-lang="ms" href="/ms">
+                    <a data-lang="ms" href="">
                       Malay
                     </a>
                   </li>
                   <li>
-                    <a data-lang="tl" href="/tl">
+                    <a data-lang="tl" href="">
                       Filipino
                     </a>
                   </li>
                   <li>
-                    <a data-lang="pt" href="/pt">
+                    <a data-lang="pt" href="">
                       Português
                     </a>
                   </li>
                   <li>
-                    <a data-lang="ru" href="/ru">
+                    <a data-lang="ru" href="">
                       Русский
                     </a>
                   </li>
                   <li>
-                    <a data-lang="th" href="/th">
+                    <a data-lang="th" href="">
                       ไทย
                     </a>
                   </li>
                   <li>
-                    <a data-lang="tr" href="/tr">
+                    <a data-lang="tr" href="">
                       Türkçe
                     </a>
                   </li>
                   <li>
-                    <a data-lang="vi" href="/vi">
+                    <a data-lang="vi" href="">
                       Tiếng Việt
                     </a>
                   </li>
                   <li>
-                    <a data-lang="zh-CN" href="/zh-CN">
+                    <a data-lang="zh-CN" href="">
                       简体中文
                     </a>
                   </li>
                   <li>
-                    <a data-lang="zh-TW" href="/zh-TW">
+                    <a data-lang="zh-TW" href="">
                       繁體中文
                     </a>
                   </li>
                   <li>
-                    <a data-lang="ar" href="/ar">
+                    <a data-lang="ar" href="">
                       العربية
                     </a>
                   </li>
                   <li>
-                    <a data-lang="bn" href="/bn">
+                    <a data-lang="bn" href="">
                       বাঙালি
                     </a>
                   </li>
@@ -214,7 +211,7 @@
                       </div>
                       <p class="small">
                         By using our service you are accepting our
-                        <a class="active" href="/terms-of-service" target="_blank">
+                        <a class="active" href="" target="_blank">
                           Terms of Use
                         </a>
                         .
@@ -426,9 +423,9 @@
         var k__id = '';
         var k_busy = false;
         var p_b = false;
-        var k_analyze_url = "https:\/\/www.y2mate.com\/mates\/en949\/analyzeV2\/ajax";
-        var k_convert_url = "https:\/\/www.y2mate.com\/mates\/convertV2\/index";
-        var k_url_pool = "https:\/\/www.y2mate.com\/mates\/convertV2\/pool";
+        var k_analyze_url = "\/mates\/en949\/analyzeV2\/ajax";
+        var k_convert_url = "\/mates\/convertV2\/index";
+        var k_url_pool = "\/mates\/convertV2\/pool";
         var k_tmp_url = "\/_hl_\/";
         var wLocation = "\/";
         var txt_download = "Download";
@@ -442,46 +439,31 @@
             document.write(currentYear);
           </script> y2mate
         </p>
-        <!--
         <div class="container">
           <div class="row p-l-md p-r-md">
             <div class="col-md-4">
               <p>
-                <a class="footer-list-link" href="/en949">
+               <a class="footer-list-link" href="">
+                Clone of <a href="https://y2mate.com" target="_blank">y2mate.com</a>
+               </a>
+              </p>
+             </div>
+            <div class="col-md-4">
+              <p>
+                <a class="footer-list-link" href="">
                   Y2mate
                 </a>
               </p>
             </div>
             <div class="col-md-4">
               <p>
-                <a class="footer-list-link" href="/about-us">
-                  About
-                </a>
-              </p>
-              <p>
-                <a class="footer-list-link" href="/faq">
-                  FAQ
-                </a>
-              </p>
-              <p>
-                <a class="footer-list-link" href="/contact-us">
-                  Contact
-                </a>
-              </p>
-              <p>
-                <a class="footer-list-link" href="/terms-of-service">
-                  Terms of Service
-                </a>
-              </p>
-              <p>
-                <a class="footer-list-link" href="/privacy-policy">
-                  Privacy Policy
+                <a class="footer-list-link" href="">
+                  Based on <a href="https://github.com/yt-dlp/yt-dlp" target="_blank">YT-DLP</a>
                 </a>
               </p>
             </div>
           </div>
         </div>
-      -->
       </footer>
     </div>
 
