@@ -1,21 +1,31 @@
-function showHttpError(request) {
+function showError(message, is_html=false){
+    /// alerts user about an error
     hideLoading();
     alertContainer = document.getElementById("alert-box");
+    if (is_html){
+        alertContainer.innerHTML = message;
+    }
+    else {
+        alertContainer.innerText = message;
+    }
+    w3.show(".alert-box-container");
+}
+
+function showHttpError(request) {
+    // handles http error accordingly
     try {
         feedback = JSON.parse(request.responseText);
         if (feedback && typeof feedback === 'object' && 'detail' in feedback) {
-            alertContainer.innerText = feedback.detail;
+            showError(feedback.detail);
         }
         else {
-            alertContainer.innerText = "An expected error occured while handling that request!";
+            showError("An expected error occured while handling that request!");
         }
-        console.log("HTTP error : " + alertContainer.innerText);
     }
     catch (error) {
         console.log(`Non-http error : ${error.message}`);
-        alertContainer.innerText = error.message;
+        showError(error.message);
     }
-    w3.show(".alert-box-container");
 }
 
 function postHttpData(url, data, func) {
@@ -92,17 +102,21 @@ function searchVideos() {
         else {
             showLoading();
             console.log("Fetching results from API");
-            w3.http(getAbsoluteUrl("api/v1/search?limit=20&q=" + query), function () {
-                if (this.readyState == 4) {
-                    if (this.status == 200) {
-                        renderSearchResults(JSON.parse(this.responseText));
+            try {
+                w3.http(getAbsoluteUrl("api/v1/search?limit=20&q=" + query), function () {
+                    if (this.readyState == 4) {
+                        if (this.status == 200) {
+                            renderSearchResults(JSON.parse(this.responseText));
+                        }
+                        else {
+                            showHttpError(this);
+                        }
                     }
-                    else {
-                        showHttpError(this);
-                    }
-                }
-            });
-            console.log("Done rendering search results");
+                });
+            }
+            catch (error){
+                showError(`Unable to search for videos due to ${error.message}. Try again!`);
+            }
         }
     }
 }
@@ -279,7 +293,6 @@ function showVideoMetadata(link) {
                 }
                 else {
                     showHttpError(this);
-                    searchVideos();
                 }
 
             }

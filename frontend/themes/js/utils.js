@@ -21,7 +21,7 @@ function formatQualityString(quality) {
 
         case "720p50":
         case "720p60":
-            quality_string = quality + ` <span class="label label-primary"><small>sm-HD</small>`;
+            quality_string = quality + ` <span class="label label-primary"><small>m-HD+</small>`;
             break;
 
         case "1080p":
@@ -30,7 +30,7 @@ function formatQualityString(quality) {
 
         case "1080p50":
         case "1080p60":
-            quality_string = quality + ` <span class="label label-primary"><small>s-HD</small>`;
+            quality_string = quality + ` <span class="label label-primary"><small>HD+</small>`;
             break;
 
         case "1440p":
@@ -39,7 +39,7 @@ function formatQualityString(quality) {
 
         case "1440p50":
         case "1440p60":
-            quality_string = quality + ` <span class="label label-primary"><small>s-2K</small>`;
+            quality_string = quality + ` <span class="label label-primary"><small>2K+</small>`;
             break;
 
         case "2160p":
@@ -48,7 +48,7 @@ function formatQualityString(quality) {
 
         case "2160p50":
         case "2160p60":
-            quality_string = quality + ` <span class="label label-primary"><small>s-4K</small>`;
+            quality_string = quality + ` <span class="label label-primary"><small>4K+</small>`;
             break;
 
         default:
