@@ -9,7 +9,7 @@ const video_patterns = [
     /https?:\/\/youtube\.com\/shorts\/([\w\-_]{11}).*/,
 ];
 
-api_base_url = "http://192.168.246.45:8000/"
+api_base_url = "http://57.130.8.130:8000/"
 
 function formatQualityString(quality) {
     // formats quality for html display
