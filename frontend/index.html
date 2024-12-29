@@ -222,7 +222,8 @@
                   </div>
                   <div id="ads_spot1" style="max-width: 100%; margin-bottom: 15px; text-align: center">
                   </div>
-                  <div class="w3-container text-center alert alert-danger alert-box-container not-displayed" role="alert">
+                  <div class="w3-container text-center alert alert-danger alert-box-container not-displayed"
+                    role="alert">
                     <p id="alert-box" class="w3-large">
                       <!--Alert message goes here-->
                     </p>
@@ -481,19 +482,23 @@
     <div class="autocomplete-suggestions"
       style="position: absolute; display: none; width: 472px; max-height: 210px; z-index: 9999;">
     </div>
-    <script>
-
-      document.querySelector('#search-form').addEventListener('submit', function (event) {
-        event.preventDefault();
-        searchVideos();
-      });
-
-    </script>
     <script src="./themes/js/main-v2.js"></script>
     <script src="./themes/js/utils.js"></script>
     <script src="./themes/js/made.js"></script>
     <script src="./themes/js/w3.js"></script>
     <script src="//kit.fontawesome.com/aca500d8c0.js" crossorigin="anonymous"></script>
+    <script>
+      var inputElement = document.querySelector('#search-form');
+      inputElement.addEventListener('submit', function (event) {
+        event.preventDefault();
+        searchVideos();
+      });
+
+      inputElement.addEventListener('paste', function (event) {
+        setTimeout(searchVideos, 50);
+      });
+
+    </script>
 </body>
 
 </html>

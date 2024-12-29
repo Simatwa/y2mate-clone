@@ -1,27 +1,32 @@
 !function (e) {
-    "use strict";
-    "function" == typeof define && define.amd ? define(["jquery"], e) : e("object" == typeof exports && "function" == typeof require ? require("jquery") : jQuery);
-  }(function (p) {
-    "use strict";
-    function o(e, t) {
-      function n() {}
-      var i = this, s = {ajaxSettings: {}, autoSelectFirst: false, appendTo: document.body, serviceUrl: null, lookup: null, onSelect: null, width: $("#txt-url").width() + 26, minChars: 1, maxHeight: 210, deferRequestBy: 0, params: {}, formatResult: o.formatResult, delimiter: null, zIndex: 9999, type: "GET", noCache: false, onSearchStart: n, onSearchComplete: n, onSearchError: n, preserveInput: false, containerClass: "autocomplete-suggestions", tabDisabled: false, dataType: "text", currentRequest: null, triggerSelectOnValidInput: true, preventBadQueries: true, lookupFilter: function (e, t, n) {
+  "use strict";
+  "function" == typeof define && define.amd ? define(["jquery"], e) : e("object" == typeof exports && "function" == typeof require ? require("jquery") : jQuery);
+}(function (p) {
+  "use strict";
+  function o(e, t) {
+    function n() { }
+    var i = this, s = {
+      ajaxSettings: {}, autoSelectFirst: false, appendTo: document.body, serviceUrl: null, lookup: null, onSelect: null, width: $("#txt-url").width() + 26, minChars: 1, maxHeight: 210, deferRequestBy: 0, params: {}, formatResult: o.formatResult, delimiter: null, zIndex: 9999, type: "GET", noCache: false, onSearchStart: n, onSearchComplete: n, onSearchError: n, preserveInput: false, containerClass: "autocomplete-suggestions", tabDisabled: false, dataType: "text", currentRequest: null, triggerSelectOnValidInput: true, preventBadQueries: true, lookupFilter: function (e, t, n) {
         return -1 !== e.value.toLowerCase().indexOf(n);
       }, paramName: "query", transformResult: function (e) {
         return "string" == typeof e ? p.parseJSON(e) : e;
-      }, showNoSuggestionNotice: false, noSuggestionNotice: "No results", orientation: "bottom", forceFixPosition: false};
-      i.element = e, i.el = p(e), i.suggestions = [], i.badQueries = [], i.selectedIndex = -1, i.currentValue = i.element.value, i.intervalId = 0, i.cachedResponse = {}, i.onChangeInterval = null, i.onChange = null, i.isLocal = false, i.suggestionsContainer = null, i.noSuggestionsContainer = null, i.options = p.extend({}, s, t), i.classes = {selected: "autocomplete-selected", suggestion: "autocomplete-suggestion"}, i.hint = null, i.hintValue = "", i.selection = null, i.initialize(), i.setOptions(t);
-    }
-    var i = {escapeRegExChars: function (e) {
+      }, showNoSuggestionNotice: false, noSuggestionNotice: "No results", orientation: "bottom", forceFixPosition: false
+    };
+    i.element = e, i.el = p(e), i.suggestions = [], i.badQueries = [], i.selectedIndex = -1, i.currentValue = i.element.value, i.intervalId = 0, i.cachedResponse = {}, i.onChangeInterval = null, i.onChange = null, i.isLocal = false, i.suggestionsContainer = null, i.noSuggestionsContainer = null, i.options = p.extend({}, s, t), i.classes = { selected: "autocomplete-selected", suggestion: "autocomplete-suggestion" }, i.hint = null, i.hintValue = "", i.selection = null, i.initialize(), i.setOptions(t);
+  }
+  var i = {
+    escapeRegExChars: function (e) {
       return e.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
     }, createNode: function (e) {
       var t = document.createElement("div");
       return t.className = e, t.style.position = "absolute", t.style.display = "none", t;
-    }}, n = 27, s = 9, a = 13, u = 38, r = 39, l = 40;
-    o.utils = i, (p.Autocomplete = o).formatResult = function (e, t) {
-      var n = "(" + i.escapeRegExChars(t) + ")";
-      return e.value.replace(new RegExp(n, "gi"), "<strong>$1</strong>").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/&lt;(\/?strong)&gt;/g, "<$1>");
-    }, o.prototype = {killerFn: null, initialize: function () {
+    }
+  }, n = 27, s = 9, a = 13, u = 38, r = 39, l = 40;
+  o.utils = i, (p.Autocomplete = o).formatResult = function (e, t) {
+    var n = "(" + i.escapeRegExChars(t) + ")";
+    return e.value.replace(new RegExp(n, "gi"), "<strong>$1</strong>").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/&lt;(\/?strong)&gt;/g, "<$1>");
+  }, o.prototype = {
+    killerFn: null, initialize: function () {
       var e, t = this, n = "." + t.classes.suggestion, i = t.classes.selected, s = t.options;
       t.element.setAttribute("autocomplete", "off"), t.killerFn = function (e) {
         0 === p(e.target).closest("." + t.options.containerClass).length && (t.killSuggestions(), t.disableKillerFn());
@@ -56,7 +61,7 @@
       e.currentRequest && (e.currentRequest.abort(), e.currentRequest = null);
     }, setOptions: function (e) {
       var t = this, n = t.options;
-      p.extend(n, e), t.isLocal = p.isArray(n.lookup), t.isLocal && (n.lookup = t.verifySuggestionsFormat(n.lookup)), n.orientation = t.validateOrientation(n.orientation, "bottom"), p(t.suggestionsContainer).css({"max-height": n.maxHeight + "px", width: n.width + "px", "z-index": n.zIndex});
+      p.extend(n, e), t.isLocal = p.isArray(n.lookup), t.isLocal && (n.lookup = t.verifySuggestionsFormat(n.lookup)), n.orientation = t.validateOrientation(n.orientation, "bottom"), p(t.suggestionsContainer).css({ "max-height": n.maxHeight + "px", width: n.width + "px", "z-index": n.zIndex });
     }, clearCache: function () {
       this.cachedResponse = {}, this.badQueries = [];
     }, clear: function () {
@@ -68,7 +73,7 @@
       this.disabled = false;
     }, fixPosition: function () {
       var e, t, n, i, s, o, a, u, r, l, c, g = this, d = p(g.suggestionsContainer), h = d.parent().get(0);
-      h !== document.body && !g.options.forceFixPosition || (r = g.options.orientation, e = d.outerHeight(), t = g.el.outerHeight(), i = {top: (n = g.el.offset()).top - 2, left: n.left}, "auto" === r && (s = p(window).height(), a = -(o = p(window).scrollTop()) + n.top - e, u = o + s - (n.top + t + e), r = Math.max(a, u) === a ? "top" : "bottom"), i.top += "top" === r ? -e : t, h !== document.body && (c = d.css("opacity"), g.visible || d.css("opacity", 0).show(), l = d.offsetParent().offset(), i.top -= l.top, i.left -= l.left, g.visible || d.css("opacity", c).hide()), "auto" === g.options.width && (i.width = g.el.outerWidth() + "px"), d.css(i));
+      h !== document.body && !g.options.forceFixPosition || (r = g.options.orientation, e = d.outerHeight(), t = g.el.outerHeight(), i = { top: (n = g.el.offset()).top - 2, left: n.left }, "auto" === r && (s = p(window).height(), a = -(o = p(window).scrollTop()) + n.top - e, u = o + s - (n.top + t + e), r = Math.max(a, u) === a ? "top" : "bottom"), i.top += "top" === r ? -e : t, h !== document.body && (c = d.css("opacity"), g.visible || d.css("opacity", 0).show(), l = d.offsetParent().offset(), i.top -= l.top, i.left -= l.left, g.visible || d.css("opacity", c).hide()), "auto" === g.options.width && (i.width = g.el.outerWidth() + "px"), d.css(i));
     }, enableKillerFn: function () {
       p(document).on("click.autocomplete", this.killerFn);
     }, disableKillerFn: function () {
@@ -140,9 +145,11 @@
       var t, n = this.options.delimiter;
       return n ? (t = e.split(n), p.trim(t[t.length - 1])) : e;
     }, getSuggestionsLocal: function (t) {
-      var e = this.options, n = t.toLowerCase(), i = e.lookupFilter, s = parseInt(e.lookupLimit, 10), o = {suggestions: p.grep(e.lookup, function (e) {
-        return i(e, t, n);
-      })};
+      var e = this.options, n = t.toLowerCase(), i = e.lookupFilter, s = parseInt(e.lookupLimit, 10), o = {
+        suggestions: p.grep(e.lookup, function (e) {
+          return i(e, t, n);
+        })
+      };
       return s && o.suggestions.length > s && (o.suggestions = o.suggestions.slice(0, s)), o;
     }, getSuggestions: function (i) {
       var e, t, n, s, o = this, a = o.options, u = a.serviceUrl;
@@ -150,7 +157,7 @@
         if (p.isFunction(a.lookup)) return void a.lookup(i, function (e) {
           o.suggestions = e.suggestions, o.suggest(), a.onSearchComplete.call(o.element, i, e.suggestions);
         });
-        (e = o.isLocal ? o.getSuggestionsLocal(i) : (p.isFunction(u) && (u = u.call(o.element, i)), n = u + "?" + p.param(t || {}), o.cachedResponse[n])) && p.isArray(e.suggestions) ? (o.suggestions = e.suggestions, o.suggest(), a.onSearchComplete.call(o.element, i, e.suggestions)) : o.isBadQuery(i) ? a.onSearchComplete.call(o.element, i, []) : (o.abortAjax(), s = {url: u, data: t, type: a.type, dataType: a.dataType}, p.extend(s, a.ajaxSettings), o.currentRequest = p.ajax(s).done(function (e) {
+        (e = o.isLocal ? o.getSuggestionsLocal(i) : (p.isFunction(u) && (u = u.call(o.element, i)), n = u + "?" + p.param(t || {}), o.cachedResponse[n])) && p.isArray(e.suggestions) ? (o.suggestions = e.suggestions, o.suggest(), a.onSearchComplete.call(o.element, i, e.suggestions)) : o.isBadQuery(i) ? a.onSearchComplete.call(o.element, i, []) : (o.abortAjax(), s = { url: u, data: t, type: a.type, dataType: a.dataType }, p.extend(s, a.ajaxSettings), o.currentRequest = p.ajax(s).done(function (e) {
           var t;
           o.currentRequest = null, t = a.transformResult(e, i), o.processResponse(t, i, n), a.onSearchComplete.call(o.element, i, t.suggestions);
         }).fail(function (e, t, n) {
@@ -190,7 +197,7 @@
       e && (t = n.currentValue + e.value.substr(n.currentValue.length)), n.hintValue !== t && (n.hintValue = t, n.hint = e, (this.options.onHint || p.noop)(t));
     }, verifySuggestionsFormat: function (e) {
       return e.length && "string" == typeof e[0] ? p.map(e, function (e) {
-        return {value: e, data: null};
+        return { value: e, data: null };
       }) : e;
     }, validateOrientation: function (e, t) {
       return e = p.trim(e || "").toLowerCase(), -1 === p.inArray(e, ["auto", "bottom", "top"]) && (e = t), e;
@@ -221,29 +228,31 @@
       return i ? 1 === (n = (t = this.currentValue).split(i)).length ? e : t.substr(0, t.length - n[n.length - 1].length) + e : e;
     }, dispose: function () {
       this.el.off(".autocomplete").removeData("autocomplete"), this.disableKillerFn(), p(window).off("resize.autocomplete", this.fixPositionCapture), p(this.suggestionsContainer).remove();
-    }}, p.fn.autocomplete = p.fn.devbridgeAutocomplete = function (n, i) {
-      var s = "autocomplete";
-      return 0 === arguments.length ? this.first().data(s) : this.each(function () {
-        var e = p(this), t = e.data(s);
-        "string" == typeof n ? t && "function" == typeof t[n] && t[n](i) : (t && t.dispose && t.dispose(), t = new o(this, n), e.data(s, t));
-      });
-    };
-  }), function () {
-    function e() {
-      this._busy = false, this._nextSuggestQuery = null, this._suggesting = false;
     }
-    function t(e) {
-      this.$form = $("#search-form"), this.$input = this.$form.find("input[name=query]"), this.$findButton = this.$form.find("#btn-submit"), this.$resultContainer = $("#result-suggest-container"), this.$downloadSection = $("#result"), this.$supportedSitesList = $("#supported-sites"), this.service = e, this.blinkTimer = null, this.init();
-    }
-    var o = {error: {code: -1, message: "Network error"}, content: '<div class="error-info">Request failed</div>'};
-    window.supportedSites;
-    e.prototype = {isBusy: function () {
+  }, p.fn.autocomplete = p.fn.devbridgeAutocomplete = function (n, i) {
+    var s = "autocomplete";
+    return 0 === arguments.length ? this.first().data(s) : this.each(function () {
+      var e = p(this), t = e.data(s);
+      "string" == typeof n ? t && "function" == typeof t[n] && t[n](i) : (t && t.dispose && t.dispose(), t = new o(this, n), e.data(s, t));
+    });
+  };
+}), function () {
+  function e() {
+    this._busy = false, this._nextSuggestQuery = null, this._suggesting = false;
+  }
+  function t(e) {
+    this.$form = $("#search-form"), this.$input = this.$form.find("input[name=query]"), this.$findButton = this.$form.find("#btn-submit"), this.$resultContainer = $("#result-suggest-container"), this.$downloadSection = $("#result"), this.$supportedSitesList = $("#supported-sites"), this.service = e, this.blinkTimer = null, this.init();
+  }
+  var o = { error: { code: -1, message: "Network error" }, content: '<div class="error-info">Request failed</div>' };
+  window.supportedSites;
+  e.prototype = {
+    isBusy: function () {
       return this._busy;
     }, createResponseHandler: function (e, t, n) {
-      return this.isBusy() ? null : void analyze();
+      return this.isBusy() ? null : void searchVideos();
     }, ajax: function (e, t, n, i) {
       var s = this.createResponseHandler(e, n, i);
-      return !!s && ($.ajax({dataType: "json", url: t.url, data: t.data}).done(function (e) {
+      return !!s && ($.ajax({ dataType: "json", url: t.url, data: t.data }).done(function (e) {
         s(e);
       }).fail(function () {
         s(o);
@@ -251,15 +260,15 @@
     }, find: function (e, t, n) {
       return this.extract(e, t, n);
     }, search: function (e, t, n, i) {
-      return this.ajax("search", {url: "/api/search", data: {kw: e, token: t}}, n, i);
+      return this.ajax("search", { url: "/api/search", data: { kw: e, token: t } }, n, i);
     }, extract: function (n, e, i) {
-      return this.ajax("extract", {url: "/api/extract", data: {url: n}}, e, function (e) {
+      return this.ajax("extract", { url: "/api/extract", data: { url: n } }, e, function (e) {
         return i(e), (t = /(?:(?:[^:]+:)?\/\/)?([^/]+)(\/.*)/.exec(n)) ? t[1] : "unknown";
         var t;
       });
     }, suggest: function (e, t) {
       var n = this;
-      return n._suggesting ? void (n._nextSuggestQuery = {query: e, callback: t}) : (n._suggesting = true, void $.ajax({url: "//suggestqueries.google.com/complete/search", jsonp: "jsonp", dataType: "jsonp", data: {q: e, hl: "en", ds: "yt", client: "youtube"}}).done(function (e) {
+      return n._suggesting ? void (n._nextSuggestQuery = { query: e, callback: t }) : (n._suggesting = true, void $.ajax({ url: "//suggestqueries.google.com/complete/search", jsonp: "jsonp", dataType: "jsonp", data: { q: e, hl: "en", ds: "yt", client: "youtube" } }).done(function (e) {
         if (n._suggesting) try {
           t(null, e[0], e[1].map(function (e) {
             return e[0];
@@ -274,7 +283,9 @@
       }));
     }, stopSuggest: function () {
       this._suggesting = false;
-    }}, t.prototype = {update: function (e) {
+    }
+  }, t.prototype = {
+    update: function (e) {
       this.$resultContainer.html(e.content);
     }, setStatus: function (e, t) {
       this.$downloadSection.removeClass("loading nav"), e && this.$downloadSection.addClass("loading"), t && this.$downloadSection.addClass("nav");
@@ -286,7 +297,7 @@
       return null;
     }, submit: function (e) {
       var t, n, i = this, s = i.validateForm();
-      s ? i.update({error: {code: -2, message: t = s}, content: $('<div class="error-info"></div>').text(t)[0].outerHTML}) : (i.service.stopSuggest(), (n = i.service.find(this.getInputValue(), e, function (e) {
+      s ? i.update({ error: { code: -2, message: t = s }, content: $('<div class="error-info"></div>').text(t)[0].outerHTML }) : (i.service.stopSuggest(), (n = i.service.find(this.getInputValue(), e, function (e) {
         i.hideSuggestion(), i.update(e), i.setStatus();
       })) && (i.setStatus(true), "search" === n ? i.$supportedSitesList.hide() : i.$supportedSitesList.show()));
     }, hideSuggestion: function () {
@@ -337,18 +348,22 @@
         t.onPartTypeClick(this);
       }).on("click", ".part-list > ul > li > a", function () {
         t.onPartItemClick(this);
-      }), t.$input.on("paste", e(t.onInputPaste)).on("focus", e(t.onInputFocus)).autocomplete({lookup: function (i, s) {
-        t.service.suggest(i, function (e, t, n) {
-          i === t && s({suggestions: n.map(function (e) {
-            return {value: e, data: e};
-          })});
-        });
-      }, onSelect: function () {
-        t.submit();
-      }});
-    }}, window.extractorUI = new t(new e);
-  }(), $(".toggle").click(function () {
-    var e = $(this).data("toggle"), t = $(this).data("toggle-class");
-    e && t && $(e).toggleClass(t);
-  });
-  
+      }), t.$input.on("paste", e(t.onInputPaste)).on("focus", e(t.onInputFocus)).autocomplete({
+        lookup: function (i, s) {
+          t.service.suggest(i, function (e, t, n) {
+            i === t && s({
+              suggestions: n.map(function (e) {
+                return { value: e, data: e };
+              })
+            });
+          });
+        }, onSelect: function () {
+          t.submit();
+        }
+      });
+    }
+  }, window.extractorUI = new t(new e);
+}(), $(".toggle").click(function () {
+  var e = $(this).data("toggle"), t = $(this).data("toggle-class");
+  e && t && $(e).toggleClass(t);
+});
