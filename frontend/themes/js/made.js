@@ -1,8 +1,21 @@
 function showHttpError(request) {
     hideLoading();
-    feedback = JSON.parse(request.responseText);
-    alert(feedback.detail);
-    console.log(`Http Error : ${feedback.detail}`);
+    alertContainer = document.getElementById("alert-box");
+    try {
+        feedback = JSON.parse(request.responseText);
+        if (feedback && typeof feedback === 'object' && 'detail' in feedback) {
+            alertContainer.innerText = feedback.detail;
+        }
+        else {
+            alertContainer.innerText = "An expected error occured while handling that request!";
+        }
+        console.log("HTTP error : " + alertContainer.innerText);
+    }
+    catch (error) {
+        console.log(`Non-http error : ${error.message}`);
+        alertContainer.innerText = error.message;
+    }
+    w3.show(".alert-box-container");
 }
 
 function postHttpData(url, data, func) {
@@ -45,6 +58,7 @@ function renderSearchResults(search_results) {
 }
 
 function showLoading(clear = false) {
+    w3.hide(".alert-box-container");
     const loading_img = document.getElementById("loading_img");
     w3.removeClassElement(loading_img, "not-displayed");
     const displayContainer = document.getElementById("result");
