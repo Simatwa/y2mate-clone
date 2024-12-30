@@ -9,7 +9,8 @@ const video_patterns = [
     /https?:\/\/youtube\.com\/shorts\/([\w\-_]{11}).*/,
 ];
 
-const api_base_url = "//192.168.246.45:8000/";
+// const api_base_url = "//192.168.246.45:8000/";
+const api_base_url = "//thorough-hortensia-alphab-e7379252.koyeb.app/";
 
 function formatQualityString(quality) {
     // formats quality for html display
