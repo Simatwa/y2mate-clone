@@ -2093,3 +2093,47 @@ a.video-thumbnail span:hover {
 .y2mate-theme {
     color: #c10841;
 }
+
+.w3-form {
+    max-width: 500px;
+    margin: 10px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.w3-input {
+    border: 2px solid transparent;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    outline-color: #994e64;
+}
+
+.w3-input:focus {
+    outline: 2px solid #c10841;
+    box-shadow: 0 0 5px #c10841;
+}
+
+.change-button {
+    border: 2px solid transparent;
+    border-radius: 4px;
+    background-color: rgb(167, 71, 71);
+    color: white;
+}
+
+.change-button:hover {
+    background-color: #c10841;
+    color: white;
+}
+
+.modal {
+    transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 480px) {
+    .change-button {
+        margin-top: 10px;
+        width: 100%;
+    }
+}

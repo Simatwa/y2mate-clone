@@ -70,6 +70,11 @@
                   <i class="fa-brands fa-youtube w3-large w3-hover-text-black y2mate-theme"></i> Video Downloader
                 </a>
               </li>
+              <li>
+                <a href="" id="changeBaseURLButton">
+                  <i class="fa-solid fa-microchip w3-large w3-hover-text-black y2mate-theme"></i> Change BaseURL
+                </a>
+              </li>
               <li class="dropdown">
                 <i class="fa-solid fa-language w3-large w3-hover-text-black y2mate-theme w3-hide-small"></i>
                 <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown"
@@ -220,6 +225,7 @@
                       </div>
                     </form>
                   </div>
+
                   <div id="ads_spot1" style="max-width: 100%; margin-bottom: 15px; text-align: center">
                   </div>
                   <div class="w3-display-container text-center alert alert-danger alert-box-container not-displayed"
@@ -424,69 +430,126 @@
           </div>
         </div>
       </div>
-      <script type="text/javascript">
-        var page_path = "";
-        var k_page = "home";
-        var k_hl = "en";
-        var g_token = '';
-        var k_get_query = "";
-        var k_data_vid = '';
-        var k_data_vtitle = '';
-        var k__id = '';
-        var k_busy = false;
-        var p_b = false;
-        var k_analyze_url = "\/mates\/en949\/analyzeV2\/ajax";
-        var k_convert_url = "\/mates\/convertV2\/index";
-        var k_url_pool = "\/mates\/convertV2\/pool";
-        var k_tmp_url = "\/_hl_\/";
-        var wLocation = "\/";
-        var txt_download = "Download";
-        var yt_tmp = 'youtube/';
-      </script>
-      <footer class="footer clearfix footer-borderless">
-        <p>
-          @ 2016 -
-          <script>
-            const currentYear = new Date().getFullYear();
-            document.write(currentYear);
-          </script> y2mate
-        </p>
-        <div class="container">
-          <div class="row p-l-md p-r-md">
-            <div class="col-md-4">
-              <p>
-                <a class="footer-list-link" href="">
-                  Clone of <a href="//y2mate.com" target="_blank">y2mate.com</a>
-                </a>
+
+      <!--Change base url form-->
+      <div aria-labelledby="videoTitle" class="modal" id="changeBaseURLModal" role="dialog" tabindex="1">
+        <div class="modal-dialog" role="document" style="z-index: 999999">
+          <div class="modal-content w3-animate-zoom">
+            <div class="modal-header">
+              <button aria-label="Close" class="close" data-dismiss="modal" type="button"
+                onclick="w3.hide('#changeBaseURLModal')">
+                <span aria-hidden="true">
+                  ×
+                </span>
+              </button>
+              <b class="modal-title w3-center">
+                <b>
+                  Change API's Base URL
+                </b>
+              </b>
+            </div>
+            <div class="modal-body text-center">
+              <div class="w3-display-container">
+                <form action="" class="w3-form" id="base-url-change-form">
+                  <input type="text" class="w3-threequarter w3-input" placeholder="e.g http://localhost:8000/" id="new-base-url">
+                  <button class="w3-btn change-button w3-clear w3-rest" id="changeBaseURLButton">Configure</button>
+                </form>
+              </div>
+              <p class="p-t">
+                <b>
+                  Where all API requests will be send to.
+                </b>
               </p>
             </div>
-            <div class="col-md-4">
-              <p>
-                <a class="footer-list-link" href="">
-                  Y2mate
-                </a>
-              </p>
-            </div>
-            <div class="col-md-4">
-              <p>
-                <a class="footer-list-link" href="">
-                  Based on <a href="//github.com/Simatwa/yt-dlp-bonus" target="_blank">YT-DLP-Bonus</a>
-                </a>
+            <div>
+              <p class="text-left w3-margin-left">
+                You can host your own. Find the sourcecode from <a
+                  href="//github.com/Simatwa/youtube-downloader">Youtube-Downloader</a>.
+                <strong>
+                  Enjoy.
+                </strong>
               </p>
             </div>
           </div>
         </div>
-      </footer>
+      </div>
     </div>
 
-    <div class="autocomplete-suggestions"
-      style="position: absolute; display: none; width: 472px; max-height: 210px; z-index: 9999;">
-    </div>
-    <script src="./themes/js/main-v2.js"></script>
-    <script src="./themes/js/utils.js"></script>
-    <script src="./themes/js/made.js"></script>
-    <script src="./themes/js/w3.js"></script>
-    <script src="//kit.fontawesome.com/aca500d8c0.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var page_path = "";
+      var k_page = "home";
+      var k_hl = "en";
+      var g_token = '';
+      var k_get_query = "";
+      var k_data_vid = '';
+      var k_data_vtitle = '';
+      var k__id = '';
+      var k_busy = false;
+      var p_b = false;
+      var k_analyze_url = "\/mates\/en949\/analyzeV2\/ajax";
+      var k_convert_url = "\/mates\/convertV2\/index";
+      var k_url_pool = "\/mates\/convertV2\/pool";
+      var k_tmp_url = "\/_hl_\/";
+      var wLocation = "\/";
+      var txt_download = "Download";
+      var yt_tmp = 'youtube/';
+    </script>
+    <footer class="footer clearfix footer-borderless">
+      <p>
+        @ 2016 -
+        <script>
+          const currentYear = new Date().getFullYear();
+          document.write(currentYear);
+        </script> y2mate
+      </p>
+      <div class="container">
+        <div class="row p-l-md p-r-md">
+          <div class="col-md-4">
+            <p>
+              <a class="footer-list-link" href="">
+                Clone of <a href="//y2mate.com" target="_blank">y2mate.com</a>
+              </a>
+            </p>
+          </div>
+          <div class="col-md-4">
+            <p>
+              <a class="footer-list-link" href="">
+                Y2mate
+              </a>
+            </p>
+          </div>
+          <div class="col-md-4">
+            <p>
+              <a class="footer-list-link" href="">
+                Based on <a href="//github.com/Simatwa/yt-dlp-bonus" target="_blank">YT-DLP-Bonus</a>
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div class="autocomplete-suggestions"
+    style="position: absolute; display: none; width: 472px; max-height: 210px; z-index: 9999;">
+  </div>
+  <script src="./themes/js/main-v2.js"></script>
+  <script src="./themes/js/utils.js"></script>
+  <script src="./themes/js/made.js"></script>
+  <script src="./themes/js/w3.js"></script>
+  <script src="//kit.fontawesome.com/aca500d8c0.js" crossorigin="anonymous"></script>
 </body>
+
+<script>
+  document.getElementById("base-url-change-form").addEventListener("submit", function (event) {
+    changeAPIBaseURL(event);
+  })
+
+  document.getElementById("changeBaseURLButton").addEventListener("click", function (event) {
+    event.preventDefault();
+    document.getElementById("new-base-url").value = api_base_url;
+    $('#changeBaseURLModal').modal('toggle');
+  })
+</script>
 
 </html>

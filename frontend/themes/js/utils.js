@@ -1,5 +1,6 @@
 // Contains functions for performing common operations
 
+var api_base_url = "https://thorough-hortensia-alphab-e7379252.koyeb.app/";
 
 const video_patterns = [
     /^https?:\/\/youtu\.be\/([\w\-_]{11}).*/,
@@ -8,9 +9,6 @@ const video_patterns = [
     /^([\w\-_]{11})$/,
     /https?:\/\/youtube\.com\/shorts\/([\w\-_]{11}).*/,
 ];
-
-// const api_base_url = "//192.168.246.45:8000/";
-const api_base_url = "//thorough-hortensia-alphab-e7379252.koyeb.app/";
 
 function formatQualityString(quality) {
     // formats quality for html display
@@ -69,4 +67,19 @@ function isYoutubeVideoLink(query) {
 
 function getAbsoluteUrl(relative_url) {
     return `${api_base_url}${relative_url}`;
+}
+
+function changeAPIBaseURL(event) {
+    event.preventDefault();
+    var base_url_input = document.getElementById("new-base-url").value;
+    if (!base_url_input.startsWith("http")) {
+        showError("Base URL must have a protocol i.e <strong>http</strong> or <strong>https</strong>", true);
+        return;
+    }
+    if (!base_url_input.endsWith("/")) {
+        base_url_input += "/";
+    }
+    window.api_base_url = base_url_input;
+    console.log("New base url set : " + base_url_input);
+    w3.hide("#changeBaseURLModal");
 }
