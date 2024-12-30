@@ -201,7 +201,7 @@
                       <input autocomplete="off" class="form-control input-lg" id="txt-url" name="query"
                         placeholder="Search or paste link here..." type="text" />
                       <button aria-label="Start" class="btn btn-lg" id="btn-submit" title="Start" type="button"
-                        value="Start" onclick="searchVideos();">
+                        value="Start">
                         <span class="hidden-xs">
                           Start
                         </span>
@@ -227,8 +227,8 @@
                     <p id="alert-box" class="w3-medium w3-display-center w3-animate-right">
                       <!--Alert messages goes here-->
                     </p>
-                    <button aria-label="Close" class="close w3-display-right w3-margin-right" data-dismiss="alert-box-container" type="button"
-                      onclick="w3.hide('.alert-box-container')">
+                    <button aria-label="Close" class="close w3-display-right w3-margin-right"
+                      data-dismiss="alert-box-container" type="button" onclick="w3.hide('.alert-box-container')">
                       <span aria-hidden="true">
                         ×
                       </span>
@@ -488,12 +488,6 @@
     <script src="./themes/js/w3.js"></script>
     <script src="//kit.fontawesome.com/aca500d8c0.js" crossorigin="anonymous"></script>
     <script>
-      var inputElement = document.querySelector('#search-form');
-      inputElement.addEventListener('submit', function (event) {
-        event.preventDefault();
-        searchVideos();
-      });
-
       inputElement.addEventListener('paste', function (event) {
         setTimeout(searchVideos, 50);
       });
