@@ -1,8 +1,8 @@
-function showError(message, is_html=false){
+function showError(message, is_html = false) {
     /// alerts user about an error
     hideLoading();
     alertContainer = document.getElementById("alert-box");
-    if (is_html){
+    if (is_html) {
         alertContainer.innerHTML = message;
     }
     else {
@@ -13,13 +13,19 @@ function showError(message, is_html=false){
 
 function showHttpError(request) {
     // handles http error accordingly
+    const defaultErrorMessage = "An expected error occured while handling that request!";
     try {
-        feedback = JSON.parse(request.responseText);
-        if (feedback && typeof feedback === 'object' && 'detail' in feedback) {
-            showError(feedback.detail);
+        if (typeof request === 'object' && request !== null) {
+            feedback = JSON.parse(request.responseText);
+            if (feedback && typeof feedback === 'object' && 'detail' in feedback) {
+                showError(feedback.detail);
+            }
+            else {
+                showError(defaultErrorMessage);
+            }
         }
         else {
-            showError("An expected error occured while handling that request!");
+            showError(defaultErrorMessage);
         }
     }
     catch (error) {
@@ -114,7 +120,7 @@ function searchVideos() {
                     }
                 });
             }
-            catch (error){
+            catch (error) {
                 showError(`Unable to search for videos due to ${error.message}. Try again!`);
             }
         }
