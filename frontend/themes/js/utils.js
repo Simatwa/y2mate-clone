@@ -2,6 +2,13 @@
 
 var api_base_url = "https://thorough-hortensia-alphab-e7379252.koyeb.app/";
 
+var api_base_url_key = "api_base_url";
+
+if (localStorage.getItem(api_base_url_key)) {
+    console.log("Loading base url from cache");
+    api_base_url = localStorage.getItem(api_base_url_key);
+}
+
 const video_patterns = [
     /^https?:\/\/youtu\.be\/([\w\-_]{11}).*/,
     /^https?:\/\/www\.youtube\.com\/watch\?v=([\w\-_]{11}).*/,
@@ -80,6 +87,7 @@ function changeAPIBaseURL(event) {
         base_url_input += "/";
     }
     window.api_base_url = base_url_input;
+    localStorage.setItem(api_base_url_key, base_url_input);
     console.log("New base url set : " + base_url_input);
     w3.hide("#changeBaseURLModal");
 }

@@ -2086,7 +2086,7 @@ a.video-thumbnail span:hover {
 }
 
 .p-title:hover,
-.p-title:focus {
+.p-title:focus, .media-icon:hover {
     color: #c10841;
 }
 
@@ -2135,5 +2135,8 @@ a.video-thumbnail span:hover {
     .change-button {
         margin-top: 10px;
         width: 100%;
+    }
+    .play-button {
+        margin-top: 10px;
     }
 }

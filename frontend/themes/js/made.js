@@ -367,9 +367,14 @@ function displayProgressBar(maxWidth, updateRate = 16) {
 function renderDownloadOptions(processedMedia) {
     var download_tmpl = `
     <a target="_blank" class="btn btn-success btn-file" rel="nofollow" type="button" href="${processedMedia.link}?download=true">
-    <i class="fa-solid fa-download"></i>
+    <i class="fa-solid fa-download media-icon"></i>
     Download (${processedMedia.filesize})
-    </a>`;
+    </a> or
+    <a target="_blank" class="btn btn-success btn-file play-button" rel="nofollow" type="button" href="${processedMedia.link}">
+    <i class="fa-solid fa-play media-icon"></i>
+    Play Online
+    </a>
+    `;
 
     processedResultsContainer = document.getElementById("process-result");
     processedResultsContainer.innerHTML = download_tmpl;
