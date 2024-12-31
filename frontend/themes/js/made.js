@@ -69,7 +69,7 @@ function renderSearchResults(search_results) {
 
     });
     console.log("Done forming now writing");
-    showResults(`<div class="row" id="list-video">${displayableResults}</div>`);
+    showResults(`<div class="row w3-animate-bottom" id="list-video">${displayableResults}</div>`);
     load_img_lazy();
 }
 
@@ -202,7 +202,7 @@ function renderVideoMetadata(video_metadata) {
         `;
     });
     var resultsContent = `
-<div class="tabs row">
+<div class="tabs row w3-animate-right">
     <div class="col-xs-12 col-sm-5 col-md-5">
         <input id="video_id" type="hidden" value="${video_metadata.id}" />
         <div class="thumbnail cover">
@@ -230,8 +230,8 @@ function renderVideoMetadata(video_metadata) {
             </li>
         </ul>
         <div class="tab-content">
-            <div class="tab-pane" id="mp4">
-                <table class="table table-bordered">
+            <div class="tab-pane w3-animate-bottom" id="mp4">
+                <table class="table table-bordered w3-table-all">
                     <thead>
                         <tr>
                             <th>
@@ -250,8 +250,8 @@ function renderVideoMetadata(video_metadata) {
                     </tbody>
                 </table>
             </div>
-            <div class="tab-pane" id="audio">
-                <table class="table table-bordered">
+            <div class="tab-pane w3-animate-right" id="audio">
+                <table class="table table-bordered w3-table-all">
                     <thead>
                         <tr>
                             <th>

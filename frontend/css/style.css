@@ -2127,7 +2127,7 @@ a.video-thumbnail span:hover {
     color: white;
 }
 
-.modal {
+.modal, .table-bordered{
     transition: all 0.3s ease-in-out;
 }
 
