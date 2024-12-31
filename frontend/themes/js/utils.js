@@ -4,8 +4,6 @@ var default_api_base_url = "https://thorough-hortensia-alphab-e7379252.koyeb.app
 
 var api_base_url_key = "api_base_url";
 
-var allowed_hosts_pattern = /https?:\/\/localhost(:\d{1,5})?\/?$|https?:\/\/127\.0\.0\.1(:\d{1,5})?\/?$/i;
-
 var special_base_url_msg = "";
 var allowed_hosts_x_pattern;
 
@@ -13,11 +11,11 @@ if (/^https.+/.test(window.location.origin)) {
     // Non-loopback hosts not allowed
     special_base_url_msg = "Cannot make REST-API calls over <strong>http</strong> except to localhost.";
     console.log(special_base_url_msg);
-    allowed_hosts_x_pattern = /^https.+|^http:\/\/localhost.*|^http:\/\/127.0.0.1.*/i;
+    allowed_hosts_x_pattern = /^https.+|https?:\/\/localhost(:\d{1,5})?\/?$|https?:\/\/127\.0\.0\.1(:\d{1,5})?\/?$/i;
 }
 else {
     // Running on http so it can access both secure and insecure hosts
-    special_base_url_msg = "Can make REST-API calls over <strong>http</http>.";
+    special_base_url_msg = "Can make REST-API calls over both <strong>http</strong> and <strong>https</strong>.";
     console.log(special_base_url_msg);
     allowed_hosts_x_pattern = /^https?.+/i;
 
@@ -112,7 +110,7 @@ function changeAPIBaseURL(event) {
             return false;
         }
 
-        if ( !/https?:\/\/.[^:]+(:\d{1,5})?\/?$/.test(base_url_input) || /^https?:\/\/.[^:]+:[789]\d{4,}\/?$/.test(base_url_input)) {
+        if (!/https?:\/\/[a-zA-Z0-9_\.-]+(:\d{1,5})?\/?$/.test(base_url_input) || /^https?:\/\/.[^:]+:[789]\d{4,}\/?$/.test(base_url_input)) {
             showBaseURLFormError("Invalid base-url for a REST-API!");
             return false;
         }
