@@ -8,7 +8,7 @@ var allowed_hosts_pattern;
 
 if (/^https.+/.test(window.location.origin)) {
     // Non-loopback hosts not allowed
-    console.log("Cannot make REST-API calls over http except for locally hosted ones");
+    console.log("Cannot make REST-API calls over http except to localhost");
     allowed_hosts_pattern = /https?:\/\/localhost(:\d{1,5})?\/?$|https?:\/\/127\.0\.0\.1(:\d{1,5})?\/?$|https:\/\/.[^:]+(:\d{1,5})?\/?$/i;
 }
 else {
