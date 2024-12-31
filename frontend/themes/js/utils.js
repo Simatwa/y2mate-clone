@@ -13,13 +13,13 @@ if (/^https.+/.test(window.location.origin)) {
     // Non-loopback hosts not allowed
     special_base_url_msg = "Cannot make REST-API calls over <strong>http</strong> except to localhost.";
     console.log(special_base_url_msg);
-    allowed_hosts_x_pattern = /https.+/i;
+    allowed_hosts_x_pattern = /^https.+|^http:\/\/localhost.*|^http:\/\/127.0.0.1.*/i;
 }
 else {
     // Running on http so it can access both secure and insecure hosts
     special_base_url_msg = "Can make REST-API calls over <strong>http</http>.";
     console.log(special_base_url_msg);
-    allowed_hosts_x_pattern = /https?.+/i;
+    allowed_hosts_x_pattern = /^https?.+/i;
 
 }
 
