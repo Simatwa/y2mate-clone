@@ -4,17 +4,22 @@ var default_api_base_url = "https://thorough-hortensia-alphab-e7379252.koyeb.app
 
 var api_base_url_key = "api_base_url";
 
-var allowed_hosts_pattern;
+var allowed_hosts_pattern = /https?:\/\/localhost(:\d{1,5})?\/?$|https?:\/\/127\.0\.0\.1(:\d{1,5})?\/?$/i;
+
+var special_base_url_msg = "";
+var allowed_hosts_x_pattern;
 
 if (/^https.+/.test(window.location.origin)) {
     // Non-loopback hosts not allowed
-    console.log("Cannot make REST-API calls over http except to localhost");
-    allowed_hosts_pattern = /https?:\/\/localhost(:\d{1,5})?\/?$|https?:\/\/127\.0\.0\.1(:\d{1,5})?\/?$|https:\/\/.[^:]+(:\d{1,5})?\/?$/i;
+    special_base_url_msg = "Cannot make REST-API calls over <strong>http</strong> except to localhost.";
+    console.log(special_base_url_msg);
+    allowed_hosts_x_pattern = /https.+/i;
 }
 else {
     // Running on http so it can access both secure and insecure hosts
-    console.log("Can make REST-API calls over http");
-    allowed_hosts_pattern = /https?:\/\/localhost(:\d{1,5})?\/?$|https?:\/\/127\.0\.0\.1(:\d{1,5})?\/?$|https?:\/\/.[^:]+(:\d{1,5})?\/?$/i;
+    special_base_url_msg = "Can make REST-API calls over <strong>http</http>.";
+    console.log(special_base_url_msg);
+    allowed_hosts_x_pattern = /https?.+/i;
 
 }
 
@@ -106,13 +111,21 @@ function changeAPIBaseURL(event) {
             showBaseURLFormError("Base URL must have a protocol i.e <strong>http</strong> or <strong>https</strong>", true);
             return false;
         }
+
+        if ( !/https?:\/\/.[^:]+(:\d{1,5})?\/?$/.test(base_url_input) || /^https?:\/\/.[^:]+:[789]\d{4,}\/?$/.test(base_url_input)) {
+            showBaseURLFormError("Invalid base-url for a REST-API!");
+            return false;
+        }
+
+        if (!allowed_hosts_x_pattern.test(base_url_input)) {
+            showBaseURLFormError(`<p>${special_base_url_msg}</p>`, true);
+            return false;
+        }
+
         if (!base_url_input.endsWith("/")) {
             base_url_input += "/";
         }
-        if (!allowed_hosts_pattern.test(base_url_input) || /^https?:\/\/.[^:]+:[789]\d{4,}\/?$/.test(base_url_input)) {
-            showBaseURLFormError("Invalid api-base-url!");
-            return false;
-        }
+
         window.api_base_url = base_url_input;
         localStorage.setItem(api_base_url_key, base_url_input);
         console.log("New base url set : " + base_url_input);
