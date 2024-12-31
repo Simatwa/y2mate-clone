@@ -452,6 +452,18 @@
                   <input type="text" class="w3-threequarter w3-input" placeholder="e.g http://localhost:8000/"
                     id="new-base-url">
                   <button class="w3-btn change-button w3-clear w3-rest" id="changeBaseURLButton">Configure</button>
+                  <div class="w3-display-container text-center alert alert-danger alert-box-container-base-url not-displayed"
+                  role="alert">
+                  <p id="alert-box-base-url" class="w3-medium w3-display-center w3-animate-right">
+                    <!--Alert messages goes here-->
+                  </p>
+                  <button aria-label="Close" class="close w3-display-right w3-margin-right"
+                    data-dismiss="alert-box-container" type="button" onclick="w3.hide('.alert-box-container-base-url')">
+                    <span aria-hidden="true">
+                      ×
+                    </span>
+                  </button>
+                </div>
                 </form>
               </div>
               <p class="p-t w3-tooltip">

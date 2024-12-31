@@ -4,6 +4,8 @@ var default_api_base_url = "https://thorough-hortensia-alphab-e7379252.koyeb.app
 
 var api_base_url_key = "api_base_url";
 
+var allowed_hosts_pattern = /https?:\/\/localhost(:\d{1,5})?\/?$|https?:\/\/127\.0\.0\.1(:\d{1,5})?\/?$|https:\/\/.[^:]+(:\d{1,5})?\/?$/i
+
 if (localStorage.getItem(api_base_url_key)) {
     console.log("Loading base url from local storage");
     api_base_url = localStorage.getItem(api_base_url_key);
@@ -79,16 +81,25 @@ function getAbsoluteUrl(relative_url) {
     return `${api_base_url}${relative_url}`;
 }
 
+function showBaseURLFormError(message, is_html = false) {
+    // Renders error message to the changeBaseURL form modal
+    showError(message, is_html, "alert-box-base-url", "alert-box-container-base-url");
+}
+
 function changeAPIBaseURL(event) {
     event.preventDefault();
     var base_url_input = document.getElementById("new-base-url").value;
     if (base_url_input !== "") {
-        if (!base_url_input.startsWith("http")) {
-            showError("Base URL must have a protocol i.e <strong>http</strong> or <strong>https</strong>", true);
-            return;
+        if (!/^https?:\/\/.+/i.test(base_url_input)) {
+            showBaseURLFormError("Base URL must have a protocol i.e <strong>http</strong> or <strong>https</strong>", true);
+            return false;
         }
         if (!base_url_input.endsWith("/")) {
             base_url_input += "/";
+        }
+        if (!allowed_hosts_pattern.test(base_url_input) || /^https?:\/\/.[^:]+:[789]\d{4,}\/?$/.test(base_url_input)) {
+            showBaseURLFormError("Invalid api-base-url!");
+            return false;
         }
         window.api_base_url = base_url_input;
         localStorage.setItem(api_base_url_key, base_url_input);

@@ -1,14 +1,14 @@
-function showError(message, is_html = false) {
+function showError(message, is_html = false, alert_id="alert-box", alert_container_class="alert-box-container") {
     /// alerts user about an error
     hideLoading();
-    alertContainer = document.getElementById("alert-box");
+    alertContainer = document.getElementById(alert_id);
     if (is_html) {
         alertContainer.innerHTML = message;
     }
     else {
         alertContainer.innerText = message;
     }
-    w3.show(".alert-box-container");
+    w3.show("."+alert_container_class);
 }
 
 function showHttpError(request) {
