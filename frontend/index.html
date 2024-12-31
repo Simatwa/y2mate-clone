@@ -565,6 +565,7 @@
   document.getElementById("changeBaseURLButton").addEventListener("click", function (event) {
     event.preventDefault();
     document.getElementById("new-base-url").value = api_base_url;
+    w3.hide("#alert-box-container-base-url");
     $('#changeBaseURLModal').modal('toggle');
   })
 </script>
