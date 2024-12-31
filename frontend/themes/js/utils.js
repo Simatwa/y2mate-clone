@@ -1,12 +1,15 @@
 // Contains functions for performing common operations
-
-var api_base_url = "https://thorough-hortensia-alphab-e7379252.koyeb.app/";
+var api_base_url;
+var default_api_base_url = "https://thorough-hortensia-alphab-e7379252.koyeb.app/";
 
 var api_base_url_key = "api_base_url";
 
 if (localStorage.getItem(api_base_url_key)) {
-    console.log("Loading base url from cache");
+    console.log("Loading base url from local storage");
     api_base_url = localStorage.getItem(api_base_url_key);
+}
+else {
+    api_base_url = default_api_base_url;
 }
 
 const video_patterns = [
@@ -79,15 +82,22 @@ function getAbsoluteUrl(relative_url) {
 function changeAPIBaseURL(event) {
     event.preventDefault();
     var base_url_input = document.getElementById("new-base-url").value;
-    if (!base_url_input.startsWith("http")) {
-        showError("Base URL must have a protocol i.e <strong>http</strong> or <strong>https</strong>", true);
-        return;
+    if (base_url_input !== "") {
+        if (!base_url_input.startsWith("http")) {
+            showError("Base URL must have a protocol i.e <strong>http</strong> or <strong>https</strong>", true);
+            return;
+        }
+        if (!base_url_input.endsWith("/")) {
+            base_url_input += "/";
+        }
+        window.api_base_url = base_url_input;
+        localStorage.setItem(api_base_url_key, base_url_input);
+        console.log("New base url set : " + base_url_input);
     }
-    if (!base_url_input.endsWith("/")) {
-        base_url_input += "/";
+    else {
+        // set to default
+        api_base_url = default_api_base_url;
+        console.log("Resetting api_base_url");
     }
-    window.api_base_url = base_url_input;
-    localStorage.setItem(api_base_url_key, base_url_input);
-    console.log("New base url set : " + base_url_input);
     w3.hide("#changeBaseURLModal");
 }

@@ -120,6 +120,9 @@ function searchVideos() {
             }
         }
     }
+    else {
+        showError("Input cannot be empty!");
+    }
 }
 
 function renderVideoMetadata(video_metadata) {

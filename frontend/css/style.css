@@ -2086,7 +2086,8 @@ a.video-thumbnail span:hover {
 }
 
 .p-title:hover,
-.p-title:focus, .media-icon:hover {
+.p-title:focus,
+.media-icon:hover {
     color: #c10841;
 }
 
@@ -2118,16 +2119,18 @@ a.video-thumbnail span:hover {
 .change-button {
     border: 2px solid transparent;
     border-radius: 4px;
-    background-color: rgb(167, 71, 71);
+    background-color: #c10841;
+    /* background-color: rgb(167, 71, 71); */
     color: white;
 }
 
 .change-button:hover {
-    background-color: #c10841;
+    background-color: #b6093d;
     color: white;
 }
 
-.modal, .table-bordered{
+.modal,
+.table-bordered {
     transition: all 0.3s ease-in-out;
 }
 
@@ -2136,6 +2139,7 @@ a.video-thumbnail span:hover {
         margin-top: 10px;
         width: 100%;
     }
+
     .play-button {
         margin-top: 10px;
     }
