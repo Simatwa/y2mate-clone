@@ -15,14 +15,9 @@ function showHttpError(request) {
     // handles http error accordingly
     const defaultErrorMessage = "An expected error occured while handling that request!";
     try {
-        if (typeof request === 'object' && request !== null) {
-            feedback = JSON.parse(request.responseText);
-            if (feedback && typeof feedback === 'object' && 'detail' in feedback) {
-                showError(feedback.detail);
-            }
-            else {
-                showError(defaultErrorMessage);
-            }
+        feedback = JSON.parse(request.responseText);
+        if (feedback && typeof feedback === 'object' && 'detail' in feedback) {
+            showError(feedback.detail);
         }
         else {
             showError(defaultErrorMessage);
@@ -30,7 +25,7 @@ function showHttpError(request) {
     }
     catch (error) {
         console.log(`Non-http error : ${error.message}`);
-        showError(error.message);
+        showError("Unable to contact API. Check if the server is still alive at : " + api_base_url);
     }
 }
 
