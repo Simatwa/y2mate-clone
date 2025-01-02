@@ -104,7 +104,7 @@ function searchVideos() {
             showLoading();
             console.log("Fetching results from API");
             try {
-                w3.http(getAbsoluteUrl("api/v1/search?limit=20&q=" + query), function () {
+                w3.http(getAbsoluteUrl("api/v1/search?limit=50&q=" + query), function () {
                     if (this.readyState == 4) {
                         if (this.status == 200) {
                             renderSearchResults(JSON.parse(this.responseText));
