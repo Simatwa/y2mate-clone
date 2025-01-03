@@ -44,7 +44,7 @@ Change the Base URL of the API to point to the one we had setup before and enjoy
 </p>
 
 > [!NOTE]
-> Purpose to checkout [Youtube-Downloader-API](https://github.com/Simatwa/youtube-downloader-api) to learn more about customizing it.
+> Purpose to checkout [Youtube-Downloader-API](https://github.com/Simatwa/youtube-downloader-api) to learn more about customizing the REST-API.
 
 # License
 
