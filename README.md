@@ -48,4 +48,4 @@ Change the Base URL of the API to point to the one we had setup before and enjoy
 
 # License
 
-- [MIT](LICENSE)
+- [x] [MIT](LICENSE)
