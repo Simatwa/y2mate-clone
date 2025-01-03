@@ -1,4 +1,4 @@
-function showError(message, is_html = false, alert_id="alert-box", alert_container_class="alert-box-container") {
+function showError(message, is_html = false, alert_id = "alert-box", alert_container_class = "alert-box-container") {
     /// alerts user about an error
     hideLoading();
     alertContainer = document.getElementById(alert_id);
@@ -8,7 +8,7 @@ function showError(message, is_html = false, alert_id="alert-box", alert_contain
     else {
         alertContainer.innerText = message;
     }
-    w3.show("."+alert_container_class);
+    w3.show("." + alert_container_class);
 }
 
 function showHttpError(request) {
@@ -17,7 +17,12 @@ function showHttpError(request) {
     try {
         feedback = JSON.parse(request.responseText);
         if (feedback && typeof feedback === 'object' && 'detail' in feedback) {
-            showError(feedback.detail);
+            if (typeof feedback.detail === 'object') {
+                showError(feedback.detail[0].msg+ " - " + feedback.detail[0].input);
+            }
+            else {
+                showError(feedback.detail);
+            }
         }
         else {
             showError(defaultErrorMessage);
