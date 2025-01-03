@@ -1,0 +1,1 @@
+<h1 align="center">y2mate-clone <img align="center" src="frontend/images/logo.png"></h1>
