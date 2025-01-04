@@ -20,7 +20,7 @@ Web-interface for [Youtube-Downloader-API](https://github.com/Simatwa/youtube-do
 - Clone repository and enter the project directory.
 
 ```sh
-git clone https://github.com/Simatwa/y2mate-clone.git
+git clone --recurse-submodules https://github.com/Simatwa/y2mate-clone.git
 cd y2mate-clone
 ```
 
