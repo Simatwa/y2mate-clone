@@ -18,7 +18,7 @@ function showHttpError(request) {
         feedback = JSON.parse(request.responseText);
         if (feedback && typeof feedback === 'object' && 'detail' in feedback) {
             if (typeof feedback.detail === 'object') {
-                showError(feedback.detail[0].msg+ " - " + feedback.detail[0].input);
+                showError(feedback.detail[0].msg + " - " + feedback.detail[0].input);
             }
             else {
                 showError(feedback.detail);
@@ -133,12 +133,16 @@ function searchVideos() {
 function renderVideoMetadata(video_metadata) {
     var displayableVideoMetadata = "";
     var displayableAudioMetadata = "";
+    var displayableOtherMetadata = "";
     video_metadata.video = video_metadata.video.reverse();
     video_metadata.audio = video_metadata.audio.reverse();
     var mp3_audios = [
         ["320k", "Unknown", `<span class="label label-primary"><small>largest</small>`],
+        ["256k", "Unknown", ``],
         ["192k", "Unknown", ``],
         ["128k", video_metadata.audio[0].size, `<span class="label label-primary"><small>best</small>`],
+        ["96k", "Unknown", ``],
+        ["64k", "Unknown", `<span class="label label-primary"><small>smallest</small>`],
     ];
     video_metadata.video.forEach(targetVideoMetadata => {
         displayableVideoMetadata += `
@@ -161,7 +165,7 @@ function renderVideoMetadata(video_metadata) {
         `;
     });
     mp3_audios.forEach(targetAudioMetadata => {
-        displayableAudioMetadata += `
+        displayableOtherMetadata += `
                                 <tr>
                             <td>
                                 ${targetAudioMetadata[0]}bps (mp3) ${targetAudioMetadata[2]}
@@ -184,9 +188,27 @@ function renderVideoMetadata(video_metadata) {
         var tag = ``;
         if (targetAudioMetadata.quality === "medium") {
             tag = `<span class="label label-primary"><small>fast</small>`;
+            displayableAudioMetadata += `
+                                <tr>
+                            <td>
+                                128kbps (mp3) <span class="label label-primary"><small>best</small>
+                            </td>
+                            <td>
+                                ${targetAudioMetadata.size}
+                            </td>
+                            <td class="txt-center">
+                                <button class="btn btn-success"
+                                    onclick="startConvert('medium','128k');"
+                                    type="button">
+                                    <i class="fa-solid fa-download"></i>
+                                    Download
+                                </button>
+                            </td>
+                        </tr>
+        `
         }
         displayableAudioMetadata += `
-                                <tr>
+                                <tr> 
                             <td>
                                 ${targetAudioMetadata.quality} (${video_metadata.default_audio_format}) ${tag}
                             </td>
@@ -231,6 +253,12 @@ function renderVideoMetadata(video_metadata) {
                     Audio
                 </a>
             </li>
+            <li class="nav-item p-0" role="presentation">
+                <button class="w3-button" id="otherButton" onclick="showOtherOptions()">
+                    <i class="fa-solid fa-layer-group"></i>
+                    Other
+                </a>
+            </li>
         </ul>
         <div class="tab-content">
             <div class="tab-pane w3-animate-bottom" id="mp4">
@@ -270,6 +298,26 @@ function renderVideoMetadata(video_metadata) {
                     </thead>
                     <tbody>
                     ${displayableAudioMetadata}
+                    </tbody>
+                </table>
+            </div>
+            <div class="tab-pane w3-animate-zoom" id="other">
+                <table class="table table-bordered w3-table-all">
+                    <thead>
+                        <tr>
+                            <th>
+                                File type
+                            </th>
+                            <th>
+                                File size
+                            </th>
+                            <th>
+                                Action
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    ${displayableOtherMetadata}
                     </tbody>
                 </table>
             </div>
@@ -313,19 +361,37 @@ function showVideoMetadata(link) {
 function showVideoOptions() {
     videoElement = document.getElementById("mp4");
     audioElement = document.getElementById("audio");
+    otherElement = document.getElementById("other");
     w3.hideElement(audioElement);
+    w3.hideElement(otherElement);
     w3.showElement(videoElement);
     w3.addClass("#videoButton", "active-btn");
     w3.removeClass("#audioButton", "active-btn");
+    w3.removeClass("#otherButton", "active-btn");
 
 }
 
 function showAudioOptions() {
     videoElement = document.getElementById("mp4");
     audioElement = document.getElementById("audio");
+    otherElement = document.getElementById("other");
     w3.hide(videoElement);
+    w3.hide(otherElement);
     w3.show(audioElement);
     w3.addClass("#audioButton", "active-btn");
+    w3.removeClass("#videoButton", "active-btn");
+    w3.removeClass("#otherButton", "active-btn");
+}
+
+function showOtherOptions() {
+    videoElement = document.getElementById("mp4");
+    audioElement = document.getElementById("audio");
+    otherElement = document.getElementById("other");
+    w3.hide(videoElement);
+    w3.hide(audioElement);
+    w3.show(otherElement);
+    w3.addClass("#otherButton", "active-btn");
+    w3.removeClass("#audioButton", "active-btn");
     w3.removeClass("#videoButton", "active-btn");
 }
 
