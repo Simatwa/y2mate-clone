@@ -230,11 +230,15 @@ function renderVideoMetadata(video_metadata) {
 <div class="tabs row w3-animate-right">
     <div class="col-xs-12 col-sm-5 col-md-5">
         <input id="video_id" type="hidden" value="${video_metadata.id}" />
-        <div class="thumbnail cover">
+        <div class="thumbnail cover w3-tooltip">
+           <a href="https://www.youtube.com/watch?v=${video_metadata.id}" target="_blank">
             <img alt="Youtube Downloader thumbnail" src="https://i.ytimg.com/vi/${video_metadata.id}/0.jpg" />
+           </a>
             <div class="caption text-left">
                 <b>
-                    ${video_metadata.title}
+                    <a href="https://www.youtube.com/watch?v=${video_metadata.id}" target="_blank">${video_metadata.title}</a>
+                    <span class="w3-text w3-tag">Watch on <i class="fa-brands fa-youtube w3-large"></i>
+                    </span>
                 </b>
             </div>
         </div>
