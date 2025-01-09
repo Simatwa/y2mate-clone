@@ -729,9 +729,9 @@ function analyze() {
 };
 $(document).ready(function () {
     if (!is_omini) {
-        $.getScript(base_url + "themes/js/lazyload.min.js", lazy_loaded_callback);
+        $.getScript(base_url + "./themes/js/lazyload.min.js", lazy_loaded_callback);
     }
-    $.getScript(base_url + "themes/js/suggeser.js?v=1.5", function () {
+    $.getScript(base_url + "./themes/js/suggeser.js?v=1.5", function () {
         $.ajaxSetup({ cache: false });
     });
 });
