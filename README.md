@@ -78,10 +78,10 @@ Change the Base URL of the API to point to the one we had setup before and enjoy
 4. Start the server
 
     ```sh
-    make runserver
+    python3 -m fastapi run app
     ```
 
-    - Now frontend contents will be accessed from <http://localhost:8000> and API from <http://localhost:8000/api/>.
+    - Now both API and frontend contents will be served from <http://localhost:8000>
 
 > [!NOTE]
 > Purpose to checkout [Youtube-Downloader-API](https://github.com/Simatwa/youtube-downloader-api) to learn more about customizing the REST-API.
