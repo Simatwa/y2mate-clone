@@ -50,9 +50,38 @@ Then you can now access the web-interface from <http://localhost:8080>.
 
 Change the Base URL of the API to point to the one we had setup before and enjoy the service.
 
+
 <p align="center">
 <img src="assets/setup-api-base-url.jpg" width="80%">
 </p>
+
+## How to serve both API and Frontend contents from one server
+
+1. Navigate to the backend directory.
+
+    ```sh
+    cd backend
+    ```
+
+2. Create a **.env** file *(configuration file)*.
+
+    ```sh
+    cp configs/env/example .env
+    ```
+
+3. Update path to frontend directory in the`.env` file identified by key `frontend_dir`
+
+    ```sh
+    frontend_dir = ../frontend
+    ```
+
+4. Start the server
+
+    ```sh
+    make runserver
+    ```
+
+    - Now frontend contents will be accessed from <http://localhost:8000> and API from <http://localhost:8000/api/>.
 
 > [!NOTE]
 > Purpose to checkout [Youtube-Downloader-API](https://github.com/Simatwa/youtube-downloader-api) to learn more about customizing the REST-API.
