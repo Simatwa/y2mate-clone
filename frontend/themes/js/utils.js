@@ -7,6 +7,8 @@ var api_base_url_key = "api_base_url";
 var special_base_url_msg = "";
 var allowed_hosts_x_pattern;
 
+var current_lang = "en";
+
 if (/^https.+/.test(window.location.origin)) {
     // Non-loopback hosts not allowed
     special_base_url_msg = "Cannot make REST-API calls over <strong>http</strong> except to localhost.";
@@ -106,12 +108,12 @@ function changeAPIBaseURL(event) {
     var base_url_input = document.getElementById("new-base-url").value;
     if (base_url_input !== "") {
         if (!/^https?:\/\/.+/i.test(base_url_input)) {
-            showBaseURLFormError("Base URL must have a protocol i.e <strong>http</strong> or <strong>https</strong>", true);
+            showBaseURLFormError(translation.error.invalid_base_url_protocol, true);
             return false;
         }
 
         if (!/https?:\/\/[a-zA-Z0-9_\.-]+(:\d{1,5})?\/?$/.test(base_url_input) || /^https?:\/\/.[^:]+:[789]\d{4,}\/?$/.test(base_url_input)) {
-            showBaseURLFormError("Invalid base-url for a REST-API!");
+            showBaseURLFormError(translation.error.invalid_base_url);
             return false;
         }
 

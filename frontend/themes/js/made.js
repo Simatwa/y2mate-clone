@@ -13,7 +13,7 @@ function showError(message, is_html = false, alert_id = "alert-box", alert_conta
 
 function showHttpError(request) {
     // handles http error accordingly
-    const defaultErrorMessage = "An expected error occured while handling that request!";
+    const defaultErrorMessage = translation.error.unexpected;
     try {
         feedback = JSON.parse(request.responseText);
         if (feedback && typeof feedback === 'object' && 'detail' in feedback) {
@@ -30,7 +30,7 @@ function showHttpError(request) {
     }
     catch (error) {
         console.log(`Non-http error : ${error.message}`);
-        showError("Unable to contact API. Check if the server is still alive at : " + api_base_url);
+        showError(translation.error.unable_to_contact_api + " " + `<a href="${api_base_url}" target="_blank" class="active">${api_base_url}</a>`, true);
     }
 }
 
@@ -121,12 +121,12 @@ function searchVideos() {
                 });
             }
             catch (error) {
-                showError(`Unable to search for videos due to ${error.message}. Try again!`);
+                showError(`${translation.error.unable_to_search_videos} ${error.message}. ${translation.helper.try_again}`);
             }
         }
     }
     else {
-        showError("Input cannot be empty!");
+        showError(translation.error.empty_input);
     }
 }
 
@@ -137,12 +137,12 @@ function renderVideoMetadata(video_metadata) {
     video_metadata.video = video_metadata.video.reverse();
     video_metadata.audio = video_metadata.audio.reverse();
     var mp3_audios = [
-        ["320k", "Unknown", `<span class="label label-primary"><small>largest</small>`],
-        ["256k", "Unknown", ``],
-        ["192k", "Unknown", ``],
-        ["128k", video_metadata.audio[0].size, `<span class="label label-primary"><small>best</small>`],
-        ["96k", "Unknown", ``],
-        ["64k", "Unknown", `<span class="label label-primary"><small>smallest</small>`],
+        ["320k", translation.helper.unknown, `<span class="label label-primary"><small>${translation.helper.largest}</small>`],
+        ["256k", translation.helper.unknown, ``],
+        ["192k", translation.helper.unknown, ``],
+        ["128k", video_metadata.audio[0].size, `<span class="label label-primary"><small>${translation.helper.best}</small>`],
+        ["96k", translation.helper.unknown, ``],
+        ["64k", translation.helper.unknown, `<span class="label label-primary"><small>${translation.helper.smallest}</small>`],
     ];
     video_metadata.video.forEach(targetVideoMetadata => {
         displayableVideoMetadata += `
@@ -158,7 +158,7 @@ function renderVideoMetadata(video_metadata) {
                                     onclick="startConvert('${targetVideoMetadata.quality}');"
                                     type="button">
                                     <i class="fa-solid fa-download"></i>
-                                    Download
+                                    ${translation.helper.download}
                                 </button>
                             </td>
                         </tr>
@@ -168,7 +168,7 @@ function renderVideoMetadata(video_metadata) {
         displayableOtherMetadata += `
                                 <tr>
                             <td>
-                                ${targetAudioMetadata[0]}bps (mp3) ${targetAudioMetadata[2]}
+                                MP3 - ${targetAudioMetadata[0]}bps ${targetAudioMetadata[2]}
                             </td>
                             <td>
                                 ${targetAudioMetadata[1]}
@@ -178,7 +178,7 @@ function renderVideoMetadata(video_metadata) {
                                     onclick="startConvert('medium','${targetAudioMetadata[0]}');"
                                     type="button">
                                     <i class="fa-solid fa-download"></i>
-                                    Download
+                                    ${translation.helper.download}
                                 </button>
                             </td>
                         </tr>
@@ -187,11 +187,11 @@ function renderVideoMetadata(video_metadata) {
     video_metadata.audio.forEach(targetAudioMetadata => {
         var tag = ``;
         if (targetAudioMetadata.quality === "medium") {
-            tag = `<span class="label label-primary"><small>fast</small>`;
+            tag = `<span class="label label-primary"><small>${translation.helper.fast}</small>`;
             displayableAudioMetadata += `
                                 <tr>
                             <td>
-                                128kbps (mp3) <span class="label label-primary"><small>best</small>
+                                MP3 - 128kbps <span class="label label-primary"><small>${translation.helper.best}</small>
                             </td>
                             <td>
                                 ${targetAudioMetadata.size}
@@ -201,7 +201,7 @@ function renderVideoMetadata(video_metadata) {
                                     onclick="startConvert('medium','128k');"
                                     type="button">
                                     <i class="fa-solid fa-download"></i>
-                                    Download
+                                    ${translation.helper.download}
                                 </button>
                             </td>
                         </tr>
@@ -210,7 +210,7 @@ function renderVideoMetadata(video_metadata) {
         displayableAudioMetadata += `
                                 <tr> 
                             <td>
-                                ${targetAudioMetadata.quality} (${video_metadata.default_audio_format}) ${tag}
+                              ${video_metadata.default_audio_format} - ${targetAudioMetadata.quality} ${tag}
                             </td>
                             <td>
                                 ${targetAudioMetadata.size}
@@ -220,7 +220,7 @@ function renderVideoMetadata(video_metadata) {
                                     onclick="startConvert('${targetAudioMetadata.quality}');"
                                     type="button">
                                     <i class="fa-solid fa-download"></i>
-                                    Download
+                                    ${translation.helper.download}
                                 </button>
                             </td>
                         </tr>
@@ -237,7 +237,7 @@ function renderVideoMetadata(video_metadata) {
             <div class="caption text-left">
                 <b>
                     <a href="https://www.youtube.com/watch?v=${video_metadata.id}" target="_blank">${video_metadata.title}</a>
-                    <span class="w3-text w3-tag">Watch on <i class="fa-brands fa-youtube w3-large"></i>
+                    <span class="w3-text w3-tag">${translation.helper.watch_on} <i class="fa-brands fa-youtube w3-large"></i>
                     </span>
                 </b>
             </div>
@@ -248,19 +248,19 @@ function renderVideoMetadata(video_metadata) {
             <li class="nav-item p-0 active" role="presentation">
                 <button class="w3-button" id="videoButton" onclick="showVideoOptions()">
                     <i class="fa-solid fa-video"></i>
-                    Video
+                    ${translation.helper.video}
                 </button>
             </li>
             <li class="nav-item p-0" role="presentation">
                 <button class="w3-button" id="audioButton" onclick="showAudioOptions()">
                     <i class="fa-solid fa-music"></i>
-                    Audio
+                    ${translation.helper.audio}
                 </a>
             </li>
             <li class="nav-item p-0" role="presentation">
                 <button class="w3-button" id="otherButton" onclick="showOtherOptions()">
                     <i class="fa-solid fa-layer-group"></i>
-                    Other
+                    ${translation.helper.other}
                 </a>
             </li>
         </ul>
@@ -270,13 +270,13 @@ function renderVideoMetadata(video_metadata) {
                     <thead>
                         <tr>
                             <th>
-                                File type
+                                ${translation.helper.file_type}
                             </th>
                             <th>
-                                File size
+                                ${translation.helper.file_size}
                             </th>
                             <th>
-                                Action
+                                ${translation.helper.action}
                             </th>
                         </tr>
                     </thead>
@@ -290,13 +290,13 @@ function renderVideoMetadata(video_metadata) {
                     <thead>
                         <tr>
                             <th>
-                                File type
+                                ${translation.helper.file_type}
                             </th>
                             <th>
-                                File size
+                                ${translation.helper.file_size}
                             </th>
                             <th>
-                                Action
+                                ${translation.helper.action}
                             </th>
                         </tr>
                     </thead>
@@ -310,13 +310,13 @@ function renderVideoMetadata(video_metadata) {
                     <thead>
                         <tr>
                             <th>
-                                File type
+                                ${translation.helper.file_type}
                             </th>
                             <th>
-                                File size
+                                ${translation.helper.file_size}
                             </th>
                             <th>
-                                Action
+                                ${translation.helper.action}
                             </th>
                         </tr>
                     </thead>
@@ -441,11 +441,11 @@ function renderDownloadOptions(processedMedia) {
     var download_tmpl = `
     <a target="_blank" class="btn btn-success btn-file" rel="nofollow" type="button" href="${processedMedia.link}?download=true">
     <i class="fa-solid fa-download media-icon"></i>
-    Download (${processedMedia.filesize})
-    </a> or
+    ${translation.helper.download} (${processedMedia.filesize})
+    </a> ${translation.helper.or}
     <a target="_blank" class="btn btn-success btn-file play-button" rel="nofollow" type="button" href="${processedMedia.link}">
     <i class="fa-solid fa-play media-icon"></i>
-    Play Online
+    ${translation.helper.play_online}
     </a>
     `;
 

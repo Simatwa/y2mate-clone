@@ -62,28 +62,36 @@
             <ul class="nav navbar-nav m-r-0 m-l-0">
               <li>
                 <a href="//github.com/Simatwa/y2mate-clone" target="_blank">
-                  <i class="fa-brands fa-github w3-large w3-hover-text-black y2mate-theme"></i> Star on Github
+                  <i class="fa-brands fa-github w3-large w3-hover-text-black y2mate-theme"></i> <span
+                    data-translate="nav_star_on_github">Star on Github</span>
                 </a>
               </li>
               <li>
                 <a href="">
-                  <i class="fa-brands fa-youtube w3-large w3-hover-text-black y2mate-theme"></i> Video Downloader
+                  <i class="fa-brands fa-youtube w3-large w3-hover-text-black y2mate-theme"></i><span
+                    data-translate="nav_video_downloader">Video Downloader</span>
                 </a>
               </li>
               <li>
                 <a href="" id="changeBaseURLButton">
-                  <i class="fa-solid fa-microchip w3-large w3-hover-text-black y2mate-theme"></i> Change BaseURL
+                  <i class="fa-solid fa-microchip w3-large w3-hover-text-black y2mate-theme"></i><span
+                    data-translate="nav_change_baseurl">Change BaseURL</span>
                 </a>
               </li>
               <li class="dropdown">
                 <i class="fa-solid fa-language w3-large w3-hover-text-black y2mate-theme w3-hide-small"></i>
                 <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown"
                   href="javascript:void(0)" role="button">
-                  English
+                  <span id="current-language">English</span>
                   <span class="caret">
                   </span>
                 </a>
                 <ul class="dropdown-menu" id="menu-lang">
+                  <li>
+                    <a data-lang="en" href="">
+                      English
+                    </a>
+                  </li>
                   <li>
                     <a data-lang="de" href="">
                       Deutsch
@@ -140,6 +148,11 @@
                     </a>
                   </li>
                   <li>
+                    <a data-lang="sw" href="">
+                      Swahili
+                    </a>
+                  </li>
+                  <li>
                     <a data-lang="pt" href="">
                       Português
                     </a>
@@ -184,6 +197,11 @@
                       বাঙালি
                     </a>
                   </li>
+                  <li>
+                    <a data-lang="system" href="">
+                      System
+                    </a>
+                  </li>
                 </ul>
               </li>
             </ul>
@@ -198,7 +216,7 @@
             <div class="panel-body">
               <div class="div-form">
                 <div class="hero hero-homepage">
-                  <h1 class="hero-header">
+                  <h1 class="hero-header" data-translate="hero_header">
                     Download Video and Audio from YouTube
                   </h1>
                   <div>
@@ -207,7 +225,7 @@
                         placeholder="Search or paste link here..." type="text" />
                       <button aria-label="Start" class="btn btn-lg" id="btn-submit" title="Start" type="button"
                         value="Start">
-                        <span class="hidden-xs">
+                        <span class="hidden-xs" data-translate="start_button">
                           Start
                         </span>
                         <i class="fa fa-arrow-right"></i>
@@ -215,8 +233,9 @@
                       <div id="result-suggest-container">
                       </div>
                       <p class="small">
-                        By using this service you are adhering to it's
-                        <a class="active" href="//github.com/Simatwa/y2mate-clone/blob/main/LICENSE" target="_blank">
+                        <span data-translate="license_intro">By using this service you are adhering to it's</span>
+                        <a class="active" href="//github.com/Simatwa/y2mate-clone/blob/main/LICENSE" target="_blank"
+                          data-translate="license_text">
                           license.
                         </a>
                       </p>
@@ -250,13 +269,13 @@
               <div class="col-sm-12">
                 <div class="text-center">
                   <h2>
-                    <strong>
+                    <strong data-translate="youtube_video_downloader">
                       YouTube Video Downloader
                     </strong>
                   </h2>
-                  <p>
+                  <p data-translate="youtube_video_downloader_description">
                     Y2mate allows you to convert &amp; download video from YouTube to Mp3, Mp4 in HD quality. Y2mate
-                    supports downloading common video formats such as: MP4, M4A MP3, WEBM, etc. You can seamlessly
+                    supports downloading common video formats such as: MP4, M4A, MP3, WEBM, etc. You can seamlessly
                     download
                     videos from YouTube.
                   </p>
@@ -266,38 +285,40 @@
             <div class="row row-padded row-bordered homepage-grid text-center p-l-md p-r-md">
               <div class="col-xs-12 col-sm-7 text-left">
                 <h3>
-                  <strong>
+                  <strong data-translate="download_instructions">
                     Instructions
                   </strong>
                 </h3>
-                <p>
+                <p data-translate="download_instruction_one">
                   1. Search by name or directly paste the link of video you want to convert
                 </p>
-                <p>
+                <p data-translate="download_instruction_two">
                   2. Click "Start" button to begin converting process
                 </p>
-                <p>
+                <p data-translate="download_instruction_three">
                   3. Select the video/audio format you want to download, then click "Download" button
                 </p>
               </div>
               <div class="col-xs-12 col-sm-5 text-left">
                 <h3>
-                  <strong>
+                  <strong data-translate="features_header">
                     Features
                   </strong>
                 </h3>
-                <p>
-                  • Unlimited downloads and always free
-                </p>
-                <p>
-                  • High-speed video converter
-                </p>
-                <p>
-                  • No registration required
-                </p>
-                <p>
-                  • Support downloading with popular formats
-                </p>
+                <span data-translate="features_data">
+                  <p>
+                    • Unlimited downloads and always free
+                  </p>
+                  <p>
+                    • High-speed video converter
+                  </p>
+                  <p>
+                    • No registration required
+                  </p>
+                  <p>
+                    • Support downloading with popular formats
+                  </p>
+                </span>
               </div>
             </div>
             <div class="clearfix">
@@ -307,11 +328,11 @@
                 <i class="w3-xxlarge fa-solid fa-cloud-arrow-down"></i>
                 </span>
                 <h3>
-                  <strong>
+                  <strong data-translate="free_download">
                     Free Download
                   </strong>
                 </h3>
-                <p>
+                <p data-translate="unlimited_conversion">
                   Unlimited conversion and free download.
                 </p>
               </div>
@@ -319,11 +340,11 @@
                 <i class="w3-xxlarge fa-solid fa-film"></i>
                 </span>
                 <h3>
-                  <strong>
+                  <strong data-translate="video_audio">
                     Video &amp; Audio
                   </strong>
                 </h3>
-                <p>
+                <p data-translate="video_audio_description">
                   Directly Download Video &amp; Music.
                 </p>
               </div>
@@ -331,11 +352,11 @@
                 <i class="w3-xxlarge fa-solid fa-download"></i>
                 </span>
                 <h3>
-                  <strong>
+                  <strong data-translate="easy_download">
                     Easy Download
                   </strong>
                 </h3>
-                <p>
+                <p data-translate="easy_download_description">
                   Fully compatible with all browsers.
                 </p>
               </div>
@@ -344,7 +365,7 @@
               <div class="col-md-12">
                 <div class="box-guide text-left">
                   <div>
-                    <div class="box-guide text-left">
+                    <div class="box-guide text-left" data-translate="how_to_download">
                       <p>
                         If you can’t directly download video to your PC, please follow the guidelines below:
                       </p>
@@ -384,7 +405,7 @@
                 <div class="progress progress-striped progress-bar-warning active m-b-0">
                   <div class="progress-bar progress-bar-success" id="progress-bar">
                   </div>
-                  <span id="cp_converting">
+                  <span id="cp_converting" data-translate="processing">
                     Processing...
                   </span>
                 </div>
@@ -392,7 +413,7 @@
                   <img alt="loading" style="display: bloc" class="m-t" id="loading_img" src="./images/loading.gif" />
                 </div>
                 <p class="p-t">
-                  <b>
+                  <b data-translate="processing_message">
                     Please wait while the file is being prepared for downloading
                   </b>
                 </p>
@@ -400,7 +421,7 @@
               <div id="process-result">
               </div>
               <div id="share-place-download">
-                <p class="text-left">
+                <p class="text-left" data-translate="thank_you_note">
                   Thank you for using our service. If you could share our <a
                     href="//github.com/Simatwa/y2mate-clone">project</a> with your friends, that would be a
                   great help.
@@ -425,8 +446,8 @@
                   ×
                 </span>
               </button>
-              <b class="modal-title w3-center">
-                Change API's Base URL
+              <b class="modal-title w3-center" data-translate="change_api_title">
+                API Base URL
               </b>
             </div>
             <div class="modal-body text-center">
@@ -434,7 +455,8 @@
                 <form action="" class="w3-form" id="base-url-change-form">
                   <input type="text" class="w3-threequarter w3-input" placeholder="e.g http://localhost:8000/"
                     id="new-base-url">
-                  <button class="w3-btn change-button w3-clear w3-rest" id="changeBaseURLButton">Configure</button>
+                  <button class="w3-btn change-button w3-clear w3-rest" id="changeBaseURLButton"
+                    data-translate="configure">Configure</button>
                   <div
                     class="w3-display-container text-center alert alert-danger alert-box-container-base-url not-displayed"
                     role="alert">
@@ -452,19 +474,19 @@
                 </form>
               </div>
               <p class="p-t w3-tooltip">
-                <b>
+                <b data-translate="base_url_note">
                   Where all API requests will be send to.
                 </b>
                 <br>
                 <span class="w3-text w3-tag">
                   <i class="fa-solid fa-circle-info"></i>
-                  Empty input to set to default.
+                  <span data-translate="reset_api_note">Empty input to set to default.</span>
                 </span>
 
               </p>
             </div>
             <div>
-              <p class="text-left w3-margin-left">
+              <p class="text-left w3-margin-left" data-translate="host_api_note">
                 You can host your own API server. Find the sourcecode from <a class="active"
                   href="//github.com/Simatwa/youtube-downloader" target="_blank">Youtube-Downloader</a>.
                 <strong>
@@ -507,24 +529,21 @@
       <div class="container">
         <div class="row p-l-md p-r-md">
           <div class="col-md-4">
-            <p>
-              <a class="footer-list-link" href="">
-                Based on <a href="//github.com/Simatwa/youtube-downloader-api" class="active" target="_blank">Youtube-Downloader-API</a>
-              </a>
+            <p class="footer-list-link" data-translate="based_on_note">
+              Based on <a href="//github.com/Simatwa/youtube-downloader-api" class="active"
+                target="_blank">Youtube-Downloader-API</a>
             </p>
           </div>
           <div class="col-md-4">
-            <p>
-              <a class="footer-list-link" href="" class="active">
+            <p class="footer-list-link">
+              <a href="" class="active">
                 Y2mate-Clone
               </a>
             </p>
           </div>
           <div class="col-md-4">
-            <p>
-              <a class="footer-list-link" href="">
-                Inspired by <a href="//y2mate.com" target="_blank" class="active">y2mate.com</a>
-              </a>
+            <p class="footer-list-link" data-translate="inspired_by_note">
+              Inspired by <a href="//y2mate.com" target="_blank" class="active">y2mate.com</a>
             </p>
           </div>
         </div>
@@ -539,7 +558,7 @@
   <script src="./themes/js/utils.js"></script>
   <script src="./themes/js/made.js"></script>
   <script src="./themes/js/w3.js"></script>
-  <script src="//kit.fontawesome.com/aca500d8c0.js" crossorigin="anonymous"></script>
+  <script src="./themes/js/translator.js"></script>
 </body>
 
 <script>
@@ -553,6 +572,34 @@
     w3.hide(".alert-box-container-base-url");
     $('#changeBaseURLModal').modal('toggle');
   })
+
 </script>
+
+<script>
+  const menuLang = document.getElementById('menu-lang');
+  const links = menuLang.getElementsByTagName('a');
+
+  for (let i = 0; i < links.length; i++) {
+    links[i].addEventListener('click', function (e) {
+      e.preventDefault();
+      let lang = this.getAttribute('data-lang');
+      fetch_and_update_translation(lang);
+      //updateCurrentLanguage(lang);
+    });
+  }
+
+</script>
+
+<script>
+  fetch_and_update_translation(current_lang);
+  /*
+  window.addEventListener("load", function (event) {
+    console.log("Translating page to - "+current_lang);
+    fetch_and_update_translation(current_lang);
+  })
+  */
+</script>
+
+<script src="//kit.fontawesome.com/aca500d8c0.js" crossorigin="anonymous"></script>
 
 </html>

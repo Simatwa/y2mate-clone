@@ -1,0 +1,1 @@
+With respect to the html tags, translate the values to {language}
