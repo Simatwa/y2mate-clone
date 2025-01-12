@@ -1,6 +1,6 @@
 // Contains functions for performing common operations
 var api_base_url;
-var default_api_base_url = "https://unsightly-jeri-ziptechs-8195dcf0.koyeb.app/";
+var default_api_base_url = window.location.origin + "/";
 
 var api_base_url_key = "api_base_url";
 
