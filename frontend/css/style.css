@@ -2124,17 +2124,18 @@ a.video-thumbnail span:hover {
     color: white;
 }
 
-.change-button:hover,.w3-tag:hover{
+.change-button:hover,
+.w3-tag:hover {
     background-color: #b6093d;
     color: white;
 }
 
-.w3-tag{
+.w3-tag {
     border-radius: 4px;
     background-color: #9e4d66;
 }
 
-.w3-tag:hover{
+.w3-tag:hover {
     background-color: #9e4d66;
     color: white;
 }
