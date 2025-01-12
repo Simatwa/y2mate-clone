@@ -2155,3 +2155,9 @@ a.video-thumbnail span:hover {
         margin-top: 10px;
     }
 }
+
+@media (min-width: 480px){
+    #new-base-url {
+        max-width: 65%;
+    }
+}
