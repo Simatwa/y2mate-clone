@@ -147,7 +147,7 @@ function renderVideoMetadata(video_metadata) {
         displayableVideoMetadata += `
                                 <tr>
                             <td>
-                                ${formatQualityString(targetVideoMetadata.quality)}
+                                ${formatQualityString(targetVideoMetadata.quality, ` (${video_metadata.format.video}) `)}
                             </td>
                             <td>
                                 ${targetVideoMetadata.size}
@@ -209,7 +209,7 @@ function renderVideoMetadata(video_metadata) {
         displayableAudioMetadata += `
                                 <tr> 
                             <td>
-                              ${video_metadata.default_audio_format} - ${targetAudioMetadata.quality} ${tag}
+                              ${video_metadata.format.audio} - ${targetAudioMetadata.quality} ${tag}
                             </td>
                             <td>
                                 ${targetAudioMetadata.size}
