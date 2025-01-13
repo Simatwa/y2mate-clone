@@ -99,12 +99,14 @@ function searchVideos() {
     // Search and render videos
     const query = document.querySelector("#txt-url").value;
     if (query !== "") {
+        updateHistory();
 
         if (isYoutubeVideoLink(query)) {
             // Link input
             showVideoMetadata(query);
         }
         else {
+            setTimeout( function(){ updateURL(query)}, 50);
             showLoading();
             console.log("Fetching results from API");
             try {
@@ -135,13 +137,14 @@ function renderVideoMetadata(video_metadata) {
     var displayableOtherMetadata = "";
     video_metadata.video = video_metadata.video.reverse();
     video_metadata.audio = video_metadata.audio.reverse();
+    var htmlVideoTags = createVideoTags(video_metadata.others.tags);
     var mp3_audios = [
-        ["320k", translation.helper.unknown, `<span class="label label-primary"><small>${translation.helper.largest}</small>`],
+        ["320k", translation.helper.unknown, `<span class="label label-primary"><small data-translate="largest">${translation.helper.largest}</small>`],
         ["256k", translation.helper.unknown, ``],
         ["192k", translation.helper.unknown, ``],
-        ["128k", video_metadata.audio[0].size, `<span class="label label-primary"><small>${translation.helper.best}</small>`],
+        ["128k", video_metadata.audio[0].size, `<span class="label label-primary"><small data-translate="best">${translation.helper.best}</small>`],
         ["96k", translation.helper.unknown, ``],
-        ["64k", translation.helper.unknown, `<span class="label label-primary"><small>${translation.helper.smallest}</small>`],
+        ["64k", translation.helper.unknown, `<span class="label label-primary"><small data-translate="smallest">${translation.helper.smallest}</small>`],
     ];
     video_metadata.video.forEach(targetVideoMetadata => {
         displayableVideoMetadata += `
@@ -157,7 +160,7 @@ function renderVideoMetadata(video_metadata) {
                                     onclick="startConvert('${targetVideoMetadata.quality}');"
                                     type="button">
                                     <i class="fa-solid fa-download"></i>
-                                    ${translation.helper.download}
+                                    <span data-translate="download">${translation.helper.download}</span>
                                 </button>
                             </td>
                         </tr>
@@ -177,7 +180,7 @@ function renderVideoMetadata(video_metadata) {
                                     onclick="startConvert('medium','${targetAudioMetadata[0]}');"
                                     type="button">
                                     <i class="fa-solid fa-download"></i>
-                                    ${translation.helper.download}
+                                    <span data-translate="download">${translation.helper.download}</span>
                                 </button>
                             </td>
                         </tr>
@@ -186,11 +189,11 @@ function renderVideoMetadata(video_metadata) {
     video_metadata.audio.forEach(targetAudioMetadata => {
         var tag = ``;
         if (targetAudioMetadata.quality === "medium") {
-            tag = `<span class="label label-primary"><small>${translation.helper.fast}</small>`;
+            tag = `<span class="label label-primary"><small data-translate="fast">${translation.helper.fast}</small>`;
             displayableAudioMetadata += `
                                 <tr>
                             <td>
-                                MP3 - 128kbps <span class="label label-primary"><small>${translation.helper.best}</small>
+                                MP3 - 128kbps <span class="label label-primary"><small data-translate="best">${translation.helper.best}</small>
                             </td>
                             <td>
                                 ${targetAudioMetadata.size}
@@ -200,7 +203,7 @@ function renderVideoMetadata(video_metadata) {
                                     onclick="startConvert('medium','128k');"
                                     type="button">
                                     <i class="fa-solid fa-download"></i>
-                                    ${translation.helper.download}
+                                    <span data-translate="download">${translation.helper.download}</span>
                                 </button>
                             </td>
                         </tr>
@@ -219,7 +222,7 @@ function renderVideoMetadata(video_metadata) {
                                     onclick="startConvert('${targetAudioMetadata.quality}');"
                                     type="button">
                                     <i class="fa-solid fa-download"></i>
-                                    ${translation.helper.download}
+                                    <span data-translate="download">${translation.helper.download}</span>
                                 </button>
                             </td>
                         </tr>
@@ -236,30 +239,48 @@ function renderVideoMetadata(video_metadata) {
             <div class="caption text-left">
                 <b>
                     <a href="https://www.youtube.com/watch?v=${video_metadata.id}" target="_blank">${video_metadata.title}</a>
-                    <span class="w3-text w3-tag">${translation.helper.watch_on} <i class="fa-brands fa-youtube w3-large"></i>
+                    <span class="w3-text w3-tag"><span data-translate="watch_on">${translation.helper.watch_on}</span> <i class="fa-brands fa-youtube w3-large"></i>
                     </span>
                 </b>
             </div>
         </div>
+        <div>
+        <div class="w3-container">
+           <p class="w3-left w3-tooltip metadata-info"><i class="fa-solid fa-at y2mate-theme"></i> <a class="dead-link" target="_blank" href="${video_metadata.uploader_url}">${video_metadata.channel} </a><i class="w3-tag w3-text" data-translate="uploader">${translation.helper.uploader}</i></p>
+           <p class="w3-right w3-tooltip"><i class="fa-solid fa-clock y2mate-theme"></i> ${video_metadata.duration_string} <i class="w3-tag w3-text" data-translate="duration">${translation.helper.duration}</i></p>
+        </div>
+        <div class="w3-container">
+           <p class="w3-left w3-tooltip"><i class="fa-solid fa-eye y2mate-theme"></i> ${shortenNumber(video_metadata.others.views_count)} <i class="w3-tag w3-text">${addCommasToNumber(video_metadata.others.views_count)}</i></p>
+           <p class="w3-right w3-tooltip"><i class="fa-solid fa-heart y2mate-theme"></i> ${shortenNumber(video_metadata.others.like_count)}  <i class="w3-tag w3-text">${addCommasToNumber(video_metadata.others.like_count)}</i></p>
+        </div>
+        <div class="w3-container w3-hide-small">
+           <p class="w3-left w3-tooltip metadata-info"><i class="fa-solid fa-tags y2mate-theme"></i> <span data-translate="categories">${translation.helper.categories}</span><i class="w3-tag w3-text"> <span data-translate="search">${translation.helper.search}</span></i></p>
+           <p class="w3-right w3-tooltip"><i class="fa-solid fa-tag y2mate-theme"></i> ${video_metadata.others.categories[0]} <i class="w3-tag w3-text"> <span data-translate="tag">${translation.helper.tag}</span></i></p>
+        </div>
+        <div class="w3-hide-small video-tags-container w3-tooltip">
+        ${htmlVideoTags}
+        <i class="w3-tag w3-text" data-translate="categories_note">${translation.categories_note}</i>
+        </div>
+       </div>
     </div>
     <div class="col-xs-12 col-sm-7 col-md-7">
         <ul class="nav nav-tabs justify-content-start" id="selectTab" role="tablist">
             <li class="nav-item p-0 active" role="presentation">
                 <button class="w3-button" id="videoButton" onclick="showVideoOptions()">
                     <i class="fa-solid fa-video"></i>
-                    ${translation.helper.video}
+                    <span data-translate="video">${translation.helper.video}</span>
                 </button>
             </li>
             <li class="nav-item p-0" role="presentation">
                 <button class="w3-button" id="audioButton" onclick="showAudioOptions()">
                     <i class="fa-solid fa-music"></i>
-                    ${translation.helper.audio}
+                    <span data-translate="audio">${translation.helper.audio}</span>
                 </a>
             </li>
             <li class="nav-item p-0" role="presentation">
                 <button class="w3-button" id="otherButton" onclick="showOtherOptions()">
                     <i class="fa-solid fa-layer-group"></i>
-                    ${translation.helper.other}
+                   <span data-translate="other">${translation.helper.other}</span>
                 </a>
             </li>
         </ul>
@@ -268,13 +289,13 @@ function renderVideoMetadata(video_metadata) {
                 <table class="table table-bordered w3-table-all">
                     <thead>
                         <tr>
-                            <th>
+                            <th data-translate="file_type">
                                 ${translation.helper.file_type}
                             </th>
-                            <th>
+                            <th data-translate="file_size">
                                 ${translation.helper.file_size}
                             </th>
-                            <th>
+                            <th data-translate="action">
                                 ${translation.helper.action}
                             </th>
                         </tr>
@@ -288,13 +309,13 @@ function renderVideoMetadata(video_metadata) {
                 <table class="table table-bordered w3-table-all">
                     <thead>
                         <tr>
-                            <th>
+                            <th data-translate="file_type">
                                 ${translation.helper.file_type}
                             </th>
-                            <th>
+                            <th data-translate="file_size">
                                 ${translation.helper.file_size}
                             </th>
-                            <th>
+                            <th data-translate="action">
                                 ${translation.helper.action}
                             </th>
                         </tr>
@@ -308,13 +329,13 @@ function renderVideoMetadata(video_metadata) {
                 <table class="table table-bordered w3-table-all">
                     <thead>
                         <tr>
-                            <th>
+                            <th data-translate="file_type">
                                 ${translation.helper.file_type}
                             </th>
-                            <th>
+                            <th data-translate="file_size">
                                 ${translation.helper.file_size}
                             </th>
-                            <th>
+                            <th data-translate="action">
                                 ${translation.helper.action}
                             </th>
                         </tr>
@@ -326,6 +347,14 @@ function renderVideoMetadata(video_metadata) {
             </div>
         </div>
     </div>
+    <div class="w3-container w3-hide-large w3-hide-medium">
+        <p class="w3-left w3-tooltip"><i class="fa-solid fa-tags y2mate-theme"></i> Categories<i class="w3-tag w3-text"> <span data-translate="search">${translation.helper.search}</span></i></p>
+        <p class="w3-right w3-tooltip"><i class="fa-solid fa-tag y2mate-theme"></i> ${video_metadata.others.categories[0]} <i class="w3-tag w3-text"> <span data-translate="tag">${translation.helper.tag}</span></i></p>
+    </div>
+    <div class="w3-container w3-hide-large w3-hide-medium video-tags-container w3-tooltip">
+        ${htmlVideoTags}
+        <i class="w3-tag w3-text" data-translate="categories_note">${translation.categories_note}</i>
+    </div>
     <div class="clearfix">
     </div>
 </div>
@@ -334,11 +363,13 @@ function renderVideoMetadata(video_metadata) {
     showVideoOptions();
     videoTitleElement = document.getElementById("videoTitle");
     videoTitleElement.innerHTML = `<b>${video_metadata.title}</b>`;
+    setTimeout(addOnClickEventToVideoTags, 100);
 
 }
 
 function showVideoMetadata(link) {
     // fetch and call renderVideoMetadata
+    updateURL(link);
     showLoading();
     console.log("Fetching metadata for url : " + link);
     var payload = { "url": link };
@@ -440,11 +471,11 @@ function renderDownloadOptions(processedMedia) {
     var download_tmpl = `
     <a target="_blank" class="btn btn-success btn-file" rel="nofollow" type="button" href="${processedMedia.link}?download=true">
     <i class="fa-solid fa-download media-icon"></i>
-    ${translation.helper.download} (${processedMedia.filesize})
-    </a> ${translation.helper.or}
+    <span data-translate="download">${translation.helper.download}</span> (${processedMedia.filesize})
+    </a> <span data-translate="or">${translation.helper.or}</span>
     <a target="_blank" class="btn btn-success btn-file play-button" rel="nofollow" type="button" href="${processedMedia.link}">
     <i class="fa-solid fa-play media-icon"></i>
-    ${translation.helper.play_online}
+    <span data-translate="play_online">${translation.helper.play_online}</span>
     </a>
     `;
 

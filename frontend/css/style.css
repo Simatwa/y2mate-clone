@@ -2146,6 +2146,48 @@ a.video-thumbnail span:hover {
     transition: all 0.3s ease-in-out;
 }
 
+.dead-link {
+    color: black !important;
+}
+
+.dead-link:hover {
+    text-decoration: underline !important;
+}
+
+.metadata-info {
+    /*
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    display: inline-block;
+    */
+    max-width: 70%;
+}
+
+.video-tags {
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #9b9597;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 4px;
+    background-color: #ccc;
+}
+
+.video-tags:hover {
+    color: #ffffff;
+    background-color: #9e4d66;
+}
+
+.video-tags-container{
+    text-align:left;
+    justify-content:space-evenly
+}
+
 @media (max-width: 480px) {
     .change-button {
         margin-top: 10px;

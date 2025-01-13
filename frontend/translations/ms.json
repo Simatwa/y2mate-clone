@@ -13,19 +13,19 @@
     "youtube_video_downloader": "Pemuat Turun Video YouTube",
     "youtube_video_downloader_description": "Y2mate membolehkan anda menukar dan memuat turun video dari YouTube ke Mp3, Mp4 dalam kualiti HD. Y2mate menyokong muat turun format video biasa seperti: MP4, M4A, MP3, WEBM, dll. Anda boleh memuat turun video dari YouTube dengan lancar.",
     "download_instructions": "Arahan",
-    "download_instruction_one": "1. Cari dengan nama atau tampal terus pautan video yang anda ingin tukar",
+    "download_instruction_one": "1. Cari dengan nama atau tampal terus pautan video yang anda mahu tukar",
     "download_instruction_two": "2. Klik butang \"Mula\" untuk memulakan proses penukaran",
-    "download_instruction_three": "3. Pilih format video/audio yang anda ingin muat turun, kemudian klik butang \"Muat Turun\"",
+    "download_instruction_three": "3. Pilih format video/audio yang anda mahu muat turun, kemudian klik butang \"Muat Turun\"",
     "features_header": "Ciri-ciri",
     "features_data": "<p>• Muat turun tanpa had dan sentiasa percuma</p><p>• Penukar video berkelajuan tinggi</p><p>• Tiada pendaftaran diperlukan</p><p>• Sokongan muat turun dengan format popular</p>",
     "free_download": "Muat Turun Percuma",
     "unlimited_conversion": "Penukaran tanpa had dan muat turun percuma.",
     "video_audio": "Video &amp; Audio",
-    "video_audio_description": "Muat Turun Video &amp; Muzik secara langsung.",
+    "video_audio_description": "Muat Turun Video &amp; Muzik Secara Langsung.",
     "easy_download": "Muat Turun Mudah",
-    "easy_download_description": "Serasi sepenuhnya dengan semua pelayar.",
+    "easy_download_description": "Sepenuhnya serasi dengan semua pelayar.",
     "how_to_download": "<p>Jika anda tidak dapat memuat turun video terus ke PC anda, sila ikuti panduan di bawah:</p><p>Langkah1: Pilih format yang anda mahu dan klik butang \"Muat Turun\".</p><p>Langkah2: Dalam tetingkap baru, tekan \"CTRL + S\" untuk menyimpan video ATAU klik kanan pada video, kemudian pilih \"Simpan sebagai Video\".</p>",
-    "processing": "Sedang memproses...",
+    "processing": "Sedang Memproses...",
     "processing_message": "Sila tunggu sementara fail sedang disediakan untuk muat turun",
     "thank_you_note": "Terima kasih kerana menggunakan perkhidmatan kami. Jika anda boleh berkongsi <a href=\"//github.com/Simatwa/y2mate-clone\">projek</a> kami dengan rakan-rakan anda, itu akan sangat membantu.<strong>Terima kasih.</strong>",
     "change_api_title": "Tukar URL Asas API",
@@ -35,16 +35,15 @@
     "host_api_note": "Anda boleh menjadi hos pelayan API anda sendiri. Cari kod sumber dari <a class=\"active\" href=\"//github.com/Simatwa/youtube-downloader\" target=\"_blank\">Youtube-Downloader</a>.<strong>Selamat menikmati.</strong>",
     "based_on_note": "Berdasarkan <a href=\"//github.com/Simatwa/youtube-downloader-api\" class=\"active\" target=\"_blank\">Youtube-Downloader-API</a>",
     "inspired_by_note": "Diilhamkan oleh <a href=\"//y2mate.com\" target=\"_blank\" class=\"active\">y2mate.com</a>",
-
+    "categories_note": "Klik mana-mana untuk mencari",
     "error": {
         "unexpected": "Ralat yang tidak dijangka berlaku semasa mengendalikan permintaan itu!",
-        "unable_to_contact_api": "Tidak dapat menghubungi API. Semak jika pelayan masih hidup di:",
-        "unable_to_search_videos": "Tidak dapat mencari video kerana",
+        "unable_to_contact_api": "Tidak dapat menghubungi API. Semak jika pelayan masih hidup di :",
+        "unable_to_search_videos": "Tidak dapat mencari video kerana ",
         "empty_input": "Input tidak boleh kosong!",
-        "invalid_base_url_protocol": "URL asas mesti mempunyai protokol iaitu <strong>http</strong> atau <strong>https</strong>",
+        "invalid_base_url_protocol": "URL Asas mesti mempunyai protokol iaitu <strong>http</strong> atau <strong>https</strong>",
         "invalid_base_url": "URL asas tidak sah untuk REST API!"
     },
-
     "helper": {
         "try_again": "Cuba lagi.",
         "file_type": "Jenis fail",
@@ -59,8 +58,13 @@
         "smallest": "terkecil",
         "best": "terbaik",
         "fast": "pantas",
-        "unknown": "Tidak diketahui",
+        "unknown": "Tidak Diketahui",
         "watch_on": "Tonton di",
-        "or": "atau"
+        "or": "atau",
+        "uploader": "Pengunggah",
+        "duration": "Tempoh",
+        "categories": "Kategori",
+        "tag": "Tag",
+        "search": "Cari"
     }
 }

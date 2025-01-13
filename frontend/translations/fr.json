@@ -1,6 +1,6 @@
 {
     "lang": "fr",
-    "title": "Téléchargeur YouTube - Téléchargez des vidéos YouTube en MP3, M4A, WEBM et MP4",
+    "title": "Téléchargeur YouTube - Téléchargez des vidéos YouTube en MP3, M4A, WEBM & MP4",
     "description": "Téléchargez des vidéos en ligne depuis YouTube GRATUITEMENT sur PC, mobile. Prend en charge le téléchargement de tous les formats : MP4, 3GP, WebM, vidéos HD, convertir YouTube en MP3, M4A",
     "nav_star_on_github": "Étoile sur GitHub",
     "nav_video_downloader": "Téléchargeur de vidéos",
@@ -17,7 +17,7 @@
     "download_instruction_two": "2. Cliquez sur le bouton \"Commencer\" pour lancer le processus de conversion",
     "download_instruction_three": "3. Sélectionnez le format vidéo/audio que vous souhaitez télécharger, puis cliquez sur le bouton \"Télécharger\"",
     "features_header": "Caractéristiques",
-    "features_data": "<p>• Téléchargements illimités et toujours gratuits</p><p>• Convertisseur vidéo haute vitesse</p><p>• Aucune inscription requise</p><p>• Prend en charge le téléchargement avec des formats populaires</p>",
+    "features_data": "<p>• Téléchargements illimités et toujours gratuits</p><p>• Convertisseur vidéo à haute vitesse</p><p>• Aucune inscription requise</p><p>• Prend en charge le téléchargement avec des formats populaires</p>",
     "free_download": "Téléchargement gratuit",
     "unlimited_conversion": "Conversion illimitée et téléchargement gratuit.",
     "video_audio": "Vidéo &amp; Audio",
@@ -31,20 +31,19 @@
     "change_api_title": "Changer l'URL de base de l'API",
     "configure": "Configurer",
     "base_url_note": "Où toutes les requêtes API seront envoyées.",
-    "reset_api_note": "Saisissez une entrée vide pour rétablir la valeur par défaut.",
+    "reset_api_note": "Entrée vide pour réinitialiser par défaut.",
     "host_api_note": "Vous pouvez héberger votre propre serveur API. Trouvez le code source sur <a class=\"active\" href=\"//github.com/Simatwa/youtube-downloader\" target=\"_blank\">Youtube-Downloader</a>.<strong>Profitez-en.</strong>",
     "based_on_note": "Basé sur <a href=\"//github.com/Simatwa/youtube-downloader-api\" class=\"active\" target=\"_blank\">Youtube-Downloader-API</a>",
     "inspired_by_note": "Inspiré par <a href=\"//y2mate.com\" target=\"_blank\" class=\"active\">y2mate.com</a>",
-
+    "categories_note": "Cliquez sur n'importe lequel pour rechercher",
     "error": {
         "unexpected": "Une erreur inattendue s'est produite lors du traitement de cette demande !",
         "unable_to_contact_api": "Impossible de contacter l'API. Vérifiez si le serveur est toujours en ligne à :",
         "unable_to_search_videos": "Impossible de rechercher des vidéos en raison de ",
         "empty_input": "L'entrée ne peut pas être vide !",
         "invalid_base_url_protocol": "L'URL de base doit avoir un protocole, c'est-à-dire <strong>http</strong> ou <strong>https</strong>",
-        "invalid_base_url": "URL de base invalide pour une API REST !"
+        "invalid_base_url": "URL de base non valide pour une API REST !"
     },
-
     "helper": {
         "try_again": "Réessayez.",
         "file_type": "Type de fichier",
@@ -61,6 +60,11 @@
         "fast": "rapide",
         "unknown": "Inconnu",
         "watch_on": "Regarder sur",
-        "or": "ou"
+        "or": "ou",
+        "uploader": "Téléchargeur",
+        "duration": "Durée",
+        "categories": "Catégories",
+        "tag": "Étiquette",
+        "search": "Rechercher"
     }
 }

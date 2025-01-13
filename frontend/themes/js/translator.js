@@ -50,6 +50,13 @@ function translate_page_contents() {
         if (translation[key]) {
             element.innerHTML = translation[key];
         }
+        else if (translation.error[key]) {
+            element.innerHTML = translation.error[key];
+        }
+
+        else if (translation.helper[key]) {
+            element.innerHTML = translation.helper[key];
+        }
     });
     document.title = translation.title;
     document.querySelector('meta[name="description"]').setAttribute('content', translation.description);

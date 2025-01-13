@@ -28,14 +28,14 @@
     "processing": "Procesando...",
     "processing_message": "Por favor espera mientras se prepara el archivo para descargar",
     "thank_you_note": "Gracias por usar nuestro servicio. Si pudieras compartir nuestro <a href=\"//github.com/Simatwa/y2mate-clone\">proyecto</a> con tus amigos, sería de gran ayuda.<strong>Gracias.</strong>",
-    "change_api_title": "Cambiar URL Base de la API",
+    "change_api_title": "Cambiar la URL Base de la API",
     "configure": "Configurar",
     "base_url_note": "Donde se enviarán todas las solicitudes de API.",
     "reset_api_note": "Entrada vacía para establecer como predeterminado.",
     "host_api_note": "Puedes alojar tu propio servidor API. Encuentra el código fuente en <a class=\"active\" href=\"//github.com/Simatwa/youtube-downloader\" target=\"_blank\">Youtube-Downloader</a>.<strong>Disfruta.</strong>",
     "based_on_note": "Basado en <a href=\"//github.com/Simatwa/youtube-downloader-api\" class=\"active\" target=\"_blank\">Youtube-Downloader-API</a>",
     "inspired_by_note": "Inspirado por <a href=\"//y2mate.com\" target=\"_blank\" class=\"active\">y2mate.com</a>",
-
+    "categories_note": "Haz clic en cualquiera para buscar",
     "error": {
         "unexpected": "¡Ocurrió un error inesperado al manejar esa solicitud!",
         "unable_to_contact_api": "No se puede contactar con la API. Verifica si el servidor sigue activo en:",
@@ -44,7 +44,6 @@
         "invalid_base_url_protocol": "La URL base debe tener un protocolo, es decir, <strong>http</strong> o <strong>https</strong>",
         "invalid_base_url": "¡URL base no válida para una API REST!"
     },
-
     "helper": {
         "try_again": "Inténtalo de nuevo.",
         "file_type": "Tipo de archivo",
@@ -61,6 +60,11 @@
         "fast": "rápido",
         "unknown": "Desconocido",
         "watch_on": "Ver en",
-        "or": "o"
+        "or": "o",
+        "uploader": "Subidor",
+        "duration": "Duración",
+        "categories": "Categorías",
+        "tag": "Etiqueta",
+        "search": "Buscar"
     }
 }

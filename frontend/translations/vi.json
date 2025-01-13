@@ -6,7 +6,7 @@
     "nav_video_downloader": "Trình tải xuống video",
     "nav_change_baseurl": "URL cơ sở API",
     "hero_header": "Tải xuống Video và Âm thanh từ YouTube",
-    "search_placeholder": "Tìm kiếm hoặc dán liên kết tại đây...",
+    "search_placeholder": "Tìm kiếm hoặc dán liên kết ở đây...",
     "start_button": "Bắt đầu",
     "license_intro": "Bằng cách sử dụng dịch vụ này, bạn đang tuân thủ",
     "license_text": "giấy phép",
@@ -27,24 +27,23 @@
     "how_to_download": "<p>Nếu bạn không thể tải video trực tiếp về PC, vui lòng làm theo hướng dẫn dưới đây:</p><p>Bước 1: Chọn định dạng bạn muốn và nhấp vào nút \"Tải xuống\".</p><p>Bước 2: Trong cửa sổ mới, nhấn \"CTRL + S\" để lưu video HOẶC nhấp chuột phải vào video, sau đó chọn \"Lưu dưới dạng Video\".</p>",
     "processing": "Đang xử lý...",
     "processing_message": "Vui lòng đợi trong khi tệp đang được chuẩn bị để tải xuống",
-    "thank_you_note": "Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi. Nếu bạn có thể chia sẻ <a href=\"//github.com/Simatwa/y2mate-clone\">dự án</a> của chúng tôi với bạn bè của bạn, đó sẽ là một sự giúp đỡ lớn. <strong>Cảm ơn bạn.</strong>",
+    "thank_you_note": "Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi. Nếu bạn có thể chia sẻ <a href=\"//github.com/Simatwa/y2mate-clone\">dự án</a> của chúng tôi với bạn bè của bạn, đó sẽ là một sự giúp đỡ lớn.<strong>Cảm ơn bạn.</strong>",
     "change_api_title": "Thay đổi URL cơ sở của API",
     "configure": "Cấu hình",
     "base_url_note": "Nơi tất cả các yêu cầu API sẽ được gửi đến.",
     "reset_api_note": "Để trống để đặt lại về mặc định.",
-    "host_api_note": "Bạn có thể tự lưu trữ máy chủ API của mình. Tìm mã nguồn từ <a class=\"active\" href=\"//github.com/Simatwa/youtube-downloader\" target=\"_blank\">Youtube-Downloader</a>. <strong>Thưởng thức.</strong>",
+    "host_api_note": "Bạn có thể tự lưu trữ máy chủ API của mình. Tìm mã nguồn từ <a class=\"active\" href=\"//github.com/Simatwa/youtube-downloader\" target=\"_blank\">Youtube-Downloader</a>.<strong>Thưởng thức.</strong>",
     "based_on_note": "Dựa trên <a href=\"//github.com/Simatwa/youtube-downloader-api\" class=\"active\" target=\"_blank\">Youtube-Downloader-API</a>",
     "inspired_by_note": "Lấy cảm hứng từ <a href=\"//y2mate.com\" target=\"_blank\" class=\"active\">y2mate.com</a>",
-
+    "categories_note": "Nhấp vào bất kỳ để tìm kiếm",
     "error": {
         "unexpected": "Đã xảy ra lỗi không mong muốn khi xử lý yêu cầu đó!",
         "unable_to_contact_api": "Không thể liên hệ với API. Kiểm tra xem máy chủ có còn hoạt động tại:",
         "unable_to_search_videos": "Không thể tìm kiếm video do",
-        "empty_input": "Đầu vào không được để trống!",
-        "invalid_base_url_protocol": "URL cơ sở phải có giao thức tức là <strong>http</strong> hoặc <strong>https</strong>",
+        "empty_input": "Đầu vào không thể để trống!",
+        "invalid_base_url_protocol": "URL cơ sở phải có giao thức ví dụ <strong>http</strong> hoặc <strong>https</strong>",
         "invalid_base_url": "URL cơ sở không hợp lệ cho một REST API!"
     },
-
     "helper": {
         "try_again": "Thử lại.",
         "file_type": "Loại tệp",
@@ -61,6 +60,11 @@
         "fast": "nhanh",
         "unknown": "Không rõ",
         "watch_on": "Xem trên",
-        "or": "hoặc"
+        "or": "hoặc",
+        "uploader": "Người tải lên",
+        "duration": "Thời lượng",
+        "categories": "Danh mục",
+        "tag": "Thẻ",
+        "search": "Tìm kiếm"
     }
 }

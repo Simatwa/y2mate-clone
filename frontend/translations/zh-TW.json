@@ -1,6 +1,6 @@
 {
     "lang": "zh-TW",
-    "title": "YouTube 下載器 - 下載 YouTube 視頻為 MP3, M4A, WEBM 和 MP4",
+    "title": "YouTube 下載器 - 下載 YouTube 視頻為 MP3、M4A、WEBM 和 MP4",
     "description": "在線免費下載 YouTube 視頻到 PC、手機。支持下載所有格式：MP4、3GP、WebM、HD 視頻，將 YouTube 轉換為 MP3、M4A",
     "nav_star_on_github": "在 GitHub 上加星",
     "nav_video_downloader": "視頻下載器",
@@ -11,9 +11,9 @@
     "license_intro": "使用此服務即表示您同意其",
     "license_text": "許可證",
     "youtube_video_downloader": "YouTube 視頻下載器",
-    "youtube_video_downloader_description": "Y2mate 允許您將 YouTube 視頻轉換並下載為高清質量的 Mp3、Mp4。Y2mate 支持下載常見視頻格式，如：MP4、M4A、MP3、WEBM 等。您可以無縫地從 YouTube 下載視頻。",
+    "youtube_video_downloader_description": "Y2mate 允許您將 YouTube 視頻轉換並下載為 Mp3、Mp4 高清質量。Y2mate 支持下載常見視頻格式，如：MP4、M4A、MP3、WEBM 等。您可以無縫下載 YouTube 視頻。",
     "download_instructions": "說明",
-    "download_instruction_one": "1. 通過名稱搜索或直接粘貼要轉換的視頻鏈接",
+    "download_instruction_one": "1. 按名稱搜索或直接粘貼要轉換的視頻鏈接",
     "download_instruction_two": "2. 點擊“開始”按鈕開始轉換過程",
     "download_instruction_three": "3. 選擇要下載的視頻/音頻格式，然後點擊“下載”按鈕",
     "features_header": "特點",
@@ -31,20 +31,19 @@
     "change_api_title": "更改 API 的基本 URL",
     "configure": "配置",
     "base_url_note": "所有 API 請求將發送到的位置。",
-    "reset_api_note": "清空輸入以設置為默認值。",
-    "host_api_note": "您可以托管自己的 API 服務器。從<a class=\"active\" href=\"//github.com/Simatwa/youtube-downloader\" target=\"_blank\">Youtube-Downloader</a>找到源代碼。<strong>享受。</strong>",
+    "reset_api_note": "清空輸入以設置為默認。",
+    "host_api_note": "您可以託管自己的 API 服務器。從<a class=\"active\" href=\"//github.com/Simatwa/youtube-downloader\" target=\"_blank\">Youtube-Downloader</a>找到源代碼。<strong>享受。</strong>",
     "based_on_note": "基於<a href=\"//github.com/Simatwa/youtube-downloader-api\" class=\"active\" target=\"_blank\">Youtube-Downloader-API</a>",
     "inspired_by_note": "靈感來自<a href=\"//y2mate.com\" target=\"_blank\" class=\"active\">y2mate.com</a>",
-
+    "categories_note": "點擊任意一個進行搜索",
     "error": {
-        "unexpected": "處理該請求時發生預期外的錯誤！",
+        "unexpected": "處理請求時發生預期外的錯誤！",
         "unable_to_contact_api": "無法聯繫 API。檢查服務器是否仍在運行：",
         "unable_to_search_videos": "由於無法搜索視頻",
         "empty_input": "輸入不能為空！",
-        "invalid_base_url_protocol": "基本 URL 必須有協議，即<strong>http</strong>或<strong>https</strong>",
+        "invalid_base_url_protocol": "基本 URL 必須有協議，即 <strong>http</strong> 或 <strong>https</strong>",
         "invalid_base_url": "無效的 REST API 基本 URL！"
     },
-
     "helper": {
         "try_again": "再試一次。",
         "file_type": "文件類型",
@@ -61,6 +60,11 @@
         "fast": "快速",
         "unknown": "未知",
         "watch_on": "觀看於",
-        "or": "或"
+        "or": "或",
+        "uploader": "上傳者",
+        "duration": "持續時間",
+        "categories": "類別",
+        "tag": "標籤",
+        "search": "搜索"
     }
 }

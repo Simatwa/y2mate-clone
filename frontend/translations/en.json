@@ -4,7 +4,7 @@
     "description": "Online download videos from YouTube for FREE to PC, mobile. Supports downloading all formats: MP4, 3GP, WebM, HD videos, convert YouTube to MP3, M4A",
     "nav_star_on_github": "Star on GitHub",
     "nav_video_downloader": "Video Downloader",
-    "nav_change_baseurl" : "API Base URL",
+    "nav_change_baseurl": "API Base URL",
     "hero_header": "Download Video and Audio from YouTube",
     "search_placeholder": "Search or paste link here...",
     "start_button": "Start",
@@ -35,33 +35,36 @@
     "host_api_note": "You can host your own API server. Find the sourcecode from <a class=\"active\" href=\"//github.com/Simatwa/youtube-downloader\" target=\"_blank\">Youtube-Downloader</a>.<strong>Enjoy.</strong>",
     "based_on_note": "Based on <a href=\"//github.com/Simatwa/youtube-downloader-api\" class=\"active\" target=\"_blank\">Youtube-Downloader-API</a>",
     "inspired_by_note": "Inspired by <a href=\"//y2mate.com\" target=\"_blank\" class=\"active\">y2mate.com</a>",
-
-    "error" : {
+    "categories_note": "Click any to search",
+    "error": {
         "unexpected": "An expected error occured while handling that request!",
-        "unable_to_contact_api" : "Unable to contact API. Check if the server is still alive at :",
-        "unable_to_search_videos" : "Unable to search for videos due to ",
-        "empty_input" : "Input cannot be empty!",
-        "invalid_base_url_protocol" : "Base URL must have a protocol i.e <strong>http</strong> or <strong>https</strong>",
-        "invalid_base_url" : "Invalid base-url for a REST API!"
-
+        "unable_to_contact_api": "Unable to contact API. Check if the server is still alive at :",
+        "unable_to_search_videos": "Unable to search for videos due to ",
+        "empty_input": "Input cannot be empty!",
+        "invalid_base_url_protocol": "Base URL must have a protocol i.e <strong>http</strong> or <strong>https</strong>",
+        "invalid_base_url": "Invalid base-url for a REST API!"
     },
-
-    "helper" : {
-        "try_again" : "Try again.",
-        "file_type" : "File type",
-        "file_size" : "File size",
-        "action" : "Action",
-        "video" : "Video",
-        "audio" : "Audio",
-        "other" : "Other",
-        "download" : "Download",
+    "helper": {
+        "try_again": "Try again.",
+        "file_type": "File type",
+        "file_size": "File size",
+        "action": "Action",
+        "video": "Video",
+        "audio": "Audio",
+        "other": "Other",
+        "download": "Download",
         "play_online": "Play Online",
-        "largest" : "largest",
-        "smallest" : "smallest",
-        "best" : "best",
-        "fast" : "fast",
-        "unknown" : "Unknown",
-        "watch_on" : "Watch on",
-        "or" : "or"
+        "largest": "largest",
+        "smallest": "smallest",
+        "best": "best",
+        "fast": "fast",
+        "unknown": "Unknown",
+        "watch_on": "Watch on",
+        "or": "or",
+        "uploader": "Uploader",
+        "duration": "Duration",
+        "categories": "Categories",
+        "tag": "Tag",
+        "search": "Search"
     }
 }

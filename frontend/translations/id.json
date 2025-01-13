@@ -1,7 +1,7 @@
 {
     "lang": "id",
     "title": "Pengunduh YouTube - Unduh video YouTube dalam MP3, M4A, WEBM & MP4",
-    "description": "Unduh video online dari YouTube secara GRATIS ke PC, ponsel. Mendukung pengunduhan semua format: MP4, 3GP, WebM, video HD, konversi YouTube ke MP3, M4A",
+    "description": "Unduh video online dari YouTube GRATIS ke PC, ponsel. Mendukung pengunduhan semua format: MP4, 3GP, WebM, video HD, konversi YouTube ke MP3, M4A",
     "nav_star_on_github": "Bintang di GitHub",
     "nav_video_downloader": "Pengunduh Video",
     "nav_change_baseurl": "URL Dasar API",
@@ -21,13 +21,13 @@
     "free_download": "Unduhan Gratis",
     "unlimited_conversion": "Konversi tanpa batas dan unduhan gratis.",
     "video_audio": "Video &amp; Audio",
-    "video_audio_description": "Unduh Video &amp; Musik secara langsung.",
+    "video_audio_description": "Unduh Video &amp; Musik Langsung.",
     "easy_download": "Unduhan Mudah",
     "easy_download_description": "Sepenuhnya kompatibel dengan semua browser.",
-    "how_to_download": "<p>Jika Anda tidak dapat langsung mengunduh video ke PC Anda, ikuti panduan di bawah ini:</p><p>Langkah1: Pilih format yang Anda inginkan dan klik tombol \"Unduh\".</p><p>Langkah2: Di jendela baru, tekan \"CTRL + S\" untuk menyimpan video ATAU klik kanan pada video, lalu pilih \"Simpan sebagai Video\".</p>",
-    "processing": "Sedang memproses...",
+    "how_to_download": "<p>Jika Anda tidak dapat langsung mengunduh video ke PC Anda, silakan ikuti panduan di bawah ini:</p><p>Langkah1: Pilih format yang Anda inginkan dan klik tombol \"Unduh\".</p><p>Langkah2: Di jendela baru, tekan \"CTRL + S\" untuk menyimpan video ATAU klik kanan pada video, lalu pilih \"Simpan sebagai Video\".</p>",
+    "processing": "Memproses...",
     "processing_message": "Harap tunggu sementara file sedang dipersiapkan untuk diunduh",
-    "thank_you_note": "Terima kasih telah menggunakan layanan kami. Jika Anda dapat membagikan <a href=\"//github.com/Simatwa/y2mate-clone\">proyek</a> kami dengan teman-teman Anda, itu akan sangat membantu.<strong>Terima kasih.</strong>",
+    "thank_you_note": "Terima kasih telah menggunakan layanan kami. Jika Anda bisa membagikan <a href=\"//github.com/Simatwa/y2mate-clone\">proyek</a> kami dengan teman-teman Anda, itu akan sangat membantu.<strong>Terima kasih.</strong>",
     "change_api_title": "Ubah URL Dasar API",
     "configure": "Konfigurasi",
     "base_url_note": "Di mana semua permintaan API akan dikirim.",
@@ -35,16 +35,15 @@
     "host_api_note": "Anda dapat meng-host server API Anda sendiri. Temukan kode sumber dari <a class=\"active\" href=\"//github.com/Simatwa/youtube-downloader\" target=\"_blank\">Youtube-Downloader</a>.<strong>Selamat menikmati.</strong>",
     "based_on_note": "Berdasarkan <a href=\"//github.com/Simatwa/youtube-downloader-api\" class=\"active\" target=\"_blank\">Youtube-Downloader-API</a>",
     "inspired_by_note": "Terinspirasi oleh <a href=\"//y2mate.com\" target=\"_blank\" class=\"active\">y2mate.com</a>",
-
+    "categories_note": "Klik salah satu untuk mencari",
     "error": {
-        "unexpected": "Terjadi kesalahan yang tidak terduga saat menangani permintaan itu!",
-        "unable_to_contact_api": "Tidak dapat menghubungi API. Periksa apakah server masih hidup di:",
-        "unable_to_search_videos": "Tidak dapat mencari video karena",
+        "unexpected": "Terjadi kesalahan yang diharapkan saat menangani permintaan itu!",
+        "unable_to_contact_api": "Tidak dapat menghubungi API. Periksa apakah server masih hidup di :",
+        "unable_to_search_videos": "Tidak dapat mencari video karena ",
         "empty_input": "Input tidak boleh kosong!",
-        "invalid_base_url_protocol": "URL dasar harus memiliki protokol yaitu <strong>http</strong> atau <strong>https</strong>",
+        "invalid_base_url_protocol": "URL Dasar harus memiliki protokol yaitu <strong>http</strong> atau <strong>https</strong>",
         "invalid_base_url": "URL dasar tidak valid untuk REST API!"
     },
-
     "helper": {
         "try_again": "Coba lagi.",
         "file_type": "Jenis file",
@@ -61,6 +60,11 @@
         "fast": "cepat",
         "unknown": "Tidak diketahui",
         "watch_on": "Tonton di",
-        "or": "atau"
+        "or": "atau",
+        "uploader": "Pengunggah",
+        "duration": "Durasi",
+        "categories": "Kategori",
+        "tag": "Tag",
+        "search": "Cari"
     }
 }

@@ -145,3 +145,66 @@ function setRequestHeaders(xhr) {
     xhr.setRequestHeader("X-Lang", translation.lang)
     xhr.setRequestHeader("X-Application", "y2mate-clone")
 }
+
+
+function shortenNumber(num) {
+    if (num === undefined || num === null) {
+        return "--";
+    }
+    if (num < 1000) {
+        return num.toString();
+    }
+    const units = ['K', 'M', 'B', 'T'];
+    let index = -1;
+
+    while (num >= 1000 && index < units.length) {
+      num /= 1000;
+      index++;
+    }
+
+    return Number(num.toFixed(1)) + units[index];
+  }
+
+function addCommasToNumber(num){
+    if (num === undefined || num === null) {
+        return "--";
+    }
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+
+function createVideoTags(tags){
+    return tags.slice(0, 13).map(tag => {
+        return `<a href="" tag-value="${tag}" class="video-tags">${tag}</a>`;
+    }).join(" ");
+}
+
+function addOnClickEventToVideoTags(){
+    document.querySelectorAll(".video-tags").forEach(tag => {
+        tag.onclick = function(event){
+            event.preventDefault();
+            const tagValue = event.target.getAttribute("tag-value");
+            document.getElementById("txt-url").value = tagValue;
+            searchVideos();
+        }
+    });
+}
+
+function checkForSearchParamInCurrentURL(){
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchParam = urlParams.get('query');
+    if (searchParam){
+        document.getElementById("txt-url").value = searchParam;
+        searchVideos();
+    }
+}
+
+function updateURL(query){
+    const url = new URL(window.location);
+    url.searchParams.set('query', query);
+    window.history.pushState({}, '', url);
+}
+
+function updateHistory(){
+    history.pushState(null, "", window.location.href);
+}
