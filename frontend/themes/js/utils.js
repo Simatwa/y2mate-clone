@@ -137,3 +137,11 @@ function changeAPIBaseURL(event) {
     }
     w3.hide("#changeBaseURLModal");
 }
+
+function setRequestHeaders(xhr) {
+    // Sets request headers for xhr
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.setRequestHeader("X-Lang", translation.lang)
+    xhr.setRequestHeader("X-Application", "y2mate-clone")
+}

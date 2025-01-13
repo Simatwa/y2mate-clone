@@ -37,8 +37,7 @@ function showHttpError(request) {
 function postHttpData(url, data, func) {
     var xhr = new XMLHttpRequest();
     xhr.open('POST', url);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.setRequestHeader("X-Application", "y2mate-clone")
+    setRequestHeaders(xhr);
     xhr.onreadystatechange = func;
     xhr.send(JSON.stringify(data));
 }

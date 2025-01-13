@@ -284,6 +284,7 @@ w3.http = function (target, readyfunc, xml, method) {
   if (httpObj) {
     if (readyfunc) { httpObj.onreadystatechange = readyfunc; }
     httpObj.open(method, target, true);
+    setRequestHeaders(httpObj);
     httpObj.send(xml);
   }
 };

@@ -2087,6 +2087,7 @@ a.video-thumbnail span:hover {
 
 .p-title:hover,
 .p-title:focus,
+.h-title:hover,
 .media-icon:hover {
     color: #c10841;
 }
@@ -2156,7 +2157,7 @@ a.video-thumbnail span:hover {
     }
 }
 
-@media (min-width: 480px){
+@media (min-width: 480px) {
     #new-base-url {
         max-width: 65%;
     }
