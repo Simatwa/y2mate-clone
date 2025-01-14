@@ -29,7 +29,7 @@ function showHttpError(request) {
         }
     }
     catch (error) {
-        console.log(`Non-http error : ${error.message}`);
+        console.error(`An error occurred while processing the HTTP request: ${error.message}`, error);
         showError(translation.error.unable_to_contact_api + " " + `<a href="${api_base_url}" target="_blank" class="active">${api_base_url}</a>`, true);
     }
 }
@@ -99,21 +99,20 @@ function searchVideos() {
     // Search and render videos
     const query = document.querySelector("#txt-url").value;
     if (query !== "") {
-        updateHistory();
 
         if (isYoutubeVideoLink(query)) {
             // Link input
             showVideoMetadata(query);
         }
         else {
-            setTimeout( function(){ updateURL(query)}, 50);
             showLoading();
             console.log("Fetching results from API");
             try {
-                w3.http(getAbsoluteUrl("api/v1/search?limit=50&q=" + query), function () {
+                w3.http(getAbsoluteUrl(`api/v1/search?limit=${search_results_limit}&q=` + query), function () {
                     if (this.readyState == 4) {
                         if (this.status == 200) {
                             renderSearchResults(JSON.parse(this.responseText));
+                            updateURL(query);
                         }
                         else {
                             showHttpError(this);
@@ -135,6 +134,7 @@ function renderVideoMetadata(video_metadata) {
     var displayableVideoMetadata = "";
     var displayableAudioMetadata = "";
     var displayableOtherMetadata = "";
+    var video_thumbnail_html = "";
     video_metadata.video = video_metadata.video.reverse();
     video_metadata.audio = video_metadata.audio.reverse();
     var htmlVideoTags = createVideoTags(video_metadata.others.tags);
@@ -146,6 +146,12 @@ function renderVideoMetadata(video_metadata) {
         ["96k", translation.helper.unknown, ``],
         ["64k", translation.helper.unknown, `<span class="label label-primary"><small data-translate="smallest">${translation.helper.smallest}</small>`],
     ];
+    if (lazy_loaded){
+        video_thumbnail_html = `<img alt="Youtube Downloader thumbnail" class="lazyload ythumbnail" src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-src="https://i.ytimg.com/vi/${video_metadata.id}/0.jpg">`
+    }
+    else {
+        video_thumbnail_html = `<img alt="Youtube Downloader thumbnail" src="https://i.ytimg.com/vi/${video_metadata.id}/0.jpg">`
+    }
     video_metadata.video.forEach(targetVideoMetadata => {
         displayableVideoMetadata += `
                                 <tr>
@@ -234,7 +240,7 @@ function renderVideoMetadata(video_metadata) {
         <input id="video_id" type="hidden" value="${video_metadata.id}" />
         <div class="thumbnail cover w3-tooltip">
            <a href="https://www.youtube.com/watch?v=${video_metadata.id}" target="_blank">
-            <img alt="Youtube Downloader thumbnail" src="https://i.ytimg.com/vi/${video_metadata.id}/0.jpg" />
+           ${video_thumbnail_html}
            </a>
             <div class="caption text-left">
                 <b>
@@ -363,13 +369,13 @@ function renderVideoMetadata(video_metadata) {
     showVideoOptions();
     videoTitleElement = document.getElementById("videoTitle");
     videoTitleElement.innerHTML = `<b>${video_metadata.title}</b>`;
+    load_img_lazy();
     setTimeout(addOnClickEventToVideoTags, 100);
 
 }
 
 function showVideoMetadata(link) {
     // fetch and call renderVideoMetadata
-    updateURL(link);
     showLoading();
     console.log("Fetching metadata for url : " + link);
     var payload = { "url": link };
@@ -381,6 +387,7 @@ function showVideoMetadata(link) {
             if (this.readyState == 4) {
                 if (this.status == 200) {
                     renderVideoMetadata(JSON.parse(this.responseText));
+                    updateURL(link);
                 }
                 else {
                     showHttpError(this);

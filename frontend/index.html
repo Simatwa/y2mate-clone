@@ -596,6 +596,14 @@
   window.addEventListener("load", function (event) {
     checkForSearchParamInCurrentURL();
   })
+
+
+  window.onpopstate = function () {
+    checkForSearchParamInCurrentURL()
+  };
+
+  initHistory();
+
 </script>
 
 <script src="//kit.fontawesome.com/aca500d8c0.js" crossorigin="anonymous"></script>

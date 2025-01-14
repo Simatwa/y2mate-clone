@@ -9,6 +9,10 @@ var allowed_hosts_x_pattern;
 
 var current_lang = "en";
 
+var query_key = "query";
+
+var search_results_limit = 50;
+
 if (/^https.+/.test(window.location.origin)) {
     // Non-loopback hosts not allowed
     special_base_url_msg = "Cannot make REST-API calls over <strong>http</strong> except to localhost.";
@@ -192,19 +196,25 @@ function addOnClickEventToVideoTags(){
 
 function checkForSearchParamInCurrentURL(){
     const urlParams = new URLSearchParams(window.location.search);
-    const searchParam = urlParams.get('query');
+    const searchParam = urlParams.get(query_key);
     if (searchParam){
         document.getElementById("txt-url").value = searchParam;
         searchVideos();
     }
 }
 
-function updateURL(query){
+function initHistory(){
     const url = new URL(window.location);
-    url.searchParams.set('query', query);
-    window.history.pushState({}, '', url);
+    if (!window.history.state) {
+        window.history.replaceState({url: url.href}, '', url.href);
+    }
 }
 
-function updateHistory(){
-    history.pushState(null, "", window.location.href);
+function updateURL(query) {
+    const url = new URL(window.location);
+    url.searchParams.set(query_key, query);
+    if (window.history.state !== null && window.history.state !== undefined && window.history.state.url !== url.href) {
+        console.debug("Updating history "+ url.href);
+        window.history.pushState({url: url.href}, '', url);
+    }
 }
