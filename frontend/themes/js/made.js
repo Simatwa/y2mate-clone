@@ -245,7 +245,7 @@ function renderVideoMetadata(video_metadata) {
            </a>
             <div class="caption text-left">
                 <b>
-                    <a href="https://www.youtube.com/watch?v=${video_metadata.id}" target="_blank">${video_metadata.title}</a>
+                    <a href="https://www.youtube.com/watch?v=${video_metadata.id}" class="dead-link" target="_blank">${video_metadata.title}</a>
                     <span class="w3-text w3-tag"><span data-translate="watch_on">${translation.helper.watch_on}</span> <i class="fa-brands fa-youtube w3-large"></i>
                     </span>
                 </b>
