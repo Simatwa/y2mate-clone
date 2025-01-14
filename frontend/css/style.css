@@ -2156,11 +2156,28 @@ a.video-thumbnail span:hover {
 
 .metadata-info {
     white-space: nowrap;
-    overflow: hidden;
+    overflow:scroll;
     text-overflow: ellipsis;
     word-wrap: break-word;
     display: inline-block;
-    max-width: 70%;
+    width: 60%;
+    text-align: left;
+}
+
+.metadata-info-rest {
+    white-space: nowrap;
+    overflow: scroll;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    text-align: left;
+}
+
+.metadata-info:hover, .metadata-info-rest:hover{
+    height: 37px;
+}
+
+.metadata-icon {
+    color: #ff0068;
 }
 
 .video-tags {
@@ -2178,7 +2195,7 @@ a.video-thumbnail span:hover {
 
 .video-tags:hover {
     color: #ffffff;
-    background-color: #9e4d66;
+    background-color: #ff0068;
 }
 
 .video-tags-container{
@@ -2194,6 +2211,15 @@ a.video-thumbnail span:hover {
 
     .play-button {
         margin-top: 10px;
+    }
+
+    .metadata-info {
+        max-width: 100%;
+        text-align: left;
+    }
+
+    .metadata-info-rest {
+        text-align: right;
     }
 }
 

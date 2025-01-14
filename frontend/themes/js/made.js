@@ -67,7 +67,7 @@ function renderSearchResults(search_results) {
         `;
 
     });
-    console.log("Done forming now writing");
+    console.debug("Done forming now writing");
     showResults(`<div class="row w3-animate-bottom" id="list-video">${displayableResults}</div>`);
     load_img_lazy();
 }
@@ -253,16 +253,16 @@ function renderVideoMetadata(video_metadata) {
         </div>
         <div>
         <div class="w3-container">
-           <p class="w3-left w3-tooltip metadata-info"><i class="fa-solid fa-at y2mate-theme"></i> <a class="dead-link" target="_blank" href="${video_metadata.uploader_url}">${video_metadata.channel} </a><i class="w3-tag w3-text" data-translate="uploader">${translation.helper.uploader}</i></p>
-           <p class="w3-right w3-tooltip"><i class="fa-solid fa-clock y2mate-theme"></i> ${video_metadata.duration_string} <i class="w3-tag w3-text" data-translate="duration">${translation.helper.duration}</i></p>
+           <p class="w3-left w3-tooltip metadata-info"><i class="fa-solid fa-at metadata-icon "></i> <a class="dead-link" target="_blank" href="${video_metadata.uploader_url}">${video_metadata.channel} </a><i class="w3-tag w3-text" data-translate="uploader">${translation.helper.uploader}</i></p>
+           <p class="w3-tooltip metadata-info-rest"><i class="fa-solid fa-clock metadata-icon "></i> ${video_metadata.duration_string} <i class="w3-tag w3-text" data-translate="duration">${translation.helper.duration}</i></p>
         </div>
         <div class="w3-container">
-           <p class="w3-left w3-tooltip"><i class="fa-solid fa-eye y2mate-theme"></i> ${shortenNumber(video_metadata.others.views_count)} <i class="w3-tag w3-text">${addCommasToNumber(video_metadata.others.views_count)}</i></p>
-           <p class="w3-right w3-tooltip"><i class="fa-solid fa-heart y2mate-theme"></i> ${shortenNumber(video_metadata.others.like_count)}  <i class="w3-tag w3-text">${addCommasToNumber(video_metadata.others.like_count)}</i></p>
+           <p class="w3-left w3-tooltip metadata-info"><i class="fa-solid fa-eye metadata-icon "></i> ${shortenNumber(video_metadata.others.views_count)} <i class="w3-tag w3-text">${addCommasToNumber(video_metadata.others.views_count)}</i></p>
+           <p class="w3-tooltip metadata-info-rest"><i class="fa-solid fa-heart metadata-icon "></i> ${shortenNumber(video_metadata.others.like_count)}  <i class="w3-tag w3-text">${addCommasToNumber(video_metadata.others.like_count)}</i></p>
         </div>
         <div class="w3-container w3-hide-small">
-           <p class="w3-left w3-tooltip metadata-info"><i class="fa-solid fa-tags y2mate-theme"></i> <span data-translate="categories">${translation.helper.categories}</span><i class="w3-tag w3-text"> <span data-translate="search">${translation.helper.search}</span></i></p>
-           <p class="w3-right w3-tooltip"><i class="fa-solid fa-tag y2mate-theme"></i> ${video_category} <i class="w3-tag w3-text"> <span data-translate="tag">${translation.helper.tag}</span></i></p>
+           <p class="w3-left w3-tooltip metadata-info"><i class="fa-solid fa-tags metadata-icon "></i> <span data-translate="categories">${translation.helper.categories}</span><i class="w3-tag w3-text"> <span data-translate="search">${translation.helper.search}</span></i></p>
+           <p class="w3-tooltip metadata-info-rest"><i class="fa-solid fa-tag metadata-icon "></i> ${video_category} <i class="w3-tag w3-text"> <span data-translate="tag">${translation.helper.tag}</span></i></p>
         </div>
         <div class="w3-hide-small video-tags-container w3-tooltip">
         ${htmlVideoTags}
@@ -355,8 +355,8 @@ function renderVideoMetadata(video_metadata) {
         </div>
     </div>
     <div class="w3-container w3-hide-large w3-hide-medium">
-        <p class="w3-left w3-tooltip"><i class="fa-solid fa-tags y2mate-theme"></i> Categories<i class="w3-tag w3-text"> <span data-translate="search">${translation.helper.search}</span></i></p>
-        <p class="w3-right w3-tooltip"><i class="fa-solid fa-tag y2mate-theme"></i> ${video_metadata.others.categories[0]} <i class="w3-tag w3-text"> <span data-translate="tag">${translation.helper.tag}</span></i></p>
+        <p class="w3-left w3-tooltip"><i class="fa-solid fa-tags metadata-icon "></i> ${translation.helper.categories}<i class="w3-tag w3-text"> <span data-translate="search">${translation.helper.search}</span></i></p>
+        <p class="w3-right w3-tooltip"><i class="fa-solid fa-tag metadata-icon "></i> ${video_category} <i class="w3-tag w3-text"> <span data-translate="tag">${translation.helper.tag}</span></i></p>
     </div>
     <div class="w3-container w3-hide-large w3-hide-medium video-tags-container w3-tooltip">
         ${htmlVideoTags}
