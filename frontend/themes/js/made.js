@@ -147,7 +147,7 @@ function renderVideoMetadata(video_metadata) {
         ["96k", translation.helper.unknown, ``],
         ["64k", translation.helper.unknown, `<span class="label label-primary"><small data-translate="smallest">${translation.helper.smallest}</small>`],
     ];
-    if (lazy_loaded){
+    if (lazy_loaded) {
         video_thumbnail_html = `<img alt="Youtube Downloader thumbnail" class="lazyload ythumbnail" src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-src="https://i.ytimg.com/vi/${video_metadata.id}/0.jpg">`
     }
     else {
@@ -379,12 +379,9 @@ function showVideoMetadata(link) {
     // fetch and call renderVideoMetadata
     showLoading();
     console.log("Fetching metadata for url : " + link);
-    var payload = { "url": link };
 
-    postHttpData(
-        getAbsoluteUrl("api/v1/metadata"),
-        payload,
-        function () {
+    try {
+        w3.http(getAbsoluteUrl(`api/v1/metadata?url=${link}`), function () {
             if (this.readyState == 4) {
                 if (this.status == 200) {
                     renderVideoMetadata(JSON.parse(this.responseText));
@@ -393,10 +390,14 @@ function showVideoMetadata(link) {
                 else {
                     showHttpError(this);
                 }
-
             }
-        }
-    );
+        });
+    }
+
+    catch (error) {
+        showError(`${translation.error.unable_to_search_videos} ${error.message}. ${translation.helper.try_again}`);
+    }
+
     console.log("after post request");
 }
 
