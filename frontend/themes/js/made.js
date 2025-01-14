@@ -18,10 +18,10 @@ function showHttpError(request) {
         feedback = JSON.parse(request.responseText);
         if (feedback && typeof feedback === 'object' && 'detail' in feedback) {
             if (typeof feedback.detail === 'object') {
-                showError(feedback.detail[0].msg + " - " + feedback.detail[0].input);
+                showError(translateText(feedback.detail[0].msg + " - " + feedback.detail[0].input));
             }
             else {
-                showError(feedback.detail);
+                showError(translateText(feedback.detail));
             }
         }
         else {
@@ -138,6 +138,7 @@ function renderVideoMetadata(video_metadata) {
     video_metadata.video = video_metadata.video.reverse();
     video_metadata.audio = video_metadata.audio.reverse();
     var htmlVideoTags = createVideoTags(video_metadata.others.tags);
+    var video_category = video_metadata.others.categories[0] ? video_metadata.others.categories[0] : `<span data-translate="unknown">${translation.helper.unknown}</span>`;
     var mp3_audios = [
         ["320k", translation.helper.unknown, `<span class="label label-primary"><small data-translate="largest">${translation.helper.largest}</small>`],
         ["256k", translation.helper.unknown, ``],
@@ -261,7 +262,7 @@ function renderVideoMetadata(video_metadata) {
         </div>
         <div class="w3-container w3-hide-small">
            <p class="w3-left w3-tooltip metadata-info"><i class="fa-solid fa-tags y2mate-theme"></i> <span data-translate="categories">${translation.helper.categories}</span><i class="w3-tag w3-text"> <span data-translate="search">${translation.helper.search}</span></i></p>
-           <p class="w3-right w3-tooltip"><i class="fa-solid fa-tag y2mate-theme"></i> ${video_metadata.others.categories[0]} <i class="w3-tag w3-text"> <span data-translate="tag">${translation.helper.tag}</span></i></p>
+           <p class="w3-right w3-tooltip"><i class="fa-solid fa-tag y2mate-theme"></i> ${video_category} <i class="w3-tag w3-text"> <span data-translate="tag">${translation.helper.tag}</span></i></p>
         </div>
         <div class="w3-hide-small video-tags-container w3-tooltip">
         ${htmlVideoTags}

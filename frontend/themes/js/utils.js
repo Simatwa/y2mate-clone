@@ -43,7 +43,7 @@ const video_patterns = [
     /https?:\/\/youtube\.com\/shorts\/([\w\-_]{11}).*/,
 ];
 
-function formatQualityString(quality, format="") {
+function formatQualityString(quality, format = "") {
     // formats quality for html display
     var quality_string;
     switch (quality) {
@@ -57,34 +57,34 @@ function formatQualityString(quality, format="") {
             break;
 
         case "1080p":
-            quality_string = quality + format +  ` <span class="label label-primary"><small>HD</small>`;
+            quality_string = quality + format + ` <span class="label label-primary"><small>HD</small>`;
             break;
 
         case "1080p50":
         case "1080p60":
-            quality_string = quality + format +  ` <span class="label label-primary"><small>HD+</small>`;
+            quality_string = quality + format + ` <span class="label label-primary"><small>HD+</small>`;
             break;
 
         case "1440p":
-            quality_string = quality + format +  ` <span class="label label-primary"><small>2K</small>`;
+            quality_string = quality + format + ` <span class="label label-primary"><small>2K</small>`;
             break;
 
         case "1440p50":
         case "1440p60":
-            quality_string = quality + format +  ` <span class="label label-primary"><small>2K+</small>`;
+            quality_string = quality + format + ` <span class="label label-primary"><small>2K+</small>`;
             break;
 
         case "2160p":
-            quality_string = quality + format +  ` <span class="label label-primary"><small>4K</small>`;
+            quality_string = quality + format + ` <span class="label label-primary"><small>4K</small>`;
             break;
 
         case "2160p50":
         case "2160p60":
-            quality_string = quality + format +  ` <span class="label label-primary"><small>4K+</small>`;
+            quality_string = quality + format + ` <span class="label label-primary"><small>4K+</small>`;
             break;
 
         default:
-            quality_string = quality +  format;
+            quality_string = quality + format;
     }
 
     return quality_string;
@@ -162,14 +162,14 @@ function shortenNumber(num) {
     let index = -1;
 
     while (num >= 1000 && index < units.length) {
-      num /= 1000;
-      index++;
+        num /= 1000;
+        index++;
     }
 
     return Number(num.toFixed(1)) + units[index];
-  }
+}
 
-function addCommasToNumber(num){
+function addCommasToNumber(num) {
     if (num === undefined || num === null) {
         return "--";
     }
@@ -177,15 +177,15 @@ function addCommasToNumber(num){
 }
 
 
-function createVideoTags(tags){
+function createVideoTags(tags) {
     return tags.slice(0, 13).map(tag => {
         return `<a href="" tag-value="${tag}" class="video-tags">${tag}</a>`;
     }).join(" ");
 }
 
-function addOnClickEventToVideoTags(){
+function addOnClickEventToVideoTags() {
     document.querySelectorAll(".video-tags").forEach(tag => {
-        tag.onclick = function(event){
+        tag.onclick = function (event) {
             event.preventDefault();
             const tagValue = event.target.getAttribute("tag-value");
             document.getElementById("txt-url").value = tagValue;
@@ -194,19 +194,19 @@ function addOnClickEventToVideoTags(){
     });
 }
 
-function checkForSearchParamInCurrentURL(){
+function checkForSearchParamInCurrentURL() {
     const urlParams = new URLSearchParams(window.location.search);
     const searchParam = urlParams.get(query_key);
-    if (searchParam){
+    if (searchParam) {
         document.getElementById("txt-url").value = searchParam;
         searchVideos();
     }
 }
 
-function initHistory(){
+function initHistory() {
     const url = new URL(window.location);
     if (!window.history.state) {
-        window.history.replaceState({url: url.href}, '', url.href);
+        window.history.replaceState({ url: url.href }, '', url.href);
     }
 }
 
@@ -214,7 +214,46 @@ function updateURL(query) {
     const url = new URL(window.location);
     url.searchParams.set(query_key, query);
     if (window.history.state !== null && window.history.state !== undefined && window.history.state.url !== url.href) {
-        console.debug("Updating history "+ url.href);
-        window.history.pushState({url: url.href}, '', url);
+        console.debug("Updating history " + url.href);
+        window.history.pushState({ url: url.href }, '', url);
     }
+}
+
+function postXHttpData(url, data, func) {
+    // Without X-*** headers
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', url);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = func;
+    xhr.send(JSON.stringify(data));
+}
+
+function translateText(text) {
+    // Not functioning in the moment
+    return text;
+    if (current_lang === "en") {
+        return text;
+    }
+
+    postXHttpData(
+        "https://libretranslate.com/translate",
+        {
+            q: text,
+            source: "en",
+            target: current_lang,
+        },
+        function () {
+            if (this.readyState == 4) {
+                if (this.status == 200) {
+                    return JSON.parse(this.responseText).translatedText;
+                }
+                else {
+                    console.error("Failed to translate text", this.responseText);
+                    return text;
+                }
+
+            }
+        }
+    )
+    return text;
 }
