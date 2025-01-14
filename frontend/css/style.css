@@ -2155,13 +2155,11 @@ a.video-thumbnail span:hover {
 }
 
 .metadata-info {
-    /*
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     word-wrap: break-word;
     display: inline-block;
-    */
     max-width: 70%;
 }
 

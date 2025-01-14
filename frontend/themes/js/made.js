@@ -360,7 +360,7 @@ function renderVideoMetadata(video_metadata) {
     </div>
     <div class="w3-container w3-hide-large w3-hide-medium video-tags-container w3-tooltip">
         ${htmlVideoTags}
-        <i class="w3-tag w3-text" data-translate="categories_note">${translation.categories_note}</i>
+        <i class="w3-tag w3-text metadata-info" data-translate="categories_note">${translation.categories_note}</i>
     </div>
     <div class="clearfix">
     </div>
