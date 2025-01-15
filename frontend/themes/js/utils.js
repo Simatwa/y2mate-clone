@@ -146,8 +146,8 @@ function setRequestHeaders(xhr) {
     // Sets request headers for xhr
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.setRequestHeader("Accept", "application/json");
-    xhr.setRequestHeader("X-Lang", translation.lang)
-    xhr.setRequestHeader("X-Application", "y2mate-clone")
+    xhr.setRequestHeader("X-Lang", current_lang);
+    xhr.setRequestHeader("X-Application", "y2mate-clone");
 }
 
 

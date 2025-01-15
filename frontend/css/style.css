@@ -2175,8 +2175,11 @@ a.video-thumbnail span:hover {
     height: 37px;
 }
 
-.metadata-icon,.media-icon:hover {
+.metadata-icon {
     color: #ff0068;
+}
+.media-icon:hover{
+    color: #b6093d;
 }
 
 .video-tags {
