@@ -148,7 +148,7 @@ function renderVideoMetadata(video_metadata) {
         ["64k", translation.helper.unknown, `<span class="label label-primary"><small data-translate="smallest">${translation.helper.smallest}</small>`],
     ];
     if (lazy_loaded) {
-        video_thumbnail_html = `<img alt="Youtube Downloader thumbnail" class="lazyload ythumbnail" src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-src="https://i.ytimg.com/vi/${video_metadata.id}/0.jpg">`
+        video_thumbnail_html = `<img alt="Youtube Downloader thumbnail" class="lazyload ythumbnail vid-thumbnail" src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-src="https://i.ytimg.com/vi/${video_metadata.id}/0.jpg">`
     }
     else {
         video_thumbnail_html = `<img alt="Youtube Downloader thumbnail" src="https://i.ytimg.com/vi/${video_metadata.id}/0.jpg">`
@@ -271,7 +271,7 @@ function renderVideoMetadata(video_metadata) {
        </div>
     </div>
     <div class="col-xs-12 col-sm-7 col-md-7">
-        <ul class="nav nav-tabs justify-content-start" id="selectTab" role="tablist">
+        <ul class="nav nav-tabs justify-content-start download-table-header" id="selectTab" role="tablist">
             <li class="nav-item p-0 active" role="presentation">
                 <button class="w3-button" id="videoButton" onclick="showVideoOptions()">
                     <i class="fa-solid fa-video"></i>

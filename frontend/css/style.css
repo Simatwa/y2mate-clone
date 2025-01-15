@@ -1654,7 +1654,7 @@ a.video-thumbnail span {
     width: 100%;
     height: 100%;
     position: absolute;
-    background: url(../images/play-btn.png) no-repeat;
+    background: url(/images/play-btn.png) no-repeat;
     background-position: 50% 50%;
     background-size: 186%;
     left: 0;
@@ -2087,7 +2087,7 @@ a.video-thumbnail span:hover {
 
 .p-title:hover,
 .p-title:focus,
-.h-title:hover{
+.h-title:hover {
     color: #c10841;
 }
 
@@ -2155,7 +2155,7 @@ a.video-thumbnail span:hover {
 
 .metadata-info {
     white-space: nowrap;
-    overflow:scroll;
+    overflow: scroll;
     text-overflow: ellipsis;
     word-wrap: break-word;
     display: inline-block;
@@ -2171,14 +2171,16 @@ a.video-thumbnail span:hover {
     text-align: left;
 }
 
-.metadata-info:hover, .metadata-info-rest:hover{
+.metadata-info:hover,
+.metadata-info-rest:hover {
     height: 37px;
 }
 
 .metadata-icon {
     color: #ff0068;
 }
-.media-icon:hover{
+
+.media-icon:hover {
     color: #b6093d;
 }
 
@@ -2200,9 +2202,9 @@ a.video-thumbnail span:hover {
     background-color: #337ab7;
 }
 
-.video-tags-container{
-    text-align:left;
-    justify-content:space-evenly
+.video-tags-container {
+    text-align: left;
+    justify-content: space-evenly
 }
 
 @media (max-width: 480px) {
@@ -2222,11 +2224,24 @@ a.video-thumbnail span:hover {
 
     .metadata-info-rest {
         text-align: right;
+        direction: rtl;
+    }
+
+    .download-table-header {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
     }
 }
 
 @media (min-width: 480px) {
     #new-base-url {
         max-width: 65%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .vid-thumbnail {
+        max-height: 320px !important;
     }
 }
