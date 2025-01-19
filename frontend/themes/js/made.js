@@ -531,7 +531,8 @@ function processVideoForDownload(video_id, quality, bitrate) {
     const payload = {
         "bitrate": bitrate,
         "quality": quality,
-        "url": video_id
+        "url": video_id,
+        "x_lang" : current_lang
     };
     const is_processing_video = /(ultralow|low|medium)/.test(quality) ? false : true;
 
