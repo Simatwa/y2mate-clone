@@ -628,8 +628,9 @@ function processVideoForDownload(video_id, quality, bitrate) {
 
     function processError(error) {
         progressBarController.stopCompletely();
-        errorMessage = `WebsocketError : ${error.message}`;
-        showError(errorMessage);
+        errorMessage = `WebsocketError : ${error.message ? error.message : "Unknown"}.
+        Is the api still alive at <a class="active" href="${api_base_url}">${api_base_url}</a>`;
+        showError(errorMessage, true);
     }
 
     ws.onopen = function (event) {

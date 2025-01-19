@@ -24,22 +24,23 @@
     "video_audio_description": "ビデオと音楽を直接ダウンロード。",
     "easy_download": "簡単ダウンロード",
     "easy_download_description": "すべてのブラウザと完全に互換性があります。",
-    "how_to_download": "<p>PCにビデオを直接ダウンロードできない場合は、以下のガイドラインに従ってください：</p><p>ステップ1：希望する形式を選択し、「ダウンロード」ボタンをクリックします。</p><p>ステップ2：新しいウィンドウで、「CTRL + S」を押してビデオを保存するか、ビデオを右クリックして「ビデオとして保存」を選択します。</p>",
+    "how_to_download": "<p>PCに直接ビデオをダウンロードできない場合は、以下のガイドラインに従ってください：</p><p>ステップ1：希望する形式を選択し、「ダウンロード」ボタンをクリックします。</p><p>ステップ2：新しいウィンドウで、「CTRL + S」を押してビデオを保存するか、ビデオを右クリックして「ビデオとして保存」を選択します。</p>",
     "processing": "処理中...",
-    "processing_message": "ファイルの準備が完了するまでお待ちください",
+    "processing_message": "ファイルのダウンロード準備中です。しばらくお待ちください",
     "thank_you_note": "私たちのサービスをご利用いただきありがとうございます。<a href=\"//github.com/Simatwa/y2mate-clone\">プロジェクト</a>を友達と共有していただけると大変助かります。<strong>ありがとうございます。</strong>",
     "change_api_title": "APIのベースURLを変更",
     "configure": "設定",
     "base_url_note": "すべてのAPIリクエストが送信される場所。",
     "reset_api_note": "デフォルトに設定するには入力を空にします。",
     "host_api_note": "独自のAPIサーバーをホストできます。ソースコードは<a class=\"active\" href=\"//github.com/Simatwa/youtube-downloader\" target=\"_blank\">Youtube-Downloader</a>から見つけることができます。<strong>お楽しみください。</strong>",
-    "based_on_note": "<a href=\"//github.com/Simatwa/youtube-downloader-api\" class=\"active\" target=\"_blank\">Youtube-Downloader-API</a>に基づいています",
+    "based_on_note": "<a href=\"//github.com/Simatwa/youtube-downloader-api\" class=\"active\" target=\"_blank\">Youtube-Downloader-API</a>に基づく",
     "inspired_by_note": "<a href=\"//y2mate.com\" target=\"_blank\" class=\"active\">y2mate.com</a>に触発されました",
-    "categories_note": "検索するにはクリックしてください",
+    "categories_note": "検索するにはクリック",
+    "converting_to_mp3": "MP3に変換中",
     "error": {
-        "unexpected": "そのリクエストを処理中に予期しないエラーが発生しました！",
+        "unexpected": "リクエストの処理中に予期しないエラーが発生しました！",
         "unable_to_contact_api": "APIに連絡できません。サーバーがまだ稼働しているか確認してください：",
-        "unable_to_search_videos": "のためにビデオを検索できません",
+        "unable_to_search_videos": "次の理由でビデオを検索できませんでした：",
         "empty_input": "入力は空にできません！",
         "invalid_base_url_protocol": "ベースURLには<strong>http</strong>または<strong>https</strong>のプロトコルが必要です",
         "invalid_base_url": "REST APIのベースURLが無効です！"
@@ -65,6 +66,11 @@
         "duration": "期間",
         "categories": "カテゴリー",
         "tag": "タグ",
-        "search": "検索"
+        "search": "検索",
+        "download_speed": "ダウンロード速度",
+        "time_remaining": "残り時間",
+        "downloading": "ダウンロード中",
+        "merging": "マージ中",
+        "post_processing": "後処理中"
     }
 }

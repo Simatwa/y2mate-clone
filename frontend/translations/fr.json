@@ -11,7 +11,7 @@
     "license_intro": "En utilisant ce service, vous adhérez à son",
     "license_text": "licence",
     "youtube_video_downloader": "Téléchargeur de vidéos YouTube",
-    "youtube_video_downloader_description": "Y2mate vous permet de convertir et de télécharger des vidéos depuis YouTube en Mp3, Mp4 en qualité HD. Y2mate prend en charge le téléchargement des formats vidéo courants tels que : MP4, M4A, MP3, WEBM, etc. Vous pouvez télécharger des vidéos depuis YouTube sans interruption.",
+    "youtube_video_downloader_description": "Y2mate vous permet de convertir et de télécharger des vidéos depuis YouTube en Mp3, Mp4 en qualité HD. Y2mate prend en charge le téléchargement de formats vidéo courants tels que : MP4, M4A, MP3, WEBM, etc. Vous pouvez télécharger des vidéos depuis YouTube sans interruption.",
     "download_instructions": "Instructions",
     "download_instruction_one": "1. Recherchez par nom ou collez directement le lien de la vidéo que vous souhaitez convertir",
     "download_instruction_two": "2. Cliquez sur le bouton \"Commencer\" pour lancer le processus de conversion",
@@ -36,6 +36,7 @@
     "based_on_note": "Basé sur <a href=\"//github.com/Simatwa/youtube-downloader-api\" class=\"active\" target=\"_blank\">Youtube-Downloader-API</a>",
     "inspired_by_note": "Inspiré par <a href=\"//y2mate.com\" target=\"_blank\" class=\"active\">y2mate.com</a>",
     "categories_note": "Cliquez sur n'importe lequel pour rechercher",
+    "converting_to_mp3" : "Conversion en MP3",
     "error": {
         "unexpected": "Une erreur inattendue s'est produite lors du traitement de cette demande !",
         "unable_to_contact_api": "Impossible de contacter l'API. Vérifiez si le serveur est toujours en ligne à :",
@@ -65,6 +66,11 @@
         "duration": "Durée",
         "categories": "Catégories",
         "tag": "Étiquette",
-        "search": "Rechercher"
+        "search": "Recherche",
+        "download_speed" : "Vitesse de téléchargement",
+        "time_remaining" : "Temps restant",
+        "downloading" : "Téléchargement",
+        "merging": "Fusion",
+        "post_processing": "Post-traitement"
     }
 }

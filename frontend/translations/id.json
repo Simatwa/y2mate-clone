@@ -1,7 +1,7 @@
 {
     "lang": "id",
     "title": "Pengunduh YouTube - Unduh video YouTube dalam MP3, M4A, WEBM & MP4",
-    "description": "Unduh video online dari YouTube GRATIS ke PC, ponsel. Mendukung pengunduhan semua format: MP4, 3GP, WebM, video HD, konversi YouTube ke MP3, M4A",
+    "description": "Unduh video online dari YouTube secara GRATIS ke PC, ponsel. Mendukung pengunduhan semua format: MP4, 3GP, WebM, video HD, konversi YouTube ke MP3, M4A",
     "nav_star_on_github": "Bintang di GitHub",
     "nav_video_downloader": "Pengunduh Video",
     "nav_change_baseurl": "URL Dasar API",
@@ -17,14 +17,14 @@
     "download_instruction_two": "2. Klik tombol \"Mulai\" untuk memulai proses konversi",
     "download_instruction_three": "3. Pilih format video/audio yang ingin Anda unduh, lalu klik tombol \"Unduh\"",
     "features_header": "Fitur",
-    "features_data": "<p>• Unduhan tanpa batas dan selalu gratis</p><p>• Konverter video berkecepatan tinggi</p><p>• Tidak perlu registrasi</p><p>• Mendukung pengunduhan dengan format populer</p>",
+    "features_data": "<p>• Unduhan tak terbatas dan selalu gratis</p><p>• Konverter video berkecepatan tinggi</p><p>• Tidak perlu registrasi</p><p>• Mendukung pengunduhan dengan format populer</p>",
     "free_download": "Unduhan Gratis",
-    "unlimited_conversion": "Konversi tanpa batas dan unduhan gratis.",
+    "unlimited_conversion": "Konversi tak terbatas dan unduhan gratis.",
     "video_audio": "Video &amp; Audio",
     "video_audio_description": "Unduh Video &amp; Musik Langsung.",
     "easy_download": "Unduhan Mudah",
     "easy_download_description": "Sepenuhnya kompatibel dengan semua browser.",
-    "how_to_download": "<p>Jika Anda tidak dapat langsung mengunduh video ke PC Anda, silakan ikuti panduan di bawah ini:</p><p>Langkah1: Pilih format yang Anda inginkan dan klik tombol \"Unduh\".</p><p>Langkah2: Di jendela baru, tekan \"CTRL + S\" untuk menyimpan video ATAU klik kanan pada video, lalu pilih \"Simpan sebagai Video\".</p>",
+    "how_to_download": "<p>Jika Anda tidak dapat langsung mengunduh video ke PC Anda, ikuti panduan di bawah ini:</p><p>Langkah1: Pilih format yang Anda inginkan dan klik tombol \"Unduh\".</p><p>Langkah2: Di jendela baru, tekan \"CTRL + S\" untuk menyimpan video ATAU klik kanan pada video, lalu pilih \"Simpan sebagai Video\".</p>",
     "processing": "Memproses...",
     "processing_message": "Harap tunggu sementara file sedang dipersiapkan untuk diunduh",
     "thank_you_note": "Terima kasih telah menggunakan layanan kami. Jika Anda bisa membagikan <a href=\"//github.com/Simatwa/y2mate-clone\">proyek</a> kami dengan teman-teman Anda, itu akan sangat membantu.<strong>Terima kasih.</strong>",
@@ -36,8 +36,9 @@
     "based_on_note": "Berdasarkan <a href=\"//github.com/Simatwa/youtube-downloader-api\" class=\"active\" target=\"_blank\">Youtube-Downloader-API</a>",
     "inspired_by_note": "Terinspirasi oleh <a href=\"//y2mate.com\" target=\"_blank\" class=\"active\">y2mate.com</a>",
     "categories_note": "Klik salah satu untuk mencari",
+    "converting_to_mp3" : "Mengonversi ke MP3",
     "error": {
-        "unexpected": "Terjadi kesalahan yang diharapkan saat menangani permintaan itu!",
+        "unexpected": "Terjadi kesalahan yang tidak terduga saat menangani permintaan itu!",
         "unable_to_contact_api": "Tidak dapat menghubungi API. Periksa apakah server masih hidup di :",
         "unable_to_search_videos": "Tidak dapat mencari video karena ",
         "empty_input": "Input tidak boleh kosong!",
@@ -65,6 +66,11 @@
         "duration": "Durasi",
         "categories": "Kategori",
         "tag": "Tag",
-        "search": "Cari"
+        "search": "Cari",
+        "download_speed" : "Kecepatan unduh",
+        "time_remaining" : "Waktu tersisa",
+        "downloading" : "Mengunduh",
+        "merging": "Menggabungkan",
+        "post_processing": "Pasca-pemrosesan"
     }
 }

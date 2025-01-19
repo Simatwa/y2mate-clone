@@ -1,6 +1,6 @@
 {
     "lang": "es",
-    "title": "Descargador de YouTube - Descarga videos de YouTube en MP3, M4A, WEBM y MP4",
+    "title": "Descargador de YouTube - Descargar videos de YouTube en MP3, M4A, WEBM y MP4",
     "description": "Descarga videos en línea de YouTube GRATIS a PC, móvil. Soporta la descarga de todos los formatos: MP4, 3GP, WebM, videos HD, convierte YouTube a MP3, M4A",
     "nav_star_on_github": "Estrella en GitHub",
     "nav_video_downloader": "Descargador de Videos",
@@ -28,7 +28,7 @@
     "processing": "Procesando...",
     "processing_message": "Por favor espera mientras se prepara el archivo para descargar",
     "thank_you_note": "Gracias por usar nuestro servicio. Si pudieras compartir nuestro <a href=\"//github.com/Simatwa/y2mate-clone\">proyecto</a> con tus amigos, sería de gran ayuda.<strong>Gracias.</strong>",
-    "change_api_title": "Cambiar la URL Base de la API",
+    "change_api_title": "Cambiar URL Base de la API",
     "configure": "Configurar",
     "base_url_note": "Donde se enviarán todas las solicitudes de API.",
     "reset_api_note": "Entrada vacía para establecer como predeterminado.",
@@ -36,13 +36,14 @@
     "based_on_note": "Basado en <a href=\"//github.com/Simatwa/youtube-downloader-api\" class=\"active\" target=\"_blank\">Youtube-Downloader-API</a>",
     "inspired_by_note": "Inspirado por <a href=\"//y2mate.com\" target=\"_blank\" class=\"active\">y2mate.com</a>",
     "categories_note": "Haz clic en cualquiera para buscar",
+    "converting_to_mp3": "Convirtiendo a MP3",
     "error": {
         "unexpected": "¡Ocurrió un error inesperado al manejar esa solicitud!",
         "unable_to_contact_api": "No se puede contactar con la API. Verifica si el servidor sigue activo en:",
-        "unable_to_search_videos": "No se pueden buscar videos debido a",
+        "unable_to_search_videos": "No se pueden buscar videos debido a ",
         "empty_input": "¡La entrada no puede estar vacía!",
         "invalid_base_url_protocol": "La URL base debe tener un protocolo, es decir, <strong>http</strong> o <strong>https</strong>",
-        "invalid_base_url": "¡URL base no válida para una API REST!"
+        "invalid_base_url": "¡URL base inválida para una API REST!"
     },
     "helper": {
         "try_again": "Inténtalo de nuevo.",
@@ -65,6 +66,11 @@
         "duration": "Duración",
         "categories": "Categorías",
         "tag": "Etiqueta",
-        "search": "Buscar"
+        "search": "Buscar",
+        "download_speed": "Velocidad de descarga",
+        "time_remaining": "Tiempo restante",
+        "downloading": "Descargando",
+        "merging": "Uniendo",
+        "post_processing": "Post-procesamiento"
     }
 }
