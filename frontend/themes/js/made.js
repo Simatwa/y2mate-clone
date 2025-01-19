@@ -495,8 +495,10 @@ function renderDownloadOptions(processedMedia) {
     w3.show("#process-result");
 }
 
-function processVideoForDownloadOLD(video_id, quality, bitrate = null) {
+function processVideoForDownloadOverHttp(video_id, quality, bitrate = null) {
     // Initiates download process
+    /* It's of no use at the moment since we shifted to using websocket
+    which is way more granular */
     const progressBarController = displayProgressBar(100, 16);
     const payload = {
         "bitrate": bitrate,
@@ -539,12 +541,12 @@ function processVideoForDownload(video_id, quality, bitrate) {
 
     const convertingMessageContainer = document.getElementById("cp_converting");
 
-    convertingMessageContainer.innerHTML = "Processing...";
+    convertingMessageContainer.innerHTML = translation.processing;
 
     const ws = new WebSocket(getAbsoluteUrl('api/v1/download/ws', true));
 
     function updateProgressMessage(download_percentage) {
-        let message = "Downloading ";
+        let message = `${translation.helper.downloading} `;
         let description = '';
         if (is_processing_video) {
 
@@ -553,22 +555,22 @@ function processVideoForDownload(video_id, quality, bitrate) {
             }
 
             if (finished_download_count == 0) {
-                description = `<strong>Video</strong> (${download_percentage}, 1/2)`;
+                description = `<strong>${translation.helper.video}</strong> (${download_percentage}, 1/2)`;
             }
             else if (finished_download_count == 1) {
-                description = `<strong>Audio</strong> (${download_percentage}, 2/2)`;
+                description = `<strong>${translation.helper.audio}</strong> (${download_percentage}, 2/2)`;
             }
 
             else {
-                message = "Merging (Audio & Video)";
+                message = `${translation.helper.merging} (${translation.helper.audio} & ${translation.helper.video})`;
             }
         }
         else {
             if (finished_download_count == 0) {
-                description = `<strong>Audio</strong> (${download_percentage}, 1/1)`;
+                description = `<strong>${translation.helper.audio}</strong> (${download_percentage}, 1/1)`;
             }
             else {
-                message = bitrate ? `Converting to MP3 (${bitrate}bps)` : "Post-processing"
+                message = bitrate ? `${translation.converting_to_mp3} (${bitrate}bps)` : translation.helper.post_processing;
             }
         }
         convertingMessageContainer.innerHTML = message + description + " ...";
@@ -604,7 +606,7 @@ function processVideoForDownload(video_id, quality, bitrate) {
             case "error":
                 progressBarController.stop();
                 let errorReport = response.detail;
-                console.log('Websocket error (status) : ' + JSON.stringify(errorReport));
+                console.error('Websocket error (status) : ' + JSON.stringify(errorReport));
                 let processResultContainer = document.getElementById("process-result");
                 processResultContainer.innerHTML = `<div class="text-center alert alert-danger" role="alert"><p>${errorReport.text}</p></div>`;
                 processResultContainer.style.display = 'block';
@@ -612,7 +614,7 @@ function processVideoForDownload(video_id, quality, bitrate) {
                 break;
 
             default:
-                console.error('Unexpected websocket status : ' + status);
+                console.error('Unexpected websocket status : ' + status, response);
 
         }
     }

@@ -2,8 +2,6 @@
 var api_base_url;
 var default_api_base_url = window.location.origin + "/";
 
-var websocket_protocol_scheme = `${/^https/i.test(window.location.origin) ? 'wss' : 'ws'}://`;
-
 var api_base_url_key = "api_base_url";
 
 var special_base_url_msg = "";
@@ -105,6 +103,7 @@ function isYoutubeVideoLink(query) {
 
 function getAbsoluteUrl(relative_url, websocket = false) {
     let url = new URL(api_base_url);
+    let websocket_protocol_scheme = `${/^https/i.test(api_base_url) ? 'wss' : 'ws'}://`;
     return websocket ? `${websocket_protocol_scheme}${url.host}/${relative_url}` : `${api_base_url}${relative_url}`;
 }
 
@@ -240,7 +239,7 @@ function postXHttpData(url, data, func) {
 function translateText(text) {
     // Not functioning at the moment
     /*
-    The idea was to convert the server messages to the user's locale using 
+    The idea was to translate the server messages to the user's locale using 
     an external REST-API. I didn't find any free API so I ended up not implementing it.
     */
     return text;

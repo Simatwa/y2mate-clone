@@ -36,6 +36,7 @@
     "based_on_note": "Based on <a href=\"//github.com/Simatwa/youtube-downloader-api\" class=\"active\" target=\"_blank\">Youtube-Downloader-API</a>",
     "inspired_by_note": "Inspired by <a href=\"//y2mate.com\" target=\"_blank\" class=\"active\">y2mate.com</a>",
     "categories_note": "Click any to search",
+    "converting_to_mp3" : "Converting to MP3",
     "error": {
         "unexpected": "An expected error occured while handling that request!",
         "unable_to_contact_api": "Unable to contact API. Check if the server is still alive at :",
@@ -67,6 +68,9 @@
         "tag": "Tag",
         "search": "Search",
         "download_speed" : "Download speed",
-        "time_remaining" : "Time remaining"
+        "time_remaining" : "Time remaining",
+        "downloading" : "Downloading",
+        "merging": "Merging",
+        "post_processing": "Post-processing"
     }
 }
