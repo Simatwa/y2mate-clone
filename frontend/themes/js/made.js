@@ -372,6 +372,7 @@ function renderVideoMetadata(video_metadata) {
     videoTitleElement.innerHTML = `<b>${video_metadata.title}</b>`;
     load_img_lazy();
     setTimeout(addOnClickEventToVideoTags, 100);
+    checkBrowserAndSetOverflow();
 
 }
 
@@ -400,6 +401,8 @@ function showVideoMetadata(link) {
 
     console.log("after post request");
 }
+
+// The approach below here is disgusting but it gets the work done ):-
 
 function showVideoOptions() {
     videoElement = document.getElementById("mp4");
@@ -545,7 +548,7 @@ function processVideoForDownload(video_id, quality, bitrate) {
         let description = '';
         if (is_processing_video) {
 
-            if(!download_percentage){
+            if (!download_percentage) {
                 return;
             }
 

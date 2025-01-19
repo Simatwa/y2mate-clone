@@ -2,7 +2,7 @@
 var api_base_url;
 var default_api_base_url = window.location.origin + "/";
 
-var websocket_protocol_scheme = `${/^https/i.test(window.location.origin) ? 'wss' : 'ws' }://`;
+var websocket_protocol_scheme = `${/^https/i.test(window.location.origin) ? 'wss' : 'ws'}://`;
 
 var api_base_url_key = "api_base_url";
 
@@ -15,6 +15,8 @@ var current_lang = "en";
 var query_key = "query";
 
 var search_results_limit = 50;
+
+var isChrome = /Chrome/.test(navigator.userAgent);
 
 if (/^https.+/.test(window.location.origin)) {
     // Non-loopback hosts not allowed
@@ -236,7 +238,11 @@ function postXHttpData(url, data, func) {
 }
 
 function translateText(text) {
-    // Not functioning in the moment
+    // Not functioning at the moment
+    /*
+    The idea was to convert the server messages to the user's locale using 
+    an external REST-API. I didn't find any free API so I ended up not implementing it.
+    */
     return text;
     if (current_lang === "en") {
         return text;
@@ -263,4 +269,21 @@ function translateText(text) {
         }
     )
     return text;
+}
+
+function checkBrowserAndSetOverflow() {
+    /*
+    Having overflow = scroll is a very cool thing in Browsers such as
+    Firefox but again so worse in Chrome. I prefer not having it there.
+    */
+    if (isChrome) {
+        console.debug("Overflow hidden");
+        var elements = document.querySelectorAll('.metadata-info-rest, .metadata-info');
+        elements.forEach(element => {
+            element.style.overflow = 'hidden';
+        });
+    }
+    else {
+        console.debug('Overflow not hidden');
+    }
 }

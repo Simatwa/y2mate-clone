@@ -2213,7 +2213,7 @@ a.video-thumbnail span:hover {
     padding: 5px;
     border-radius: 6px;
     margin-top: 5px;
-    max-width: 45%;
+    width: 45%;
 }
 
 .indicator-tag{
@@ -2250,9 +2250,14 @@ a.video-thumbnail span:hover {
         justify-content: space-between;
         width: 100%;
     }
-
+/*
     #eta-indicator-container{
         direction: rtl;
+    }
+        */
+
+    .download-indicator {
+        height: 80px;
     }
 }
 
