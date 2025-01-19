@@ -2207,6 +2207,24 @@ a.video-thumbnail span:hover {
     justify-content: space-evenly
 }
 
+.download-indicator {
+    font-size: medium;
+    background: linear-gradient(115deg, #4fbe4f, #f0ad4e);
+    padding: 5px;
+    border-radius: 6px;
+    margin-top: 5px;
+    max-width: 45%;
+}
+
+.indicator-tag{
+    color: white;
+}
+
+#speed-indicator, #eta-indicator {
+    color: white;
+    text-decoration: italic;
+}
+
 @media (max-width: 480px) {
     .change-button {
         margin-top: 10px;
@@ -2231,6 +2249,10 @@ a.video-thumbnail span:hover {
         display: flex;
         justify-content: space-between;
         width: 100%;
+    }
+
+    #eta-indicator-container{
+        direction: rtl;
     }
 }
 

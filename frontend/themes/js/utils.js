@@ -2,9 +2,12 @@
 var api_base_url;
 var default_api_base_url = window.location.origin + "/";
 
+var websocket_protocol_scheme = `${/^https/i.test(window.location.origin) ? 'wss' : 'ws' }://`;
+
 var api_base_url_key = "api_base_url";
 
 var special_base_url_msg = "";
+
 var allowed_hosts_x_pattern;
 
 var current_lang = "en";
@@ -98,9 +101,13 @@ function isYoutubeVideoLink(query) {
     });
 }
 
-function getAbsoluteUrl(relative_url) {
-    return `${api_base_url}${relative_url}`;
+function getAbsoluteUrl(relative_url, websocket = false) {
+    let url = new URL(api_base_url);
+    return websocket ? `${websocket_protocol_scheme}${url.host}/${relative_url}` : `${api_base_url}${relative_url}`;
 }
+
+
+console.log(getAbsoluteUrl('api/v1/download/ws', true));
 
 function showBaseURLFormError(message, is_html = false) {
     // Renders error message to the changeBaseURL form modal

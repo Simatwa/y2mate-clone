@@ -65,6 +65,8 @@
         "duration": "Duration",
         "categories": "Categories",
         "tag": "Tag",
-        "search": "Search"
+        "search": "Search",
+        "download_speed" : "Download speed",
+        "time_remaining" : "Time remaining"
     }
 }

@@ -438,10 +438,14 @@ function showOtherOptions() {
     w3.removeClass("#videoButton", "active-btn");
 }
 
-function displayProgressBar(maxWidth, updateRate = 16) {
+function displayProgressBar() {
     w3.show("#process-waiting");
     document.getElementById("process-result").innerHTML = "";
     const progressBar = document.getElementById("progress-bar");
+    const speedIndicator = document.getElementById("speed-indicator");
+    const etaIndicator = document.getElementById("eta-indicator");
+    speedIndicator.innerHTML = "-:-";
+    etaIndicator.innerHTML = "-:-";
     progressBar.style.width = `0%`;
 
     if (!progressBar) {
@@ -449,29 +453,24 @@ function displayProgressBar(maxWidth, updateRate = 16) {
         return;
     }
 
-    let currentWidth = 0;
-    let intervalId = null;
-
-    function updateProgress() {
-        currentWidth += (1 / updateRate) * maxWidth;
-        progressBar.style.width = `${currentWidth}%`;
-
-        if (currentWidth >= maxWidth) {
-            clearInterval(intervalId);
-        }
-    }
-
-    intervalId = setInterval(updateProgress, 25000 / updateRate);
-
     return {
+
+        update: (percent, speed, eta) => {
+            progressBar.style.width = percent;
+            speedIndicator.innerHTML = speed;
+            etaIndicator.innerHTML = eta;
+        },
+
         stop: () => {
             progressBar.style.width = `100%`;
-            setInterval(updateProgress, 1000);
             w3.hide("#process-waiting");
-            if (intervalId) {
-                clearInterval(intervalId);
-            }
             progressBar.style.width = `0%`;
+        },
+
+        stopCompletely: () => {
+            progressBar.style.width = `100%`;
+            w3.hide("#process-waiting");
+            w3.hide("#process-result");
         }
     };
 }
@@ -490,9 +489,10 @@ function renderDownloadOptions(processedMedia) {
 
     processedResultsContainer = document.getElementById("process-result");
     processedResultsContainer.innerHTML = download_tmpl;
+    w3.show("#process-result");
 }
 
-function processVideoForDownload(video_id, quality, bitrate = null) {
+function processVideoForDownloadOLD(video_id, quality, bitrate = null) {
     // Initiates download process
     const progressBarController = displayProgressBar(100, 16);
     const payload = {
@@ -512,7 +512,7 @@ function processVideoForDownload(video_id, quality, bitrate = null) {
                 }
                 else {
                     progressBarController.stop();
-                    processResultContainer = document.getElementById("process-result");
+                    let processResultContainer = document.getElementById("process-result");
                     processResultContainer.innerHTML = `<div class="text-center alert alert-danger" role="alert"><p>${jsonified_response.detail}</p></div>`;
                 }
 
@@ -520,6 +520,123 @@ function processVideoForDownload(video_id, quality, bitrate = null) {
         }
     );
 
+}
+
+function processVideoForDownload(video_id, quality, bitrate) {
+    const payload = {
+        "bitrate": bitrate,
+        "quality": quality,
+        "url": video_id
+    };
+    const is_processing_video = /(ultralow|low|medium)/.test(quality) ? false : true;
+
+    var finished_download_count = 0;
+
+    const progressBarController = displayProgressBar();
+
+    const convertingMessageContainer = document.getElementById("cp_converting");
+
+    convertingMessageContainer.innerHTML = "Processing...";
+
+    const ws = new WebSocket(getAbsoluteUrl('api/v1/download/ws', true));
+
+    function updateProgressMessage(download_percentage) {
+        let message = "Downloading ";
+        let description = '';
+        if (is_processing_video) {
+
+            if(!download_percentage){
+                return;
+            }
+
+            if (finished_download_count == 0) {
+                description = `<strong>Video</strong> (${download_percentage}, 1/2)`;
+            }
+            else if (finished_download_count == 1) {
+                description = `<strong>Audio</strong> (${download_percentage}, 2/2)`;
+            }
+
+            else {
+                message = "Merging (Audio & Video)";
+            }
+        }
+        else {
+            if (finished_download_count == 0) {
+                description = `<strong>Audio</strong> (${download_percentage}, 1/1)`;
+            }
+            else {
+                message = bitrate ? `Converting to MP3 (${bitrate}bps)` : "Post-processing"
+            }
+        }
+        convertingMessageContainer.innerHTML = message + description + " ...";
+    }
+
+    function processNewMessage(event) {
+        // ws.onmessage
+        let response = JSON.parse(event.data);
+        const status = response['status'];
+
+        switch (status) {
+            case "downloading":
+                let progress = response.detail;
+                progressBarController.update(progress.progress, progress.speed, progress.eta);
+                updateProgressMessage(progress.progress);
+                break;
+
+            case "finished":
+                finished_download_count += 1;
+                let finishedDownloadReport = response.detail;
+                updateProgressMessage();
+                console.log(`Download finished for file - ${finishedDownloadReport.filename}`);
+                break;
+
+            case "completed":
+                progressBarController.stop();
+                let downloadReport = response.detail;
+                console.log("Download completed for file: " + downloadReport.filename);
+                renderDownloadOptions(downloadReport);
+                ws.close();
+                break;
+
+            case "error":
+                progressBarController.stop();
+                let errorReport = response.detail;
+                console.log('Websocket error (status) : ' + JSON.stringify(errorReport));
+                let processResultContainer = document.getElementById("process-result");
+                processResultContainer.innerHTML = `<div class="text-center alert alert-danger" role="alert"><p>${errorReport.text}</p></div>`;
+                processResultContainer.style.display = 'block';
+                ws.close();
+                break;
+
+            default:
+                console.error('Unexpected websocket status : ' + status);
+
+        }
+    }
+
+    function processError(error) {
+        progressBarController.stopCompletely();
+        errorMessage = `WebsocketError : ${error.message}`;
+        showError(errorMessage);
+    }
+
+    ws.onopen = function (event) {
+        console.log("Websocket opened");
+        ws.send(JSON.stringify(payload));
+    }
+
+    ws.onmessage = processNewMessage;
+    ws.onerror = processError;
+    ws.onclose = function (event) {
+        progressBarController.stop();
+        console.log("Websocket closed");
+    }
+
+    let cancelDownloadButton = document.getElementById("hide-processing");
+    cancelDownloadButton.addEventListener('click', (e) => {
+        progressBarController.stopCompletely();
+        ws.close();
+    });
 }
 
 function startConvert(quality, bitrate = null) {

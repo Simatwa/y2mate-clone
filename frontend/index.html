@@ -390,7 +390,7 @@
         <div class="modal-content w3-animate-zoom">
           <div class="modal-header">
             <button aria-label="Close" class="close" data-dismiss="modal" type="button"
-              onclick="w3.hide('#progressModal')">
+              onclick="w3.hide('#progressModal')" id="hide-processing">
               <span aria-hidden="true">
                 ×
               </span>
@@ -411,8 +411,22 @@
                 </span>
               </div>
               <div class="w3-container">
-                <img alt="loading" style="display: bloc" class="m-t" id="loading_img" src="./images/loading.gif" />
+                <div class="w3-left download-indicator">
+                  <strong><span id="speed-indicator"></span></strong>
+                  <span class="indicator-tag w3-text">
+                    (<span data-translate="download_speed">Download Speed</span>)
+                  </span>
+                </div>
+
+                <div class="w3-right download-indicator" id="eta-indicator-container">
+                  <span class="indicator-tag w3-text">
+                    (<span data-translate="time_remaining">Time remaining</span>)
+                  </span>
+                  <strong><span id="eta-indicator"></span></strong>
+                </div>
+
               </div>
+              <img alt="loading" style="display: bloc" class="m-t" id="loading_img" src="./images/loading.gif" />
               <p class="p-t">
                 <b data-translate="processing_message">
                   Please wait while the file is being prepared for downloading
