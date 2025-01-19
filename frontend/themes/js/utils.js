@@ -286,3 +286,25 @@ function checkBrowserAndSetOverflow() {
         console.debug('Overflow not hidden');
     }
 }
+
+function estimateAudioSize(standard_size, bitrate) {
+    console.log(`Standard size ${standard_size}`)
+    if (standard_size === undefined || standard_size === null || standard_size == 0) {
+        return getTextOrUnknown();
+    }
+    const size_and_unit = standard_size.split(' ');
+    let float_standard_size = parseFloat(size_and_unit[0]);
+    const size_unit = size_and_unit[1];
+    if (size_unit === "KB") {
+        // convert to MB
+        float_standard_size = float_standard_size / 1000;
+    }
+    const multiplier_factor = float_standard_size / 128;
+    let estimated_size = multiplier_factor * bitrate;
+    return `${estimated_size.toFixed(2)} MB`;
+
+}
+
+function getTextOrUnknown(value) {
+    return value ? value : `<span data-translate="unknown">${translation.helper.unknown}</span>`;
+}

@@ -139,13 +139,19 @@ function renderVideoMetadata(video_metadata) {
     video_metadata.audio = video_metadata.audio.reverse();
     var htmlVideoTags = createVideoTags(video_metadata.others.tags);
     var video_category = video_metadata.others.categories[0] ? video_metadata.others.categories[0] : `<span data-translate="unknown">${translation.helper.unknown}</span>`;
+    const size_of_medium_m4a_audio = video_metadata.audio[0].size;
+
+    function getAudioQuality(quality) {
+        return size_of_medium_m4a_audio ? quality : `bestaudio`;
+    }
+
     var mp3_audios = [
-        ["320k", translation.helper.unknown, `<span class="label label-primary"><small data-translate="largest">${translation.helper.largest}</small>`],
-        ["256k", translation.helper.unknown, ``],
-        ["192k", translation.helper.unknown, ``],
-        ["128k", video_metadata.audio[0].size, `<span class="label label-primary"><small data-translate="best">${translation.helper.best}</small>`],
-        ["96k", translation.helper.unknown, ``],
-        ["64k", translation.helper.unknown, `<span class="label label-primary"><small data-translate="smallest">${translation.helper.smallest}</small>`],
+        ["320k", estimateAudioSize(size_of_medium_m4a_audio, 320), `<span class="label label-primary"><small data-translate="largest">${translation.helper.largest}</small>`],
+        ["256k", estimateAudioSize(size_of_medium_m4a_audio, 256), ``],
+        ["192k", estimateAudioSize(size_of_medium_m4a_audio, 192), ``],
+        ["128k", estimateAudioSize(size_of_medium_m4a_audio, 128), `<span class="label label-primary"><small data-translate="best">${translation.helper.best}</small>`],
+        ["96k", estimateAudioSize(size_of_medium_m4a_audio, 96), ``],
+        ["64k", estimateAudioSize(size_of_medium_m4a_audio, 64), `<span class="label label-primary"><small data-translate="smallest">${translation.helper.smallest}</small>`],
     ];
     if (lazy_loaded) {
         video_thumbnail_html = `<img alt="Youtube Downloader thumbnail" class="lazyload ythumbnail vid-thumbnail" src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-src="https://i.ytimg.com/vi/${video_metadata.id}/0.jpg">`
@@ -160,7 +166,7 @@ function renderVideoMetadata(video_metadata) {
                                 ${formatQualityString(targetVideoMetadata.quality, ` (${video_metadata.format.video}) `)}
                             </td>
                             <td>
-                                ${targetVideoMetadata.size}
+                                ${getTextOrUnknown(targetVideoMetadata.size)}
                             </td>
                             <td class="txt-center">
                                 <button class="btn btn-success"
@@ -184,7 +190,7 @@ function renderVideoMetadata(video_metadata) {
                             </td>
                             <td class="txt-center">
                                 <button class="btn btn-success"
-                                    onclick="startConvert('medium','${targetAudioMetadata[0]}');"
+                                    onclick="startConvert('${getAudioQuality('medium')}','${targetAudioMetadata[0]}');"
                                     type="button">
                                     <i class="fa-solid fa-download"></i>
                                     <span data-translate="download">${translation.helper.download}</span>
@@ -203,11 +209,11 @@ function renderVideoMetadata(video_metadata) {
                                 MP3 - 128kbps <span class="label label-primary"><small data-translate="best">${translation.helper.best}</small>
                             </td>
                             <td>
-                                ${targetAudioMetadata.size}
+                                ${getTextOrUnknown(targetAudioMetadata.size)}
                             </td>
                             <td class="txt-center">
                                 <button class="btn btn-success"
-                                    onclick="startConvert('medium','128k');"
+                                    onclick="startConvert('${getAudioQuality('medium')}','128k');"
                                     type="button">
                                     <i class="fa-solid fa-download"></i>
                                     <span data-translate="download">${translation.helper.download}</span>
@@ -222,11 +228,11 @@ function renderVideoMetadata(video_metadata) {
                               ${video_metadata.format.audio} - ${targetAudioMetadata.quality} ${tag}
                             </td>
                             <td>
-                                ${targetAudioMetadata.size}
+                                ${getTextOrUnknown(targetAudioMetadata.size)}
                             </td>
                             <td class="txt-center">
                                 <button class="btn btn-success"
-                                    onclick="startConvert('${targetAudioMetadata.quality}');"
+                                    onclick="startConvert('${getAudioQuality(targetAudioMetadata.quality)}');"
                                     type="button">
                                     <i class="fa-solid fa-download"></i>
                                     <span data-translate="download">${translation.helper.download}</span>
@@ -254,7 +260,7 @@ function renderVideoMetadata(video_metadata) {
         <div>
         <div class="w3-container">
            <p class="w3-left w3-tooltip metadata-info"><i class="fa-solid fa-at metadata-icon "></i> <a class="dead-link" target="_blank" href="${video_metadata.uploader_url}">${video_metadata.channel} </a><i class="w3-tag w3-text" data-translate="uploader">${translation.helper.uploader}</i></p>
-           <p class="w3-tooltip metadata-info-rest"><i class="fa-solid fa-clock metadata-icon "></i> ${video_metadata.duration_string} <i class="w3-tag w3-text" data-translate="duration">${translation.helper.duration}</i></p>
+           <p class="w3-tooltip metadata-info-rest"><i class="fa-solid fa-clock metadata-icon "></i> ${getTextOrUnknown(video_metadata.duration_string)} <i class="w3-tag w3-text" data-translate="duration">${translation.helper.duration}</i></p>
         </div>
         <div class="w3-container">
            <p class="w3-left w3-tooltip metadata-info"><i class="fa-solid fa-eye metadata-icon "></i> ${shortenNumber(video_metadata.others.views_count)} <i class="w3-tag w3-text">${addCommasToNumber(video_metadata.others.views_count)}</i></p>
@@ -532,7 +538,7 @@ function processVideoForDownload(video_id, quality, bitrate) {
         "bitrate": bitrate,
         "quality": quality,
         "url": video_id,
-        "x_lang" : current_lang
+        "x_lang": current_lang
     };
     const is_processing_video = /(ultralow|low|medium)/.test(quality) ? false : true;
 
