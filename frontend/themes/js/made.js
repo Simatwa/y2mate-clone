@@ -552,10 +552,15 @@ function processVideoForDownload(video_id, quality, bitrate) {
 
     const ws = new WebSocket(getAbsoluteUrl('api/v1/download/ws', true));
 
-    function updateProgressMessage(download_percentage) {
+    function updateProgressMessage(download_percentage, is_subtitle) {
         let message = `${translation.helper.downloading} `;
         let description = '';
-        if (is_processing_video) {
+
+        if (is_subtitle == true) {
+            description = `<strong>Subtitles</strong> (${current_lang})`;
+        }
+
+        else if (is_processing_video) {
 
             if (!download_percentage) {
                 return;
@@ -592,13 +597,15 @@ function processVideoForDownload(video_id, quality, bitrate) {
             case "downloading":
                 let progress = response.detail;
                 progressBarController.update(progress.progress, progress.speed, progress.eta);
-                updateProgressMessage(progress.progress);
+                updateProgressMessage(progress.progress, /vtt/i.test(progress.ext));
                 break;
 
             case "finished":
-                finished_download_count += 1;
                 let finishedDownloadReport = response.detail;
-                updateProgressMessage();
+                if (! /\.vtt$/i.test(finishedDownloadReport.filename)) {
+                    finished_download_count += 1;
+                    updateProgressMessage("100%", false);
+                }
                 console.log(`Download finished for file - ${finishedDownloadReport.filename}`);
                 break;
 
