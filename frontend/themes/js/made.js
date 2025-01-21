@@ -489,7 +489,7 @@ function renderDownloadOptions(processedMedia) {
     <a target="_blank" class="btn btn-success btn-file" rel="nofollow" type="button" href="${processedMedia.link}?download=true">
     <i class="fa-solid fa-download media-icon"></i>
     <span data-translate="download">${translation.helper.download}</span> (${processedMedia.filesize})
-    </a> <span data-translate="or">${translation.helper.or}</span>
+    </a> <span data-translate="or" class="w3-hide-small">${translation.helper.or}</span>
     <a target="_blank" class="btn btn-success btn-file play-button" rel="nofollow" type="button" href="${processedMedia.link}">
     <i class="fa-solid fa-play media-icon"></i>
     <span data-translate="play_online">${translation.helper.play_online}</span>

@@ -2216,13 +2216,18 @@ a.video-thumbnail span:hover {
     width: 45%;
 }
 
-.indicator-tag{
+.indicator-tag {
     color: white;
 }
 
-#speed-indicator, #eta-indicator {
+#speed-indicator,
+#eta-indicator {
     color: white;
     text-decoration: italic;
+}
+
+#share-container>a {
+    margin: 4%;
 }
 
 @media (max-width: 480px) {
@@ -2250,7 +2255,8 @@ a.video-thumbnail span:hover {
         justify-content: space-between;
         width: 100%;
     }
-/*
+
+    /*
     #eta-indicator-container{
         direction: rtl;
     }
