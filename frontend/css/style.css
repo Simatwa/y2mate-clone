@@ -2230,6 +2230,16 @@ a.video-thumbnail span:hover {
     margin: 4%;
 }
 
+#share-container>a :hover {
+    size: 20px;
+    box-shadow: 0 10px 16px rgb(14, 14, 14);
+    border-radius: 50%;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: white;
+    color: white;
+    padding: 10px;
+}
+
 @media (max-width: 480px) {
     .change-button {
         margin-top: 10px;
