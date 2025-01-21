@@ -86,6 +86,15 @@ function formatQualityString(quality, format = "") {
             quality_string = quality + format + ` <span class="label label-primary"><small>4K+</small>`;
             break;
 
+        case "4320p":
+            quality_string = quality + format + ` <span class="label label-primary"><small>8K</small>`;
+            break;
+    
+        case  "4320p50":
+        case  "4320p60":
+            quality_string = quality + format + ` <span class="label label-primary"><small>8K+</small>`;
+            break;
+
         default:
             quality_string = quality + format;
     }
