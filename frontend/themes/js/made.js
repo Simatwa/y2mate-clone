@@ -43,9 +43,9 @@ function postHttpData(url, data, func) {
 }
 
 function renderSearchResults(search_results) {
-    console.log("In renderSearchResults");
+    console.debug("In renderSearchResults");
     var displayableResults = "";
-    console.log(`Forming results`);
+    console.debug(`Forming results`);
     search_results.results.forEach(targetResults => {
         if (lazy_loaded) {
             img_html = `<img class="lazyload ythumbnail" onclick="showVideoMetadata('${targetResults.id}')" src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-src="https://i.ytimg.com/vi/${targetResults.id}/0.jpg">`;
@@ -106,7 +106,7 @@ function searchVideos() {
         }
         else {
             showLoading();
-            console.log("Fetching results from API");
+            console.debug("Fetching results from API");
             try {
                 w3.http(getAbsoluteUrl(`api/v1/search?limit=${search_results_limit}&q=` + query), function () {
                     if (this.readyState == 4) {
@@ -135,8 +135,8 @@ function renderVideoMetadata(video_metadata) {
     var displayableAudioMetadata = "";
     var displayableOtherMetadata = "";
     var video_thumbnail_html = "";
-    video_metadata.video = video_metadata.video.reverse();
-    video_metadata.audio = video_metadata.audio.reverse();
+    video_metadata.video = verifyQualitiesSize(video_metadata.video.reverse());
+    video_metadata.audio = verifyQualitiesSize(video_metadata.audio.reverse());
     var htmlVideoTags = createVideoTags(video_metadata.others.tags);
     var video_category = video_metadata.others.categories[0] ? video_metadata.others.categories[0] : `<span data-translate="unknown">${translation.helper.unknown}</span>`;
     const size_of_medium_m4a_audio = video_metadata.audio[0].size;
@@ -385,7 +385,7 @@ function renderVideoMetadata(video_metadata) {
 function showVideoMetadata(link) {
     // fetch and call renderVideoMetadata
     showLoading();
-    console.log("Fetching metadata for url : " + link);
+    console.debug("Fetching metadata for url : " + link);
 
     try {
         w3.http(getAbsoluteUrl(`api/v1/metadata?url=${link}`), function () {
@@ -405,7 +405,7 @@ function showVideoMetadata(link) {
         showError(`${translation.error.unable_to_search_videos} ${error.message}. ${translation.helper.try_again}`);
     }
 
-    console.log("after post request");
+    console.debug("after post request");
 }
 
 // The approach below here is disgusting but it gets the work done ):-
@@ -556,7 +556,7 @@ function processVideoForDownload(video_id, quality, bitrate) {
         let message = `${translation.helper.downloading} `;
         let description = '';
 
-        if (is_subtitle == true) {
+        if (is_subtitle === true) {
             description = `<strong>Subtitles</strong> (${current_lang})`;
         }
 
@@ -606,13 +606,13 @@ function processVideoForDownload(video_id, quality, bitrate) {
                     finished_download_count += 1;
                     updateProgressMessage("100%", false);
                 }
-                console.log(`Download finished for file - ${finishedDownloadReport.filename}`);
+                console.debug(`Download finished for file - ${finishedDownloadReport.filename}`);
                 break;
 
             case "completed":
                 progressBarController.stop();
                 let downloadReport = response.detail;
-                console.log("Download completed for file: " + downloadReport.filename);
+                console.debug("Download completed for file: " + downloadReport.filename);
 
                 if (!/^http/.test(downloadReport.link)) {
                     let inner_api_base_url = new URL(api_base_url);
@@ -641,13 +641,13 @@ function processVideoForDownload(video_id, quality, bitrate) {
 
     function processError(error) {
         progressBarController.stopCompletely();
-        errorMessage = `WebsocketError : ${error.message ? error.message : "Unknown"}.
+        errorMessage = `WebsocketError : ${error.message !== "undefined" ? error.message : translation.helper.unknown}.
         Is the api still alive at <a class="active" href="${api_base_url}">${api_base_url}</a>`;
         showError(errorMessage, true);
     }
 
     ws.onopen = function (event) {
-        console.log("Websocket opened");
+        console.debug("Websocket opened");
         ws.send(JSON.stringify(payload));
     }
 
@@ -655,7 +655,7 @@ function processVideoForDownload(video_id, quality, bitrate) {
     ws.onerror = processError;
     ws.onclose = function (event) {
         progressBarController.stop();
-        console.log("Websocket closed");
+        console.debug("Websocket closed");
     }
 
     let cancelDownloadButton = document.getElementById("hide-processing");
@@ -669,5 +669,5 @@ function startConvert(quality, bitrate = null) {
     $('#progressModal').modal('toggle');
     video_id = document.getElementById("video_id").value;
     processVideoForDownload(video_id, quality, bitrate);
-    console.log(`Processing id : ${video_id} quality : ${quality}`);
+    console.debug(`Processing id : ${video_id} quality : ${quality}`);
 }

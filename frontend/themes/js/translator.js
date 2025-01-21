@@ -62,14 +62,14 @@ function translate_page_contents() {
     document.querySelector('meta[name="description"]').setAttribute('content', translation.description);
     document.getElementById("current-language").innerText = data_lang_map[current_lang];
     document.getElementById("txt-url").setAttribute("placeholder", translation.search_placeholder);
-    console.log("Saving current lang to storage - " + current_lang);
+    console.debug("Saving current lang to storage - " + current_lang);
     localStorage.setItem(current_lang_key, current_lang);
 }
 
 function fetch_and_update_translation(language) {
     if (language === "system") {
         language = getBrowserLanguageCode();
-        console.log("Browser language detected - " + language);
+        console.debug("Browser language detected - " + language);
     }
     current_lang = language;
     w3.getHttpData(`/translations/${language}.json`, function (data) {

@@ -19,19 +19,19 @@ var isChrome = /Chrome/.test(navigator.userAgent);
 if (/^https.+/.test(window.location.origin)) {
     // Non-loopback hosts not allowed
     special_base_url_msg = "Cannot make REST-API calls over <strong>http</strong> except to localhost.";
-    console.log(special_base_url_msg);
+    console.debug(special_base_url_msg);
     allowed_hosts_x_pattern = /^https.+|https?:\/\/localhost(:\d{1,5})?\/?$|https?:\/\/127\.0\.0\.1(:\d{1,5})?\/?$/i;
 }
 else {
     // Running on http so it can access both secure and insecure hosts
     special_base_url_msg = "Can make REST-API calls over both <strong>http</strong> and <strong>https</strong>.";
-    console.log(special_base_url_msg);
+    console.debug(special_base_url_msg);
     allowed_hosts_x_pattern = /^https?.+/i;
 
 }
 
 if (localStorage.getItem(api_base_url_key)) {
-    console.log("Loading base url from local storage");
+    console.debug("Loading base url from local storage");
     api_base_url = localStorage.getItem(api_base_url_key);
 }
 else {
@@ -89,9 +89,9 @@ function formatQualityString(quality, format = "") {
         case "4320p":
             quality_string = quality + format + ` <span class="label label-primary"><small>8K</small>`;
             break;
-    
-        case  "4320p50":
-        case  "4320p60":
+
+        case "4320p50":
+        case "4320p60":
             quality_string = quality + format + ` <span class="label label-primary"><small>8K+</small>`;
             break;
 
@@ -115,9 +115,6 @@ function getAbsoluteUrl(relative_url, websocket = false) {
     let websocket_protocol_scheme = `${/^https/i.test(api_base_url) ? 'wss' : 'ws'}://`;
     return websocket ? `${websocket_protocol_scheme}${url.host}/${relative_url}` : `${api_base_url}${relative_url}`;
 }
-
-
-console.log(getAbsoluteUrl('api/v1/download/ws', true));
 
 function showBaseURLFormError(message, is_html = false) {
     // Renders error message to the changeBaseURL form modal
@@ -149,12 +146,12 @@ function changeAPIBaseURL(event) {
 
         window.api_base_url = base_url_input;
         localStorage.setItem(api_base_url_key, base_url_input);
-        console.log("New base url set : " + base_url_input);
+        console.debug("New base url set : " + base_url_input);
     }
     else {
         // set to default
         api_base_url = default_api_base_url;
-        console.log("Resetting api_base_url");
+        console.debug("Resetting api_base_url");
     }
     w3.hide("#changeBaseURLModal");
 }
@@ -297,7 +294,7 @@ function checkBrowserAndSetOverflow() {
 }
 
 function estimateAudioSize(standard_size, bitrate) {
-    console.log(`Standard size ${standard_size}`)
+    console.debug(`Standard size ${standard_size}`);
     if (standard_size === undefined || standard_size === null || standard_size == 0) {
         return getTextOrUnknown();
     }
@@ -316,4 +313,11 @@ function estimateAudioSize(standard_size, bitrate) {
 
 function getTextOrUnknown(value) {
     return value ? value : `<span data-translate="unknown">${translation.helper.unknown}</span>`;
+}
+
+function verifyQualitiesSize(videos) {
+    return videos.map((video) => {
+        video.size = video.size === "0.0 KB" ? getTextOrUnknown() : video.size;
+        return video;
+    });
 }
