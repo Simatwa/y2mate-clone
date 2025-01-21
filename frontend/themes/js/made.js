@@ -607,7 +607,7 @@ function processVideoForDownload(video_id, quality, bitrate) {
                 let downloadReport = response.detail;
                 console.log("Download completed for file: " + downloadReport.filename);
 
-                if (!/http/.test(downloadReport.link)) {
+                if (!/^http/.test(downloadReport.link)) {
                     let inner_api_base_url = new URL(api_base_url);
                     downloadReport.link = `${inner_api_base_url.protocol}//${downloadReport.link}`;
                 }
