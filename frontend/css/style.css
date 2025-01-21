@@ -2181,7 +2181,11 @@ a.video-thumbnail span:hover {
 }
 
 .media-icon:hover {
-    color: #b6093d;
+    color: rgb(169, 253, 1);
+}
+
+.home-media-icon:hover{
+    color: #c10841;
 }
 
 .video-tags {
