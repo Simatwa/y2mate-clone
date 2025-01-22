@@ -57,8 +57,10 @@ function renderSearchResults(search_results) {
    <div class="thumbnail">
      ${img_html}
     <div class="search-info">
-     <p class="p-title" onclick="showVideoMetadata('${targetResults.id}')">
+    <p class="p-title">
+     <a class="video-result-link" onclick="event.preventDefault();showVideoMetadata('${targetResults.id}')" href="/?${query_key}=https://youtu.be/${targetResults.id}">
       ${targetResults.title}
+     </a>
      </p>
      <br/>
     </div>
@@ -539,7 +541,7 @@ function processVideoForDownload(video_id, quality, bitrate) {
         "url": video_id,
         "x_lang": current_lang
     };
-    const is_processing_video = /(ultralow|low|medium)/.test(quality) ? false : true;
+    const is_processing_video = /(ultralow|low|medium|bestaudio)/.test(quality) ? false : true;
 
     var finished_download_count = 0;
 

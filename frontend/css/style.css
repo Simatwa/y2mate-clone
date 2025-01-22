@@ -2244,6 +2244,9 @@ a.video-thumbnail span:hover {
     padding: 10px;
 }
 
+.video-result-link{
+    color: #293a46;
+}
 @media (max-width: 480px) {
     .change-button {
         margin-top: 10px;
