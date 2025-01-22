@@ -523,8 +523,7 @@ function processVideoForDownloadOverHttp(video_id, quality, bitrate = null) {
                 }
                 else {
                     progressBarController.stop();
-                    let processResultContainer = document.getElementById("process-result");
-                    processResultContainer.innerHTML = `<div class="text-center alert alert-danger" role="alert"><p>${jsonified_response.detail}</p></div>`;
+                    showDownloadError(jsonified_response.detail);
                 }
 
             }
@@ -596,6 +595,7 @@ function processVideoForDownload(video_id, quality, bitrate) {
         switch (status) {
             case "downloading":
                 let progress = response.detail;
+                displayDownloadModal();
                 progressBarController.update(progress.progress, progress.speed, progress.eta);
                 updateProgressMessage(progress.progress, /vtt/i.test(progress.ext));
                 break;
@@ -610,6 +610,7 @@ function processVideoForDownload(video_id, quality, bitrate) {
                 break;
 
             case "completed":
+                displayDownloadModal();
                 progressBarController.stop();
                 let downloadReport = response.detail;
                 console.debug("Download completed for file: " + downloadReport.filename);
@@ -618,7 +619,6 @@ function processVideoForDownload(video_id, quality, bitrate) {
                     let inner_api_base_url = new URL(api_base_url);
                     downloadReport.link = inner_api_base_url.protocol + downloadReport.link;
                 }
-
                 renderDownloadOptions(downloadReport);
                 ws.close();
                 break;
@@ -627,9 +627,7 @@ function processVideoForDownload(video_id, quality, bitrate) {
                 progressBarController.stop();
                 let errorReport = response.detail;
                 console.error('Websocket error (status) : ' + JSON.stringify(errorReport));
-                let processResultContainer = document.getElementById("process-result");
-                processResultContainer.innerHTML = `<div class="text-center alert alert-danger" role="alert"><p>${errorReport.text}</p></div>`;
-                processResultContainer.style.display = 'block';
+                showDownloadError(errorReport.text);
                 ws.close();
                 break;
 
@@ -641,9 +639,10 @@ function processVideoForDownload(video_id, quality, bitrate) {
 
     function processError(error) {
         progressBarController.stopCompletely();
-        errorMessage = `WebsocketError : ${error.message !== "undefined" ? error.message : translation.helper.unknown}.
-        Is the api still alive at <a class="active" href="${api_base_url}">${api_base_url}</a>`;
-        showError(errorMessage, true);
+        let errorMessage = `WebsocketError : ${error.message !== "undefined" ? error.message : translation.helper.unknown}.
+        Is the api still alive at <a class="active" href="${api_base_url}">${api_base_url}?</a>`;
+        //showError(errorMessage, true);
+        showDownloadError(errorMessage);
     }
 
     ws.onopen = function (event) {

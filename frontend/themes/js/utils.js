@@ -321,3 +321,17 @@ function verifyQualitiesSize(videos) {
         return video;
     });
 }
+
+function displayDownloadModal() {
+    if (!$('#progressModal').hasClass('in')) {
+        $('#progressModal').modal('toggle');
+    }
+}
+
+function showDownloadError(message) {
+    console.error("Download error : " + message);
+    displayDownloadModal();
+    let processResultContainer = document.getElementById("process-result");
+    processResultContainer.innerHTML = `<div class="text-center alert alert-danger" role="alert"><p>${message}</p></div>`;
+    w3.showElement(processResultContainer);
+}
