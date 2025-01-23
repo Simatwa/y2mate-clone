@@ -668,6 +668,7 @@ function processVideoForDownload(video_id, quality, bitrate) {
 
     let cancelDownloadButton = document.getElementById("hide-processing");
     cancelDownloadButton.addEventListener('click', (e) => {
+        is_download_complete = true;
         progressBarController.stopCompletely();
         ws.close();
     });
