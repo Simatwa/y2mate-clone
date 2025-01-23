@@ -629,6 +629,7 @@ function processVideoForDownload(video_id, quality, bitrate) {
                 break;
 
             case "error":
+                is_download_complete = true;
                 progressBarController.stop();
                 let errorReport = response.detail;
                 console.error('Websocket error (status) : ' + JSON.stringify(errorReport));
