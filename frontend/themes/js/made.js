@@ -363,7 +363,7 @@ function renderVideoMetadata(video_metadata) {
         </div>
     </div>
     <div class="w3-container w3-hide-large w3-hide-medium">
-        <p class="w3-left w3-tooltip"><i class="fa-solid fa-tags metadata-icon "></i> ${translation.helper.categories}<i class="w3-tag w3-text"> <span data-translate="search">${translation.helper.search}</span></i></p>
+        <p class="w3-left w3-tooltip"><i class="fa-solid fa-tags metadata-icon "></i><span data-translate="categories"> ${translation.helper.categories}</span><i class="w3-tag w3-text"> <span data-translate="search">${translation.helper.search}</span></i></p>
         <p class="w3-right w3-tooltip metadata-info-rest"><i class="fa-solid fa-tag metadata-icon "></i> ${video_category} <i class="w3-tag w3-text"> <span data-translate="tag">${translation.helper.tag}</span></i></p>
     </div>
     <div class="w3-container w3-hide-large w3-hide-medium video-tags-container w3-tooltip">

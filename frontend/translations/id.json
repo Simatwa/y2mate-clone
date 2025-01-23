@@ -8,7 +8,7 @@
     "hero_header": "Unduh Video dan Audio dari YouTube",
     "search_placeholder": "Cari atau tempel tautan di sini...",
     "start_button": "Mulai",
-    "license_intro": "Dengan menggunakan layanan ini Anda mematuhi",
+    "license_intro": "Dengan menggunakan layanan ini, Anda mematuhi",
     "license_text": "lisensi",
     "youtube_video_downloader": "Pengunduh Video YouTube",
     "youtube_video_downloader_description": "Y2mate memungkinkan Anda mengonversi dan mengunduh video dari YouTube ke Mp3, Mp4 dalam kualitas HD. Y2mate mendukung pengunduhan format video umum seperti: MP4, M4A, MP3, WEBM, dll. Anda dapat mengunduh video dari YouTube dengan lancar.",
@@ -27,7 +27,7 @@
     "how_to_download": "<p>Jika Anda tidak dapat langsung mengunduh video ke PC Anda, ikuti panduan di bawah ini:</p><p>Langkah1: Pilih format yang Anda inginkan dan klik tombol \"Unduh\".</p><p>Langkah2: Di jendela baru, tekan \"CTRL + S\" untuk menyimpan video ATAU klik kanan pada video, lalu pilih \"Simpan sebagai Video\".</p>",
     "processing": "Memproses...",
     "processing_message": "Harap tunggu sementara file sedang dipersiapkan untuk diunduh",
-    "thank_you_note": "Terima kasih telah menggunakan layanan kami. Jika Anda bisa membagikan <a href=\"//github.com/Simatwa/y2mate-clone\">proyek</a> kami dengan teman-teman Anda, itu akan sangat membantu.<strong>Terima kasih.</strong>",
+    "thank_you_note": "Terima kasih telah menggunakan layanan kami. Jika Anda dapat membagikan <a href=\"//github.com/Simatwa/y2mate-clone\">proyek</a> kami dengan teman-teman Anda, itu akan sangat membantu.<strong>Terima kasih.</strong>",
     "change_api_title": "Ubah URL Dasar API",
     "configure": "Konfigurasi",
     "base_url_note": "Di mana semua permintaan API akan dikirim.",
@@ -36,14 +36,17 @@
     "based_on_note": "Berdasarkan <a href=\"//github.com/Simatwa/youtube-downloader-api\" class=\"active\" target=\"_blank\">Youtube-Downloader-API</a>",
     "inspired_by_note": "Terinspirasi oleh <a href=\"//y2mate.com\" target=\"_blank\" class=\"active\">y2mate.com</a>",
     "categories_note": "Klik salah satu untuk mencari",
-    "converting_to_mp3" : "Mengonversi ke MP3",
+    "converting_to_mp3": "Mengonversi ke MP3",
+    "is_api_alive": "Apakah API masih aktif di",
     "error": {
         "unexpected": "Terjadi kesalahan yang tidak terduga saat menangani permintaan itu!",
-        "unable_to_contact_api": "Tidak dapat menghubungi API. Periksa apakah server masih hidup di :",
+        "unable_to_contact_api": "Tidak dapat menghubungi API. Periksa apakah server masih aktif di :",
         "unable_to_search_videos": "Tidak dapat mencari video karena ",
         "empty_input": "Input tidak boleh kosong!",
         "invalid_base_url_protocol": "URL Dasar harus memiliki protokol yaitu <strong>http</strong> atau <strong>https</strong>",
-        "invalid_base_url": "URL dasar tidak valid untuk REST API!"
+        "invalid_base_url": "URL dasar tidak valid untuk REST API!",
+        "websocket": "Kesalahan websocket",
+        "websocket_closed": "Websocket tiba-tiba ditutup sebelum menyelesaikan unduhan! Silakan coba lagi."
     },
     "helper": {
         "try_again": "Coba lagi.",
@@ -67,9 +70,9 @@
         "categories": "Kategori",
         "tag": "Tag",
         "search": "Cari",
-        "download_speed" : "Kecepatan unduh",
-        "time_remaining" : "Waktu tersisa",
-        "downloading" : "Mengunduh",
+        "download_speed": "Kecepatan unduh",
+        "time_remaining": "Waktu tersisa",
+        "downloading": "Mengunduh",
         "merging": "Menggabungkan",
         "post_processing": "Pasca-pemrosesan"
     }

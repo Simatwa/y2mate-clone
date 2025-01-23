@@ -1,7 +1,7 @@
 {
     "lang": "tl",
     "title": "YouTube Downloader - I-download ang mga video sa YouTube sa MP3, M4A, WEBM at MP4",
-    "description": "Online na pag-download ng mga video mula sa YouTube nang LIBRE sa PC, mobile. Sinusuportahan ang pag-download ng lahat ng mga format: MP4, 3GP, WebM, HD na mga video, i-convert ang YouTube sa MP3, M4A",
+    "description": "Online na pag-download ng mga video mula sa YouTube nang LIBRE sa PC, mobile. Sinusuportahan ang pag-download ng lahat ng format: MP4, 3GP, WebM, HD na mga video, i-convert ang YouTube sa MP3, M4A",
     "nav_star_on_github": "Star sa GitHub",
     "nav_video_downloader": "Video Downloader",
     "nav_change_baseurl": "API Base URL",
@@ -11,9 +11,9 @@
     "license_intro": "Sa paggamit ng serbisyong ito, sumusunod ka sa",
     "license_text": "lisensya",
     "youtube_video_downloader": "YouTube Video Downloader",
-    "youtube_video_downloader_description": "Pinapayagan ka ng Y2mate na i-convert at i-download ang video mula sa YouTube sa Mp3, Mp4 sa HD na kalidad. Sinusuportahan ng Y2mate ang pag-download ng mga karaniwang format ng video tulad ng: MP4, M4A, MP3, WEBM, atbp. Maaari mong walang kahirap-hirap na i-download ang mga video mula sa YouTube.",
+    "youtube_video_downloader_description": "Pinapayagan ka ng Y2mate na i-convert at i-download ang video mula sa YouTube sa Mp3, Mp4 sa HD na kalidad. Sinusuportahan ng Y2mate ang pag-download ng mga karaniwang format ng video tulad ng: MP4, M4A, MP3, WEBM, atbp. Maaari mong walang putol na i-download ang mga video mula sa YouTube.",
     "download_instructions": "Mga Tagubilin",
-    "download_instruction_one": "1. Maghanap ayon sa pangalan o direktang i-paste ang link ng video na nais mong i-convert",
+    "download_instruction_one": "1. Maghanap sa pamamagitan ng pangalan o direktang i-paste ang link ng video na nais mong i-convert",
     "download_instruction_two": "2. I-click ang \"Simulan\" na button upang simulan ang proseso ng pag-convert",
     "download_instruction_three": "3. Piliin ang format ng video/audio na nais mong i-download, pagkatapos ay i-click ang \"I-download\" na button",
     "features_header": "Mga Tampok",
@@ -28,7 +28,7 @@
     "processing": "Pinoproseso...",
     "processing_message": "Mangyaring maghintay habang inihahanda ang file para sa pag-download",
     "thank_you_note": "Salamat sa paggamit ng aming serbisyo. Kung maaari mong ibahagi ang aming <a href=\"//github.com/Simatwa/y2mate-clone\">proyekto</a> sa iyong mga kaibigan, malaking tulong iyon.<strong>Salamat.</strong>",
-    "change_api_title": "Baguhin ang Base URL ng API",
+    "change_api_title": "Palitan ang Base URL ng API",
     "configure": "I-configure",
     "base_url_note": "Kung saan ipapadala ang lahat ng mga kahilingan sa API.",
     "reset_api_note": "Iwanang walang laman ang input upang itakda sa default.",
@@ -36,14 +36,17 @@
     "based_on_note": "Batay sa <a href=\"//github.com/Simatwa/youtube-downloader-api\" class=\"active\" target=\"_blank\">Youtube-Downloader-API</a>",
     "inspired_by_note": "Inspirado ng <a href=\"//y2mate.com\" target=\"_blank\" class=\"active\">y2mate.com</a>",
     "categories_note": "I-click ang alinman upang maghanap",
-    "converting_to_mp3" : "Kinoconvert sa MP3",
+    "converting_to_mp3": "Kinoconvert sa MP3",
+    "is_api_alive": "Buhay pa ba ang api sa",
     "error": {
         "unexpected": "Isang inaasahang error ang naganap habang pinoproseso ang kahilingang iyon!",
         "unable_to_contact_api": "Hindi makontak ang API. Suriin kung buhay pa ang server sa:",
         "unable_to_search_videos": "Hindi makapaghanap ng mga video dahil sa",
         "empty_input": "Hindi maaaring walang laman ang input!",
         "invalid_base_url_protocol": "Dapat may protocol ang Base URL i.e <strong>http</strong> o <strong>https</strong>",
-        "invalid_base_url": "Hindi wastong base-url para sa isang REST API!"
+        "invalid_base_url": "Hindi wastong base-url para sa isang REST API!",
+        "websocket": "Websocket error",
+        "websocket_closed": "Biglang nagsara ang websocket bago matapos ang pag-download! Pakisubukang muli."
     },
     "helper": {
         "try_again": "Subukang muli.",
@@ -67,9 +70,9 @@
         "categories": "Mga Kategorya",
         "tag": "Tag",
         "search": "Maghanap",
-        "download_speed" : "Bilis ng pag-download",
-        "time_remaining" : "Natitirang oras",
-        "downloading" : "Nagda-download",
+        "download_speed": "Bilis ng pag-download",
+        "time_remaining": "Natitirang oras",
+        "downloading": "Nagda-download",
         "merging": "Pinagsasama",
         "post_processing": "Post-processing"
     }

@@ -11,7 +11,7 @@
     "license_intro": "Bu hizmeti kullanarak, onun",
     "license_text": "lisansına",
     "youtube_video_downloader": "YouTube Video İndirici",
-    "youtube_video_downloader_description": "Y2mate, YouTube'dan videoları Mp3, Mp4 formatlarına HD kalitesinde dönüştürmenizi ve indirmenizi sağlar. Y2mate, MP4, M4A, MP3, WEBM gibi yaygın video formatlarını indirmenizi destekler. YouTube'dan videoları sorunsuz bir şekilde indirebilirsiniz.",
+    "youtube_video_downloader_description": "Y2mate, YouTube'dan videoları Mp3, Mp4 formatında HD kalitesinde dönüştürmenize ve indirmenize olanak tanır. Y2mate, MP4, M4A, MP3, WEBM gibi yaygın video formatlarını indirmenizi destekler. YouTube'dan videoları sorunsuz bir şekilde indirebilirsiniz.",
     "download_instructions": "Talimatlar",
     "download_instruction_one": "1. Dönüştürmek istediğiniz videonun adını arayın veya doğrudan bağlantıyı yapıştırın",
     "download_instruction_two": "2. Dönüştürme işlemini başlatmak için \"Başlat\" düğmesine tıklayın",
@@ -33,17 +33,20 @@
     "base_url_note": "Tüm API isteklerinin gönderileceği yer.",
     "reset_api_note": "Varsayılana ayarlamak için girişi boş bırakın.",
     "host_api_note": "Kendi API sunucunuzu barındırabilirsiniz. Kaynak kodunu <a class=\"active\" href=\"//github.com/Simatwa/youtube-downloader\" target=\"_blank\">Youtube-Downloader</a> adresinden bulun.<strong>Keyfini çıkarın.</strong>",
-    "based_on_note": "<a href=\"//github.com/Simatwa/youtube-downloader-api\" class=\"active\" target=\"_blank\">Youtube-Downloader-API</a> temel alınarak yapılmıştır",
-    "inspired_by_note": "<a href=\"//y2mate.com\" target=\"_blank\" class=\"active\">y2mate.com</a>'dan ilham alınmıştır",
-    "categories_note": "Aramak için herhangi birine tıklayın",
+    "based_on_note": "<a href=\"//github.com/Simatwa/youtube-downloader-api\" class=\"active\" target=\"_blank\">Youtube-Downloader-API</a> temel alınarak",
+    "inspired_by_note": "<a href=\"//y2mate.com\" target=\"_blank\" class=\"active\">y2mate.com</a>'dan ilham alınarak",
+    "categories_note": "Arama yapmak için herhangi birine tıklayın",
     "converting_to_mp3": "MP3'e dönüştürülüyor",
+    "is_api_alive": "API hala çalışıyor mu",
     "error": {
-        "unexpected": "Bu isteği işlerken beklenmeyen bir hata oluştu!",
+        "unexpected": "Bu isteği işlerken beklenmedik bir hata oluştu!",
         "unable_to_contact_api": "API ile iletişim kurulamıyor. Sunucunun hala çalışıp çalışmadığını kontrol edin:",
-        "unable_to_search_videos": "Videoları arayamıyor:",
+        "unable_to_search_videos": "Videoları arayamıyor",
         "empty_input": "Girdi boş olamaz!",
         "invalid_base_url_protocol": "Temel URL bir protokol içermelidir, örneğin <strong>http</strong> veya <strong>https</strong>",
-        "invalid_base_url": "REST API için geçersiz temel URL!"
+        "invalid_base_url": "REST API için geçersiz temel URL!",
+        "websocket": "Websocket hatası",
+        "websocket_closed": "Websocket, indirme tamamlanmadan aniden kapandı! Lütfen tekrar deneyin."
     },
     "helper": {
         "try_again": "Tekrar deneyin.",
@@ -60,7 +63,7 @@
         "best": "en iyi",
         "fast": "hızlı",
         "unknown": "Bilinmeyen",
-        "watch_on": "İzle",
+        "watch_on": "Şurada izle",
         "or": "veya",
         "uploader": "Yükleyici",
         "duration": "Süre",
@@ -71,6 +74,6 @@
         "time_remaining": "Kalan süre",
         "downloading": "İndiriliyor",
         "merging": "Birleştiriliyor",
-        "post_processing": "Son işleme"
+        "post_processing": "Son işlem"
     }
 }

@@ -31,19 +31,22 @@
     "change_api_title": "Thay đổi URL cơ sở của API",
     "configure": "Cấu hình",
     "base_url_note": "Nơi tất cả các yêu cầu API sẽ được gửi đến.",
-    "reset_api_note": "Để trống để đặt lại mặc định.",
+    "reset_api_note": "Để trống để đặt lại về mặc định.",
     "host_api_note": "Bạn có thể tự lưu trữ máy chủ API của mình. Tìm mã nguồn từ <a class=\"active\" href=\"//github.com/Simatwa/youtube-downloader\" target=\"_blank\">Youtube-Downloader</a>.<strong>Thưởng thức.</strong>",
     "based_on_note": "Dựa trên <a href=\"//github.com/Simatwa/youtube-downloader-api\" class=\"active\" target=\"_blank\">Youtube-Downloader-API</a>",
     "inspired_by_note": "Lấy cảm hứng từ <a href=\"//y2mate.com\" target=\"_blank\" class=\"active\">y2mate.com</a>",
     "categories_note": "Nhấp vào bất kỳ để tìm kiếm",
     "converting_to_mp3": "Đang chuyển đổi sang MP3",
+    "is_api_alive": "API vẫn còn hoạt động tại",
     "error": {
         "unexpected": "Đã xảy ra lỗi không mong muốn khi xử lý yêu cầu đó!",
-        "unable_to_contact_api": "Không thể liên hệ với API. Kiểm tra xem máy chủ có còn hoạt động tại:",
+        "unable_to_contact_api": "Không thể liên hệ với API. Kiểm tra xem máy chủ vẫn còn hoạt động tại:",
         "unable_to_search_videos": "Không thể tìm kiếm video do",
         "empty_input": "Đầu vào không thể để trống!",
         "invalid_base_url_protocol": "URL cơ sở phải có giao thức tức là <strong>http</strong> hoặc <strong>https</strong>",
-        "invalid_base_url": "URL cơ sở không hợp lệ cho một REST API!"
+        "invalid_base_url": "URL cơ sở không hợp lệ cho một REST API!",
+        "websocket": "Lỗi Websocket",
+        "websocket_closed": "Websocket đã đóng đột ngột trước khi hoàn tất tải xuống! Vui lòng thử lại."
     },
     "helper": {
         "try_again": "Thử lại.",

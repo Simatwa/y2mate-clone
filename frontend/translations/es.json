@@ -1,7 +1,7 @@
 {
     "lang": "es",
     "title": "Descargador de YouTube - Descargar videos de YouTube en MP3, M4A, WEBM y MP4",
-    "description": "Descarga videos en línea de YouTube GRATIS a PC, móvil. Soporta la descarga de todos los formatos: MP4, 3GP, WebM, videos HD, convierte YouTube a MP3, M4A",
+    "description": "Descargar videos en línea de YouTube GRATIS a PC, móvil. Soporta la descarga de todos los formatos: MP4, 3GP, WebM, videos HD, convertir YouTube a MP3, M4A",
     "nav_star_on_github": "Estrella en GitHub",
     "nav_video_downloader": "Descargador de Videos",
     "nav_change_baseurl": "URL Base de API",
@@ -17,11 +17,11 @@
     "download_instruction_two": "2. Haz clic en el botón \"Comenzar\" para iniciar el proceso de conversión",
     "download_instruction_three": "3. Selecciona el formato de video/audio que deseas descargar, luego haz clic en el botón \"Descargar\"",
     "features_header": "Características",
-    "features_data": "<p>• Descargas ilimitadas y siempre gratis</p><p>• Convertidor de video de alta velocidad</p><p>• No se requiere registro</p><p>• Soporte para descargar en formatos populares</p>",
+    "features_data": "<p>• Descargas ilimitadas y siempre gratis</p><p>• Convertidor de video de alta velocidad</p><p>• No se requiere registro</p><p>• Soporte para descargar con formatos populares</p>",
     "free_download": "Descarga Gratis",
     "unlimited_conversion": "Conversión ilimitada y descarga gratuita.",
     "video_audio": "Video &amp; Audio",
-    "video_audio_description": "Descarga Directa de Video &amp; Música.",
+    "video_audio_description": "Descargar Video &amp; Música Directamente.",
     "easy_download": "Descarga Fácil",
     "easy_download_description": "Totalmente compatible con todos los navegadores.",
     "how_to_download": "<p>Si no puedes descargar el video directamente a tu PC, sigue las siguientes instrucciones:</p><p>Paso 1: Selecciona el formato que deseas y haz clic en el botón \"Descargar\".</p><p>Paso 2: En la nueva ventana, presiona \"CTRL + S\" para guardar el video O haz clic derecho en el video, luego selecciona \"Guardar como Video\".</p>",
@@ -37,13 +37,16 @@
     "inspired_by_note": "Inspirado por <a href=\"//y2mate.com\" target=\"_blank\" class=\"active\">y2mate.com</a>",
     "categories_note": "Haz clic en cualquiera para buscar",
     "converting_to_mp3": "Convirtiendo a MP3",
+    "is_api_alive": "¿Sigue viva la API en",
     "error": {
         "unexpected": "¡Ocurrió un error inesperado al manejar esa solicitud!",
-        "unable_to_contact_api": "No se puede contactar con la API. Verifica si el servidor sigue activo en:",
-        "unable_to_search_videos": "No se pueden buscar videos debido a ",
+        "unable_to_contact_api": "No se puede contactar con la API. Verifica si el servidor sigue vivo en:",
+        "unable_to_search_videos": "No se pueden buscar videos debido a",
         "empty_input": "¡La entrada no puede estar vacía!",
         "invalid_base_url_protocol": "La URL base debe tener un protocolo, es decir, <strong>http</strong> o <strong>https</strong>",
-        "invalid_base_url": "¡URL base inválida para una API REST!"
+        "invalid_base_url": "¡URL base no válida para una API REST!",
+        "websocket": "Error de WebSocket",
+        "websocket_closed": "¡WebSocket se cerró abruptamente antes de completar la descarga! Por favor, inténtalo de nuevo."
     },
     "helper": {
         "try_again": "Inténtalo de nuevo.",
