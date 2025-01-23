@@ -545,6 +545,8 @@ function processVideoForDownload(video_id, quality, bitrate) {
 
     var finished_download_count = 0;
 
+    var is_download_complete = false;
+
     const progressBarController = displayProgressBar();
 
     const convertingMessageContainer = document.getElementById("cp_converting");
@@ -612,6 +614,7 @@ function processVideoForDownload(video_id, quality, bitrate) {
                 break;
 
             case "completed":
+                is_download_complete = true;
                 displayDownloadModal();
                 progressBarController.stop();
                 let downloadReport = response.detail;
@@ -640,22 +643,26 @@ function processVideoForDownload(video_id, quality, bitrate) {
     }
 
     function processError(error) {
+        is_download_complete = true;
         progressBarController.stopCompletely();
-        let errorMessage = `WebsocketError : ${error.message !== "undefined" ? error.message : translation.helper.unknown}.
-        Is the api still alive at <a class="active" href="${api_base_url}">${api_base_url}?</a>`;
+        let errorMessage = `${translation.error.websocket} : ${error.message ? error.message : translation.helper.unknown}.
+        ${translation.is_api_alive} <a class="active" href="${api_base_url}">${api_base_url}?</a>`;
         //showError(errorMessage, true);
         showDownloadError(errorMessage);
     }
 
-    ws.onopen = function (event) {
+    ws.onopen = function () {
         console.debug("Websocket opened");
         ws.send(JSON.stringify(payload));
     }
 
     ws.onmessage = processNewMessage;
     ws.onerror = processError;
-    ws.onclose = function (event) {
+    ws.onclose = function () {
         progressBarController.stop();
+        if (!is_download_complete) {
+            showDownloadError(translation.error.websocket_closed);
+        }
         console.debug("Websocket closed");
     }
 
