@@ -8,7 +8,16 @@
 <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com/Simatwa/y2mate-clone"/></a>
 </p>
 
-Web-interface for [Youtube-Downloader-API](https://github.com/Simatwa/youtube-downloader-api) inspired by [y2mate.com](https://y2mate.com)
+<p align="center">
+Web-interface for <a href="https://github.com/Simatwa/youtube-downloader-api">Youtube-Downloader-API</a> inspired by <a href="https://y2mate.com">y2mate.com</a>
+</p>
+
+<p align="center">
+<video width="90%" height="auto" controls>
+  <source src="assets/hosted-demo.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+</p>
 
 # Pre-requisites
 
