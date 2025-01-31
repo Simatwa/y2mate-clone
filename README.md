@@ -12,12 +12,10 @@
 Web-interface for <a href="https://github.com/Simatwa/youtube-downloader-api">Youtube-Downloader-API</a> inspired by <a href="https://y2mate.com">y2mate.com</a>
 </p>
 
-<p align="center">
-<video width="90%" height="auto" controls>
-  <source src="assets/hosted-demo.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-</p>
+
+https://github.com/user-attachments/assets/07bca8e0-1e63-4629-8936-2d4a15c0eda6
+
+
 
 # Pre-requisites
 
