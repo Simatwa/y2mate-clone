@@ -10,7 +10,7 @@ var allowed_hosts_x_pattern;
 
 var current_lang = "en";
 
-var query_key = "query";
+var query_key = "q";
 
 var search_results_limit = 50;
 
