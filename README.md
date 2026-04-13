@@ -9,12 +9,15 @@
 </p>
 
 <p align="center">
-Web-interface for <a href="https://github.com/Simatwa/youtube-downloader-api">Youtube-Downloader-API</a> inspired by <a href="https://y2mate.com">y2mate.com</a>
+Web-interface for <a href="https://github.com/Simatwa/youtube-downloader-api">Youtube-Downloader-API</a> inspired by <a href="https://web.archive.org/web/20250126032757/https://www.y2mate.com/en949">y2mate.com</a>
 </p>
 
 
 https://github.com/user-attachments/assets/07bca8e0-1e63-4629-8936-2d4a15c0eda6
 
+
+> [!IMPORTANT]
+> It is with great gratitude that I maintain a clone of one of the **most legendary websites to ever exist**. While [its existence is now history](https://web.archive.org/web/20260311000109/https://y2mate.com/), we honor it, as its spirit has inspired many other projects, including this one. IFPI took down a tool, but never the spirit.
 
 
 # Pre-requisites
