@@ -34,7 +34,7 @@
     "reset_api_note": "ล้างข้อมูลเพื่อกลับไปตั้งค่าเริ่มต้น",
     "host_api_note": "คุณสามารถโฮสต์เซิร์ฟเวอร์ API ของคุณเองได้ ค้นหาซอร์สโค้ดจาก <a class=\"active\" href=\"//github.com/Simatwa/youtube-downloader\" target=\"_blank\">Youtube-Downloader</a> <strong>สนุก</strong>",
     "based_on_note": "อิงจาก <a href=\"//github.com/Simatwa/youtube-downloader-api\" class=\"active\" target=\"_blank\">Youtube-Downloader-API</a>",
-    "inspired_by_note": "ได้รับแรงบันดาลใจจาก <a href=\"//y2mate.com\" target=\"_blank\" class=\"active\">y2mate.com</a>",
+    "inspired_by_note": "ได้รับแรงบันดาลใจจาก <a href=\"//web.archive.org/web/20250126032757/https://www.y2mate.com/en949\" target=\"_blank\" class=\"active\">y2mate.com</a>",
     "categories_note": "คลิกที่ใดก็ได้เพื่อค้นหา",
     "converting_to_mp3": "กำลังแปลงเป็น MP3",
     "is_api_alive": "API ยังใช้งานได้อยู่หรือไม่ที่",

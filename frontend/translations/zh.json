@@ -34,7 +34,7 @@
     "reset_api_note": "清空输入以设置为默认值。",
     "host_api_note": "您可以托管自己的 API 服务器。从<a class=\"active\" href=\"//github.com/Simatwa/youtube-downloader\" target=\"_blank\">YouTube 下载器</a>获取源代码。<strong>享受。</strong>",
     "based_on_note": "基于<a href=\"//github.com/Simatwa/youtube-downloader-api\" class=\"active\" target=\"_blank\">YouTube 下载器 API</a>",
-    "inspired_by_note": "灵感来自<a href=\"//y2mate.com\" target=\"_blank\" class=\"active\">y2mate.com</a>",
+    "inspired_by_note": "灵感来自<a href=\"//web.archive.org/web/20250126032757/https://www.y2mate.com/en949\" target=\"_blank\" class=\"active\">y2mate.com</a>",
     "categories_note": "点击任意一个进行搜索",
     "converting_to_mp3": "转换为 MP3",
     "is_api_alive": "API 是否仍然可用",

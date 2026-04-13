@@ -34,7 +34,7 @@
     "reset_api_note": "Очистите ввод, чтобы установить по умолчанию.",
     "host_api_note": "Вы можете разместить свой собственный сервер API. Найдите исходный код на <a class=\"active\" href=\"//github.com/Simatwa/youtube-downloader\" target=\"_blank\">Youtube-Downloader</a>. <strong>Наслаждайтесь.</strong>",
     "based_on_note": "Основано на <a href=\"//github.com/Simatwa/youtube-downloader-api\" class=\"active\" target=\"_blank\">Youtube-Downloader-API</a>",
-    "inspired_by_note": "Вдохновлено <a href=\"//y2mate.com\" target=\"_blank\" class=\"active\">y2mate.com</a>",
+    "inspired_by_note": "Вдохновлено <a href=\"//web.archive.org/web/20250126032757/https://www.y2mate.com/en949\" target=\"_blank\" class=\"active\">y2mate.com</a>",
     "categories_note": "Нажмите на любой для поиска",
     "converting_to_mp3": "Конвертация в MP3",
     "is_api_alive": "API все еще работает на",

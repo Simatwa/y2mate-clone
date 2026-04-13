@@ -34,7 +34,7 @@
     "reset_api_note": "डिफ़ॉल्ट पर सेट करने के लिए इनपुट खाली करें।",
     "host_api_note": "आप अपना स्वयं का API सर्वर होस्ट कर सकते हैं। स्रोत कोड <a class=\"active\" href=\"//github.com/Simatwa/youtube-downloader\" target=\"_blank\">Youtube-Downloader</a> से प्राप्त करें।<strong>आनंद लें।</strong>",
     "based_on_note": "<a href=\"//github.com/Simatwa/youtube-downloader-api\" class=\"active\" target=\"_blank\">Youtube-Downloader-API</a> पर आधारित",
-    "inspired_by_note": "<a href=\"//y2mate.com\" target=\"_blank\" class=\"active\">y2mate.com</a> से प्रेरित",
+    "inspired_by_note": "<a href=\"//web.archive.org/web/20250126032757/https://www.y2mate.com/en949\" target=\"_blank\" class=\"active\">y2mate.com</a> से प्रेरित",
     "categories_note": "खोजने के लिए किसी पर क्लिक करें",
     "converting_to_mp3": "MP3 में कन्वर्ट कर रहा है",
     "is_api_alive": "क्या API अभी भी जीवित है",

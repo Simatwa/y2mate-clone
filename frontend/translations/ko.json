@@ -34,7 +34,7 @@
     "reset_api_note": "기본값으로 설정하려면 입력을 비웁니다.",
     "host_api_note": "자신의 API 서버를 호스팅할 수 있습니다. <a class=\"active\" href=\"//github.com/Simatwa/youtube-downloader\" target=\"_blank\">Youtube-Downloader</a>에서 소스 코드를 찾으세요.<strong>즐기세요.</strong>",
     "based_on_note": "<a href=\"//github.com/Simatwa/youtube-downloader-api\" class=\"active\" target=\"_blank\">Youtube-Downloader-API</a>를 기반으로 합니다",
-    "inspired_by_note": "<a href=\"//y2mate.com\" target=\"_blank\" class=\"active\">y2mate.com</a>에서 영감을 받았습니다",
+    "inspired_by_note": "<a href=\"//web.archive.org/web/20250126032757/https://www.y2mate.com/en949\" target=\"_blank\" class=\"active\">y2mate.com</a>에서 영감을 받았습니다",
     "categories_note": "검색하려면 클릭",
     "converting_to_mp3": "MP3로 변환 중",
     "is_api_alive": "API가 여전히 활성 상태입니까",
