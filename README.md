@@ -8,7 +8,7 @@
 [![Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Visitors](https://hits.sh/github.com/Simatwa/y2mate-clone.svg?label=Visitors)](https://github.com/Simatwa/y2mate-clone)
 
-Web interface for [Youtube-Downloader-API](https://github.com/Simatwa/youtube-downloader-api), inspired by [y2mate.com](https://web.archive.org/web/20250126032757/https://www.y2mate.com/en949)
+Web interface for [Youtube-Downloader-API](https://github.com/Simatwa/youtube-downloader-api), inspired by the late [y2mate.com](https://web.archive.org/web/20250126032757/https://www.y2mate.com/en949)
 
 </div>
 
