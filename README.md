@@ -1,101 +1,101 @@
-<h1 align="center">y2mate-clone <img align="center" src="frontend/images/logo.png" width="70px"></h1>
+<div align="center">
 
-<p align="center">
-<a href="LICENSE"><img alt="License" src="https://img.shields.io/static/v1?logo=license&color=Blue&message=MIT&label=License"/></a>
-<a href="https://github.com/Simatwa/y2mate-clone/releases"><img src="https://img.shields.io/github/v/release/Simatwa/y2mate-clone?label=Release&logo=github" alt="Latest release"></img></a>
-<a href="https://github.com/Simatwa/y2mate-clone/releases"><img src="https://img.shields.io/github/release-date/Simatwa/y2mate-clone?label=Release date&logo=github" alt="release date"></img></a>
-<a href="https://github.com/psf/black"><img alt="Black" src="https://img.shields.io/badge/code%20style-black-000000.svg"/></a>
-<a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com/Simatwa/y2mate-clone"/></a>
-</p>
+# y2mate-clone ![logo](frontend/images/logo.png)
 
-<p align="center">
-Web-interface for <a href="https://github.com/Simatwa/youtube-downloader-api">Youtube-Downloader-API</a> inspired by <a href="https://web.archive.org/web/20250126032757/https://www.y2mate.com/en949">y2mate.com</a>
-</p>
+[![License](https://img.shields.io/static/v1?logo=license&color=Blue&message=MIT&label=License)](LICENSE)
+[![Release](https://img.shields.io/github/v/release/Simatwa/y2mate-clone?label=Release&logo=github)](https://github.com/Simatwa/y2mate-clone/releases)
+[![Release date](https://img.shields.io/github/release-date/Simatwa/y2mate-clone?label=Release%20date&logo=github)](https://github.com/Simatwa/y2mate-clone/releases)
+[![Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Visitors](https://hits.sh/github.com/Simatwa/y2mate-clone.svg?label=Visitors)](https://github.com/Simatwa/y2mate-clone)
 
+Web interface for [Youtube-Downloader-API](https://github.com/Simatwa/youtube-downloader-api), inspired by [y2mate.com](https://web.archive.org/web/20250126032757/https://www.y2mate.com/en949)
+
+</div>
 
 https://github.com/user-attachments/assets/07bca8e0-1e63-4629-8936-2d4a15c0eda6
-
 
 > [!IMPORTANT]
 > It is with great gratitude that I maintain a clone of one of the **most legendary websites to ever exist**. While [its existence is now history](https://web.archive.org/web/20260311000109/https://y2mate.com/), we honor it, as its spirit has inspired many other projects, including this one. IFPI took down a tool, but never the spirit.
 
+## Prerequisites
 
-# Pre-requisites
-
-- [Python version 3.10 or higher](https://python.org)
+- [Python 3.10 or higher](https://python.org)
 - [Git](https://git-scm.com/)
 
-# Installation and Usage
+## Installation and Usage
 
-- Clone repository and enter the project directory.
+**1. Clone the repository**
 
 ```sh
 git clone --recurse-submodules https://github.com/Simatwa/y2mate-clone.git
 cd y2mate-clone
 ```
 
-- Install backend dependencies
+**2. Set up the backend**
+
+The backend is powered by [Youtube-Downloader-API](https://github.com/Simatwa/youtube-downloader-api). Install its dependencies using `uv`:
 
 ```sh
 cd backend
-pip install -r requirements.txt
+pip install uv
+uv venv
+source .venv/bin/activate
+uv sync
 ```
 
-- Start the backend server
+> [!TIP]
+> Keep `yt-dlp` updated to avoid download failures caused by YouTube-side changes:
+> ```sh
+> uv pip install -U yt-dlp
+> ```
+
+**3. Start the backend server**
 
 ```sh
-python -m fastapi run app
+# While in backend directory
+uv run python -m app run
 ```
 
-- On another terminal tab, start the frontend server from the root directory of the project
+**4. Start the frontend server**
 
-```
+On a separate terminal tab, from the root directory of the project:
+
+```sh
+cd frontend
 python -m http.server 8080 -d frontend
 ```
 
-Then you can now access the web-interface from <http://localhost:8080>.
+The web interface will be accessible at <http://localhost:8080>.
 
 > [!TIP]
-> You can interact with one run now at <https://y2mate-clone.vercel.app>
+> A live demo is available at <https://y2mate-clone.vercel.app>. Change the Base URL of the API to point to your own instance and enjoy the service.
 
-Change the Base URL of the API to point to the one we had setup before and enjoy the service.
-
-
-<p align="center">
+<div align="center">
 <img src="assets/setup-api-base-url.jpg" width="80%">
-</p>
+</div>
 
-## How to serve both API and Frontend contents from one server
+## Serving Both API and Frontend from One Server
 
-1. Navigate to the backend directory.
+1. Navigate to the backend directory:
+```sh
+   cd backend
+```
 
-    ```sh
-    cd backend
-    ```
+2. Set the `frontend_dir` key in `config.yml` to point to the frontend directory:
+```sh
+   frontend_dir = ../frontend
+```
 
-2. Create a **.env** file *(configuration file)*.
+4. Start the server:
+```sh
+   uv run python -m app run
+```
 
-    ```sh
-    cp configs/env/example .env
-    ```
-
-3. Update path to frontend directory in the`.env` file identified by key `frontend_dir`
-
-    ```sh
-    frontend_dir = ../frontend
-    ```
-
-4. Start the server
-
-    ```sh
-    python3 -m fastapi run app
-    ```
-
-    - Now both API and frontend contents will be served from <http://localhost:8000>
+Both the API and frontend will now be served from <http://localhost:8000>.
 
 > [!NOTE]
-> Purpose to checkout [Youtube-Downloader-API](https://github.com/Simatwa/youtube-downloader-api) to learn more about customizing the REST-API.
+> Check out [Youtube-Downloader-API](https://github.com/Simatwa/youtube-downloader-api) for full documentation on configuring and customizing the REST API backend.
 
-# License
+## License
 
 - [x] [MIT](LICENSE)
